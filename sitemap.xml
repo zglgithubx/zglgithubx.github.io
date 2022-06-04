@@ -187,14 +187,14 @@
   </url>
   
   <url>
-    <loc>https://zglgithubx.github.io/tags/MySQL/</loc>
+    <loc>https://zglgithubx.github.io/tags/nginx/</loc>
     <lastmod>2022-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zglgithubx.github.io/tags/nginx/</loc>
+    <loc>https://zglgithubx.github.io/tags/MySQL/</loc>
     <lastmod>2022-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -215,13 +215,6 @@
   </url>
   
   <url>
-    <loc>https://zglgithubx.github.io/tags/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/</loc>
-    <lastmod>2022-06-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zglgithubx.github.io/tags/%E4%BC%81%E4%B8%9A%E4%BB%98%E6%AC%BE%E5%88%B0%E9%9B%B6%E9%92%B1/</loc>
     <lastmod>2022-06-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -229,7 +222,14 @@
   </url>
   
   <url>
-    <loc>https://zglgithubx.github.io/tags/%E9%98%9F%E5%88%97/</loc>
+    <loc>https://zglgithubx.github.io/tags/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/</loc>
+    <lastmod>2022-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zglgithubx.github.io/tags/RabbitMQ/</loc>
     <lastmod>2022-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -243,7 +243,7 @@
   </url>
   
   <url>
-    <loc>https://zglgithubx.github.io/tags/RabbitMQ/</loc>
+    <loc>https://zglgithubx.github.io/tags/%E9%98%9F%E5%88%97/</loc>
     <lastmod>2022-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -266,13 +266,6 @@
   </url>
   
   <url>
-    <loc>https://zglgithubx.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
-    <lastmod>2022-06-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zglgithubx.github.io/categories/nginx/</loc>
     <lastmod>2022-06-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -280,7 +273,7 @@
   </url>
   
   <url>
-    <loc>https://zglgithubx.github.io/categories/%E5%8A%9B%E6%89%A3/</loc>
+    <loc>https://zglgithubx.github.io/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2022-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -288,6 +281,13 @@
   
   <url>
     <loc>https://zglgithubx.github.io/categories/Docker/</loc>
+    <lastmod>2022-06-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zglgithubx.github.io/categories/%E5%8A%9B%E6%89%A3/</loc>
     <lastmod>2022-06-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
