@@ -1,6 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Golang项目部署</title>
+    <url>/posts/36933.html</url>
+    <content><![CDATA[<span id="more"></span>
+<h3 id="qian-yan" id="前言">前言</h3>
+<p>Golang项目部署流程：编译——&gt;上传到服务器——&gt;运行。<br />
+简单的实现方案有：本地编译上传部署，构建docker镜像部署，自动化docker镜像部署</p>
+<h3 id="1-ben-di-bian-yi-shang-chuan-bu-shu" id="1、本地编译上传部署">1、本地编译上传部署</h3>
+<blockquote>
+<p>注：在本地（window环镜）编译，需修改Go语言的环境配置<br />
+命令：go env -w GOOS=linux</p>
+</blockquote>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">//</span>在项目根目录执行,生成二进制文件server</span><br><span class="line">go build -o server .</span><br><span class="line"><span class="regexp">//</span>上传到服务器，<span class="number">22</span>为服务端口，/xxx为服务器目录</span><br><span class="line">scp -P <span class="number">22</span> server root@ip:/xxx</span><br><span class="line"><span class="regexp">//</span>在服务器切换到文件目录</span><br><span class="line">cd /xxx</span><br><span class="line"><span class="regexp">//</span>运行二进制文件</span><br><span class="line">nohup ./server &gt;start.log <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>查看日志</span><br><span class="line">tail -f <span class="number">200</span> start.log</span><br></pre></td></tr></table></figure>
+<h3 id="2-gou-jian-docker-jing-xiang-bu-shu" id="2、构建docker镜像部署">2、构建docker镜像部署</h3>
+<ul>
+<li>在项目根目录创建Dockerfile文件</li>
+</ul>
+<figure class="highlight dockerfile"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 第一阶段构建编译环境</span></span><br><span class="line"><span class="keyword">FROM</span> golang:alpine AS builder</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /project/go</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> go <span class="built_in">env</span> -w GOPROXY=https://goproxy.cn,direct \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; go <span class="built_in">env</span> -w GO111MODULE=on \</span></span><br><span class="line"><span class="language-bash">    &amp;&amp; go generate &amp;&amp; go <span class="built_in">env</span> &amp;&amp; go build -o server .</span></span><br><span class="line"><span class="comment"># 第二阶段构建运行环境，alpine为linux轻量级发行版</span></span><br><span class="line"><span class="keyword">FROM</span> alpine:latest</span><br><span class="line"></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /project/go</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> --from=builder /project/go ./</span></span><br><span class="line">//暴露的端口号</span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">8888</span></span><br><span class="line">//容器运行时执行，</span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> ./server</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><a href="http://xn--shellgo-ig5kq7upx8ahcpluesr6h.sh">创建shell脚本文件go.sh</a>（简化部署步骤）</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 镜像名字</span></span><br><span class="line">IMAGE_NAME=centos7_go_database</span><br><span class="line"></span><br><span class="line"><span class="comment"># docker容器名字</span></span><br><span class="line">CONTAINER_NAME=go</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译好的二进制文件</span></span><br><span class="line">SERVER_NAME=server</span><br><span class="line"></span><br><span class="line"><span class="comment">#使用说明，用来提示输入参数X</span></span><br><span class="line"><span class="function"><span class="title">usage</span></span>() &#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Usage: sh 执行脚本.sh [start]&quot;</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"><span class="comment">#构建镜像和并启动容器(在宿主机执行)</span></span><br><span class="line"><span class="function"><span class="title">start</span></span>()&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">#容器id</span></span><br><span class="line">  CID=$(docker ps -a | grep <span class="string">&quot;<span class="variable">$CONTAINER_NAME</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment">#镜像id</span></span><br><span class="line">  IID=$(docker images | grep <span class="string">&quot;<span class="variable">$IMAGE_NAME</span>&quot;</span> | awk <span class="string">&#x27;&#123;print $3&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">  <span class="comment"># 构建docker镜像</span></span><br><span class="line">  <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$IID</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;Exit <span class="variable">$IMAGE_NAME</span> image，IID=<span class="variable">$IID</span>&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;NOT exit <span class="variable">$IMAGE_NAME</span> image，start build image...&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 根据项目个路径下的Dockerfile文件，构建镜像</span></span><br><span class="line"></span><br><span class="line">    docker build -t <span class="variable">$IMAGE_NAME</span> .</span><br><span class="line"></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$IMAGE_NAME</span> image has been builded&quot;</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  <span class="keyword">if</span> [ -n <span class="string">&quot;<span class="variable">$CID</span>&quot;</span> ]; <span class="keyword">then</span></span><br><span class="line"></span><br><span class="line">      <span class="built_in">echo</span> <span class="string">&quot;Exit <span class="variable">$CONTAINER_NAME</span> container，CID=<span class="variable">$CID</span>.   ---Remove container&quot;</span></span><br><span class="line"></span><br><span class="line">      docker stop <span class="variable">$CONTAINER_NAME</span>   <span class="comment"># 停止运行中的容器</span></span><br><span class="line"></span><br><span class="line">      docker <span class="built_in">rm</span> <span class="variable">$CONTAINER_NAME</span>     <span class="comment">##删除原来的容器</span></span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 构建容器</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$CONTAINER_NAME</span> container,start build...&quot;</span></span><br><span class="line">  <span class="comment"># 运行容器</span></span><br><span class="line"></span><br><span class="line">   <span class="comment"># --name 容器的名字</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">#   -d   容器后台运行</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">#   -p   指定容器映射的端口和主机对应的端口</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">#   -v   将主机的目录挂载到容器的目录中（不可少）</span></span><br><span class="line"></span><br><span class="line">  docker run -e TZ=<span class="string">&quot;Asia/Shanghai&quot;</span> -p 8888:8888 -<span class="built_in">id</span> --name <span class="variable">$CONTAINER_NAME</span> -v <span class="variable">$PWD</span>:/project/<span class="variable">$CONTAINER_NAME</span> <span class="variable">$IMAGE_NAME</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;<span class="variable">$CONTAINER_NAME</span> container build end&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#根据输入参数，选择执行对应方法，不输入则执行使用说明</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">case</span> <span class="string">&quot;<span class="variable">$1</span>&quot;</span> <span class="keyword">in</span></span><br><span class="line">  <span class="string">&quot;start&quot;</span>)</span><br><span class="line">    start</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    usage</span><br><span class="line">    ;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>开始部署</li>
+</ul>
+<figure class="highlight vim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">sh</span> <span class="keyword">go</span>.<span class="keyword">sh</span> start</span><br></pre></td></tr></table></figure>
+<h3 id="3-zi-dong-hua-docker-jing-xiang-bu-shu" id="3、自动化docker镜像部署">3、自动化docker镜像部署</h3>
+<p>此自动化方案是基于阿里云效代码平台的流水线功能实现的，实现的效果：当有master分支有完成合并请求时执行（和其他的方案大同小异，思想可以借鉴）</p>
+<ul>
+<li>创建流水线选择模板</li>
+</ul>
+<p><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/202207161736015.png" alt="" /></p>
+<ul>
+<li>测试步骤可以根据需要进行删改</li>
+<li>点击流水线源，编辑流水线源
+<ul>
+<li>开启代码出发——&gt;合并请求完成后</li>
+<li>设置工作目录：api</li>
+</ul>
+</li>
+<li>编辑构建步骤
+<ul>
+<li>选择构建集群（可以查看官方教程）</li>
+<li>选择下载部分流水线源</li>
+<li>流水线源选择仓库代码</li>
+<li>构建命令：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#切换到流水线的工作目录</span></span><br><span class="line"><span class="built_in">cd</span> /root/workspace/api</span><br><span class="line"></span><br><span class="line"><span class="comment">#编译项目文件，此步骤是在平台进行项目编译，可以选择不编译，因为在Dockerfile中已经有编译的步骤</span></span><br><span class="line">go <span class="built_in">env</span> -w GOPROXY=https://goproxy.cn,direct \&amp;&amp; go <span class="built_in">env</span> -w GO111MODULE=on \&amp;&amp; go <span class="built_in">env</span> -w CGO_ENABLED=0 \&amp;&amp; go generate &amp;&amp; go <span class="built_in">env</span> &amp;&amp; go build -o server .</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre><code>* 构建物上传，打包路径为./ 此打包路径指打包项目根目录下所有文件
+</code></pre>
+<ul>
+<li>编辑部署步骤
+<ul>
+<li>下载路径：下载到服务器的文件目录，需要提前创建</li>
+<li>执行用户：root</li>
+<li>部署脚本：</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="comment">#解压项目二进制压缩包（构建物上传时直接将压缩包上传到了下载路径）</span></span><br><span class="line">tar zxvf 下载路径 -C 解压目录</span><br><span class="line"></span><br><span class="line"><span class="comment">#切换到项目目录</span></span><br><span class="line">cd 解压目录</span><br><span class="line"></span><br><span class="line"><span class="comment">#执行脚本文件</span></span><br><span class="line"><span class="keyword">sh </span>go.<span class="keyword">sh </span>start</span><br></pre></td></tr></table></figure>
+<p>自此完成部署</p>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>Golang</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>KMP算法</title>
     <url>/posts/35921.html</url>
     <content><![CDATA[<h3 id="you-lai" id="由来">由来</h3>
@@ -440,7 +511,7 @@
   <entry>
     <title>一个简单的接口监控及邮件提醒实现</title>
     <url>/posts/11529.html</url>
-    <content><![CDATA[<h3 id="qian-yan" id="前言">前言</h3>
+    <content><![CDATA[<h3 id="qian-yan" id="前言-2">前言</h3>
 <p>最近因为疫情，不得不在家办公，而且也赶上了项目处于内测阶段，测试期间如果有问题，不能及时把问题复现出来。于是我在网上搜索有没有一些工具能对接口进行一个实时的监控，出现问题，立马通知相关人员。项目虽然有日志信息，但是因为项目是在集群中部署，日志信息，需要进入服务器的控制台中查看，比较麻烦。</p>
 <p>忙活了一天，装了不少用来测试接口的框架，他们在介绍的时候，说的是对接口监控，其实是在不断的调用接口，来达到监控的效果，而且用的时候，需要准备很多工作，创建项目，创建测试用例等。</p>
 <p>就在我没有思路的时候，看到一篇博客，讲的是，接口监控的原理都是在异常处理中进行的。</p>
@@ -1819,8 +1890,11 @@ str2代表着如何比较.<br />
 <p>执行之后，需要你确认下，输入yes就行，执行过程为：打包前端项目–&gt;压缩打包文件–&gt;压缩包上传到指定服务器的文件夹–&gt;解压—&gt;部署成功</p>
 ]]></content>
       <categories>
-        <category>Docker</category>
+        <category>运维</category>
       </categories>
+      <tags>
+        <tag>Java</tag>
+      </tags>
   </entry>
   <entry>
     <title>微信服务平台快速开发小程序</title>
