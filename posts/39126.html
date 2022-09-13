@@ -35,15 +35,15 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="计算机操作系统学习笔记">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220620093116.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/202206211111129.png">
-<meta property="og:image" content="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/202206211114867.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220620093116.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202206211111129.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202206211114867.png">
 <meta property="article:published_time" content="2022-07-02T09:14:40.000Z">
-<meta property="article:modified_time" content="2022-09-13T07:16:04.502Z">
+<meta property="article:modified_time" content="2022-09-13T07:25:37.705Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="操作系统">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220620093116.png">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220620093116.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/39126.html">
@@ -340,12 +340,12 @@
 <h4 id="1-2-xu-ni-nei-cun">1.2虚拟内存</h4>
 <p>虚拟内存是对主存和磁盘 I/O 设备的抽象表示，是操作系统为每个进程分配的连续的虚拟地址空间。<br>
 内存和外存之和为虚拟内存<br>
-<img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220620093116.png" alt></p>
+<img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220620093116.png" alt></p>
 <h4 id="1-3-qu-bie">1.3区别</h4>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98">虚拟内存</a>就与物理内存相反，是指根据系统需要从<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E7%A1%AC%E7%9B%98">硬盘</a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F">虚拟</a>地匀出来的内存空间，是一种<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F">计算机系统</a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86">内存管理</a>技术，属于<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a>程序，而物理内存为<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E7%A1%AC%E4%BB%B6">硬件</a>。因为有时候当你处理大的程序时候<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98">系统内存</a>不够用，此时就会把<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E7%A1%AC%E7%9B%98">硬盘</a>当内存来使用，来<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E4%BA%A4%E6%8D%A2">交换</a><a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE">数据</a>做<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98">缓存</a>区，不过物理内存的处理速度是<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98">虚拟内存</a>的30倍以上。</p>
 <h3 id="2-huan-cun-io-he-zhi-jie-io">2、缓存IO和直接IO</h3>
 <p>I/O：输入/输出(Input/Output)，分为IO设备和IO接口两个部分。在POSIX兼容的系统上，例如Linux系统，I/O操作可以有多种方式，比如DIO(Direct I/O)，AIO(Asynchronous I/O， 异步I/O)，Memory-Mapped I/O(内存映射I/O)等，不同的I/O方式有不同的实现方式和性能，在不同的应用中可以按情况选择不同的I/O方式。<br>
-<img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/202206211111129.png" alt></p>
+<img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202206211111129.png" alt></p>
 <h4 id="2-1-huan-cun-io">2.1、缓存io</h4>
 <p>缓存I/O又被称作标准I/O，大多数文件系统的默认I/O操作都是缓存I/O。在Linux的缓存I/O机制中，数据先从磁盘复制（DMA copy）到内核空间的缓冲区，然后从内核空间缓冲区复制到应用程序的地址空间。</p>
 <blockquote>
@@ -360,7 +360,7 @@
 <p>引入内核缓冲区的目的在于提高磁盘文件的访问性能，因为当进程需要读取磁盘文件时，如果文件内容已经在内核缓冲区中，那么就不需要再次访问磁盘。而当进程需要向文件写入数据是，实际上只是写到了内核缓冲区便告诉进程已经写成功，而真正写入磁盘是通过一定的策略进行延时的。</p>
 <p>然而，对于一些较复杂的应用，比如数据库服务器，他们为了充分提高性能。希望绕过内核缓冲区，由自己在用户态空间时间并管理IO缓冲区，包括缓存机制和写延迟机制等，以支持独特的查询机制，比如数据库可以根据加合理的策略来提高查询缓存命中率。另一方面，绕过内核缓冲区也可以减少系统内存的开销，因为内核缓冲区本身就在使用系统内存。</p>
 <p><strong>直接IO的缺点</strong>：如果访问的数据不在应用程序缓存中，那么每次数据都会直接从磁盘加载，这种直接加载会非常缓存。通常直接IO与异步IO结合使用，会得到比较好的性能。（异步IO：当访问数据的线程发出请求之后，线程会接着去处理其他事，而不是阻塞等待）。<br>
-<img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/202206211114867.png" alt></p>
+<img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202206211114867.png" alt></p>
 <h3 id="3-jin-cheng-diao-du-suan-fa">3、进程调度算法</h3>
 <p>操作系统中常用的进程调度算法，主要有三种优先调度算法、高优先权先调度算法和基于时间片的轮转调度算法：</p>
 <h4 id="3-1-you-xian-diao-du-suan-fa">3.1、优先调度算法</h4>

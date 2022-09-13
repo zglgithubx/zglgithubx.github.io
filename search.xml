@@ -32,7 +32,7 @@
 <ul>
 <li>创建流水线选择模板</li>
 </ul>
-<p><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/202207161736015.png" alt="" /></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202207161736015.png" alt="" /></p>
 <ul>
 <li>测试步骤可以根据需要进行删改</li>
 <li>点击流水线源，编辑流水线源
@@ -754,12 +754,12 @@
 <h4 id="1-2-xu-ni-nei-cun" id="1-2虚拟内存">1.2虚拟内存</h4>
 <p>虚拟内存是对主存和磁盘 I/O 设备的抽象表示，是操作系统为每个进程分配的连续的虚拟地址空间。<br />
 内存和外存之和为虚拟内存<br />
-<img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220620093116.png" alt="" /></p>
+<img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220620093116.png" alt="" /></p>
 <h4 id="1-3-qu-bie" id="1-3区别">1.3区别</h4>
 <p><a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98">虚拟内存</a>就与物理内存相反，是指根据系统需要从<a href="https://baike.baidu.com/item/%E7%A1%AC%E7%9B%98">硬盘</a><a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F">虚拟</a>地匀出来的内存空间，是一种<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F">计算机系统</a><a href="https://baike.baidu.com/item/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86">内存管理</a>技术，属于<a href="https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA">计算机</a>程序，而物理内存为<a href="https://baike.baidu.com/item/%E7%A1%AC%E4%BB%B6">硬件</a>。因为有时候当你处理大的程序时候<a href="https://baike.baidu.com/item/%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98">系统内存</a>不够用，此时就会把<a href="https://baike.baidu.com/item/%E7%A1%AC%E7%9B%98">硬盘</a>当内存来使用，来<a href="https://baike.baidu.com/item/%E4%BA%A4%E6%8D%A2">交换</a><a href="https://baike.baidu.com/item/%E6%95%B0%E6%8D%AE">数据</a>做<a href="https://baike.baidu.com/item/%E7%BC%93%E5%AD%98">缓存</a>区，不过物理内存的处理速度是<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E5%86%85%E5%AD%98">虚拟内存</a>的30倍以上。</p>
 <h3 id="2-huan-cun-io-he-zhi-jie-io" id="2、缓存IO和直接IO">2、缓存IO和直接IO</h3>
 <p>I/O：输入/输出(Input/Output)，分为IO设备和IO接口两个部分。在POSIX兼容的系统上，例如Linux系统，I/O操作可以有多种方式，比如DIO(Direct I/O)，AIO(Asynchronous I/O， 异步I/O)，Memory-Mapped I/O(内存映射I/O)等，不同的I/O方式有不同的实现方式和性能，在不同的应用中可以按情况选择不同的I/O方式。<br />
-<img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/202206211111129.png" alt="" /></p>
+<img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202206211111129.png" alt="" /></p>
 <h4 id="2-1-huan-cun-io" id="2-1、缓存io">2.1、缓存io</h4>
 <p>缓存I/O又被称作标准I/O，大多数文件系统的默认I/O操作都是缓存I/O。在Linux的缓存I/O机制中，数据先从磁盘复制（DMA copy）到内核空间的缓冲区，然后从内核空间缓冲区复制到应用程序的地址空间。</p>
 <blockquote>
@@ -774,7 +774,7 @@
 <p>引入内核缓冲区的目的在于提高磁盘文件的访问性能，因为当进程需要读取磁盘文件时，如果文件内容已经在内核缓冲区中，那么就不需要再次访问磁盘。而当进程需要向文件写入数据是，实际上只是写到了内核缓冲区便告诉进程已经写成功，而真正写入磁盘是通过一定的策略进行延时的。</p>
 <p>然而，对于一些较复杂的应用，比如数据库服务器，他们为了充分提高性能。希望绕过内核缓冲区，由自己在用户态空间时间并管理IO缓冲区，包括缓存机制和写延迟机制等，以支持独特的查询机制，比如数据库可以根据加合理的策略来提高查询缓存命中率。另一方面，绕过内核缓冲区也可以减少系统内存的开销，因为内核缓冲区本身就在使用系统内存。</p>
 <p><strong>直接IO的缺点</strong>：如果访问的数据不在应用程序缓存中，那么每次数据都会直接从磁盘加载，这种直接加载会非常缓存。通常直接IO与异步IO结合使用，会得到比较好的性能。（异步IO：当访问数据的线程发出请求之后，线程会接着去处理其他事，而不是阻塞等待）。<br />
-<img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/202206211114867.png" alt="" /></p>
+<img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202206211114867.png" alt="" /></p>
 <h3 id="3-jin-cheng-diao-du-suan-fa" id="3、进程调度算法">3、进程调度算法</h3>
 <p>操作系统中常用的进程调度算法，主要有三种优先调度算法、高优先权先调度算法和基于时间片的轮转调度算法：</p>
 <h4 id="3-1-you-xian-diao-du-suan-fa" id="3-1、优先调度算法">3.1、优先调度算法</h4>
@@ -912,7 +912,7 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
 <li>IPv4的地址位数为32位，也就是说最多有2的32次方的IPv4地址可以联到Internet上。</li>
 <li>通常，IPv4地址以点分十进制表示。IPV4 就是有4 段数字，每一段由0~255 数字组成。每个部分代表一组构成8位地址方案的8位地址。<br />
 <img data-src="https://img-blog.csdnimg.cn/90b0d6877b234419ab94669086681089.png" alt="image.png" /><br />
-<img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531153426.png" alt="" /></li>
+<img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531153426.png" alt="" /></li>
 </ul>
 </li>
 </ul>
@@ -927,7 +927,7 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
 <li>最后一个可指派的网络号为126，网络地址为126.0.0.0</li>
 <li>可指派的网络数量为2^(8-1)-2=126（减2的原因是除去最小网络号0和最大网络号127）</li>
 <li>每个网络中可分配的IP地址数量为2^24-2=16777214（减2的原因是除去主机号为全0的网络地址和全1的广播地址）</li>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531155340.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531155340.png" alt="" /></li>
 </ul>
 </li>
 <li>B类网络，最高位固定为10
@@ -937,7 +937,7 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
 <li>可指派的网络数量为2^(16-2)=16384</li>
 <li>每个网络中可分配的IP地址数量为2^16-2=65534（减2的原因是除去主机号为全0的网络地址和全1的广播地址）</li>
 <li>在有些资料中指出128.0是保留网络号，B类第一个可指派的网络好为128.1。但根据2002年9月发表的RFC3330文档，128.0网络号已经可以分配了。</li>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531160550.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531160550.png" alt="" /></li>
 </ul>
 </li>
 <li>C类网络，最高位固定为110
@@ -946,7 +946,7 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
 <li>最大网络号也是最后一个可指派的网络号223.255.255网络地址为223.255.255.0</li>
 <li>可指派的网络数量为2^(24-3)=2097152</li>
 <li>每个网络中可分配的IP地址数量为2^8-2=254（减2的原因是除去主机号为全0的网络地址和全1的广播地址）</li>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531163924.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531163924.png" alt="" /></li>
 </ul>
 </li>
 </ul>
@@ -956,17 +956,17 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
 <li>子网掩码使用连续的比特1来对应网络号和子网号</li>
 <li>子网掩码使用连续的比特0来对应主机号</li>
 <li>将划分子网的IPv4地址与其相应的子网掩码进行逻辑与运算就可得到IPv4地址所在子网的网络地址</li>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531173526.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531173526.png" alt="" /></li>
 <li>例子：
 <ul>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531201838.png" alt="" /></li>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531202042.png" alt="" /></li>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531202403.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531201838.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531202042.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531202403.png" alt="" /></li>
 </ul>
 </li>
 <li>默认的子网掩码是指未划分子网的情况下使用的子网掩码
 <ul>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531202751.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531202751.png" alt="" /></li>
 </ul>
 </li>
 </ul>
@@ -981,7 +981,7 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
 </li>
 <li>例子：
 <ul>
-<li><img data-src="https://fastly.jsdelivr.net/gh/zglgithubx/picture/img/20220531204506.png" alt="" /></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/20220531204506.png" alt="" /></li>
 </ul>
 </li>
 </ul>
