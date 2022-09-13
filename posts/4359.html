@@ -35,16 +35,16 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="需求 在微信小程序中实现一个提现功能 ，提现的钱其实来自系统中的其他功能。 当然这个功能，需要一个微信支付的商户号，并且账户中需要有充足的余额。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122047375.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122049879.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122101758.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122106554.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122047375.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122049879.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122101758.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122106554.png">
 <meta property="article:published_time" content="2022-02-12T12:35:47.000Z">
-<meta property="article:modified_time" content="2022-09-08T08:05:04.185Z">
+<meta property="article:modified_time" content="2022-09-13T06:55:41.297Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="企业付款到零钱">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122047375.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122047375.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/4359.html">
@@ -336,15 +336,15 @@
 <h2 id="qian-qi-zhun-bei">前期准备</h2>
 <h3 id="1-deng-lu-wei-xin-shang-hu-ping-tai-guan-wang-a-href-https-pay-weixin-qq-com-index-php-core-home-login-return-url-2-f-wei-xin-zhi-fu-zhong-guo-ling-xian-de-di-san-fang-zhi-fu-ping-tai-wei-xin-zhi-fu-ti-gong-an-quan-kuai-jie-de-zhi-fu-fang-shi-qq-com-a">1、登录微信商户平台官网：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://pay.weixin.qq.com/index.php/core/home/login?return_url=%2F">微信支付 - 中国领先的第三方支付平台 ｜ 微信支付提供安全快捷的支付方式 (qq.com)</a></h3>
 <h3 id="2-zhao-dao-chan-pin-zhong-xin-de-qi-ye-fu-kuan-dao-ling-qian-bing-kai-tong-qi-ye-fu-kuan-dao-ling-qian-gong-neng">2、找到产品中心的企业付款到零钱，并开通企业付款到零钱功能</h3>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122047375.png" alt="image-20220212204704151"></p>
+<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122047375.png" alt="image-20220212204704151"></p>
 <h3 id="3-zhao-dao-app-id-zhang-hao-guan-li-tian-jia-guan-lian-app-id">3、找到AppID账号管理，添加关联AppID</h3>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122049879.png" alt="image-20220212204950779"></p>
+<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122049879.png" alt="image-20220212204950779"></p>
 <h3 id="4-jiang-wei-xin-shang-hu-hao-he-xiao-cheng-xu-jin-xing-bang-ding">4、将微信商户号和小程序进行绑定</h3>
 <h3 id="5-shen-qing-api-zheng-shu-he-ap-iv-2-mi-yao-tuo-shan-bao-cun-hou-mian-hui-shi-yong">5、申请API证书和APIv2密钥，妥善保存，后面会使用</h3>
 <p>注：API证书文件的后缀是.p12</p>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122101758.png" alt="image-20220212210121591"></p>
+<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122101758.png" alt="image-20220212210121591"></p>
 <h3 id="6-huo-qu-shang-hu-hao">6、获取商户号</h3>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202122106554.png" alt="image-20220212210613468"></p>
+<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202122106554.png" alt="image-20220212210613468"></p>
 <h2 id="dai-ma-shi-xian-spring-boot">代码实现（SpringBoot）</h2>
 <h3 id="1-yin-ru-xiang-guan-guan-fang-yi-lai">1、引入相关官方依赖</h3>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wxpay<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wxpay-sdk<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>

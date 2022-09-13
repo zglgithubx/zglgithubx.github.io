@@ -35,13 +35,13 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="需求 使用微信扫码登录的授权方式登录系统">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202052041625.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202052041625.png">
 <meta property="article:published_time" content="2022-02-05T12:33:25.000Z">
-<meta property="article:modified_time" content="2022-09-08T08:05:04.185Z">
+<meta property="article:modified_time" content="2022-09-13T06:55:41.297Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="扫码登录">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202052041625.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202052041625.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/18301.html">
@@ -333,7 +333,7 @@
 <p>此扫码登陆过程中使用了，微信开放平台（需支付300开通开发者认证）的网站应用实现的。</p>
 <p>官方文档：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html">https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html</a></p>
 <h3 id="liu-cheng">流程：</h3>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202202052041625.png" alt="image-20220205204119502"></p>
+<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202202052041625.png" alt="image-20220205204119502"></p>
 <p>大概就是：前端调接口获取后端生成的state（可以用验证登录授权的有效性）——&gt;用户扫码后确认授权——&gt;前端开始调用微信开放平台的接口之后回调服务端接口——&gt;回调时传入了两个参数，code和state——&gt;根据code，appid和appSecret调用接口获取access_token——根据access_token获取微信用户的个人信息</p>
 <h3 id="dai-ma">代码：</h3>
 <h4 id="qian-duan-vue">前端vue：</h4>

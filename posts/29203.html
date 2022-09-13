@@ -35,15 +35,15 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="what 哈夫曼树是一颗最优二叉树，带权路径长度最小的二叉树，经常来用来进行数据压缩。 why 为什么这棵树是最优的？ 一个棵树是不是最优的，要看它是否满足构建的这棵树的带权路径长度最小。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202109221714863.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202109221713874.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202109221715998.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202109221714863.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202109221713874.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202109221715998.png">
 <meta property="article:published_time" content="2021-09-18T00:44:45.000Z">
-<meta property="article:modified_time" content="2022-09-08T08:05:04.185Z">
+<meta property="article:modified_time" content="2022-09-13T06:55:41.297Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202109221714863.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202109221714863.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/29203.html">
@@ -341,7 +341,7 @@
 <li>权：也称为权值，指的是节点的属性数值。</li>
 <li>树的带权路径长度：树中所有叶子节点的带权路径长度之和，一般用WPL表示。</li>
 </ul>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202109221714863.png" alt="avatar"></p>
+<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202109221714863.png" alt="avatar"></p>
 <p>如上图中，a的权值为7，路径长度为1；b的权值为5，路径长度为2。</p>
 <p>树的带权路径长度WPL=7x1+5x2+2x3+4x3=35</p>
 <p>知道了这些，那为什么是最优的，知道构建的哈夫曼树，你就知道为什么了。</p>
@@ -351,7 +351,7 @@
 <li>在原有的 n 个权值中删除那两个最小的权值，同时将新的权值加入到 n–2 个权值的行列中，以此类推；</li>
 <li>重复 1 和 2 ，直到所以的结点构建成了一棵二叉树为止，这棵树就是哈夫曼树。</li>
 </ol>
-<p><img data-src="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202109221713874.png" alt="img"></p>
+<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202109221713874.png" alt="img"></p>
 <p>在上图中（A）给定了四个结点a，b，c，d，权值分别为7，5，2，4；第一步如（B）所示，找出现有权值中最小的两个，2 和 4 ，相应的结点 c 和 d 构建一个新的二叉树，树根的权值为 2 + 4 = 6，同时将原有权值中的 2 和 4 删掉，将新的权值 6 加入；进入（C），重复之前的步骤。直到（D）中，所有的结点构建成了一个全新的二叉树，这就是哈夫曼树。</p>
 <p>哈夫曼树在构建的过程中，将最短的路径，巧妙的给了权值最大的，最长的路径给了权值最小的，所以可使WPL最小。</p>
 <h4 id="wei-shi-yao-ke-yi-yong-lai-jin-xing-shu-ju-ya-suo-wu-sun-ya-suo">为什么可以用来进行数据压缩（无损压缩）？</h4>
@@ -383,7 +383,7 @@
 <li>首先节点权值为6、4、2、3，选择最小的2和3，组成一个根节点为5的组合节点。</li>
 <li>当前节点权值为6、4、5，选择最小的4和5，组成一个根节点为9的组合节点。</li>
 <li>当前节点权值为6、9，选择最小的6和9，组成一个根节点为15的组合节点。</li>
-<li>当前节点权值为15，只有一个节点，哈夫曼树建立完成。<img data-src="https://cdn.jsdelivr.net/gh/zglgithubx/picture/img/202109221715998.png" alt="avatar"></li>
+<li>当前节点权值为15，只有一个节点，哈夫曼树建立完成。<img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202109221715998.png" alt="avatar"></li>
 </ol>
 <p>要从哈夫曼树得到每个字符的编码，只要在哈夫曼树中从根节点遍历到该字符节点，每次向左走时加一个0，向右走时加一个1，最终得到的字符串即为该字符的编码字符串。</p>
 <p>如从上图可以看到，a的编码为0，b的编码为10，c的编码为110，d的编码为111。</p>
