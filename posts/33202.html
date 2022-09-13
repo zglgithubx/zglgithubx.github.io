@@ -35,16 +35,16 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="为充分利用向量空间，克服&quot;假溢出&quot;现象的方法是：将向量空间想象为一个首尾相接的圆环，并称这种向量为循环向量。存储在其中的队列称为循环队列（Circular Queue）。循环队列是把顺序队列首尾相连，把存储队列元素的表从逻辑上看成一个环，成为循环队列。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061150819.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061424940.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061440374.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061514889.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061150819.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061424940.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061440374.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061514889.png">
 <meta property="article:published_time" content="2021-10-05T09:24:09.000Z">
-<meta property="article:modified_time" content="2022-09-13T06:55:41.301Z">
+<meta property="article:modified_time" content="2022-09-13T07:16:04.502Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="队列">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061150819.png">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061150819.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/33202.html">
@@ -333,7 +333,7 @@
 <span id="more"></span>
 <h3 id="xun-huan-dui-lie-san-chong-qing-kuang">循环队列三种情况</h3>
 <h4 id="1">1、</h4>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061150819.png" alt="image-20211006115040686"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061150819.png" alt="image-20211006115040686"></p>
 <ul>
 <li>
 <p>front指向头元素的前一个元素</p>
@@ -358,13 +358,13 @@
 <ul>
 <li>当rear&gt;front
 <ul>
-<li><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061424940.png" alt="image-20211006142409854"></li>
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061424940.png" alt="image-20211006142409854"></li>
 <li>很容易得到队列长度为：rear-front</li>
 </ul>
 </li>
 <li>当rear&lt;front
 <ul>
-<li><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061440374.png" alt="image-20211006144049313">
+<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061440374.png" alt="image-20211006144049313">
 <ul>
 <li>因为是循环队列，rear的位置可以在front的前面，此时队列长度为：rear+1+maxsize-front-1=rear-front+maxsize
 <ul>
@@ -378,7 +378,7 @@
 </li>
 </ul>
 <h4 id="2">2、</h4>
-<h4 id="img-src-https-raw-githubusercontent-com-zglgithubx-picture-master-img-202110061514889-png-alt-image-20211006151401822"><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110061514889.png" alt="image-20211006151401822"></h4>
+<h4 id="img-src-https-mynotepicture-oss-cn-hangzhou-aliyuncs-com-img-202110061514889-png-alt-image-20211006151401822"><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061514889.png" alt="image-20211006151401822"></h4>
 <ul>
 <li>front指向头元素</li>
 <li>rear指向队尾的后一个元素</li>

@@ -35,19 +35,19 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="什么是消息队列 消息是两个应用间传递的数据。消息队列简单的来讲是将消息在传输的过程中用来存储消息的容器。 在消息队列中，通常会有生产者和消费者，生产者将消息放到队列中，消费者从中取出消息。 为什么要使用消息队列  解藕：  假如消息的接收方有多个，需要单独给每个接收方都要发送消息，如果又新增一个接收方，则需要增加新代码才能实现。为了降低这种耦合，使用MQ，发送方只需要把消息放到队列中，接受方只需要">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071152710.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071153051.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071154226.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071157091.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071158360.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071200331.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071208178.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071152710.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071153051.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071154226.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071157091.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071158360.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071200331.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071208178.png">
 <meta property="article:published_time" content="2021-11-07T03:30:11.000Z">
-<meta property="article:modified_time" content="2022-09-13T06:55:41.301Z">
+<meta property="article:modified_time" content="2022-09-13T07:16:04.502Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="RabbitMQ">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071152710.png">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071152710.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/49673.html">
@@ -361,21 +361,21 @@
 <h3 id="an-zhuang">安装</h3>
 <h4 id="1-an-zhuang-er-lang-yu-yan-pei-zhi-huan-jing-bian-liang">1、安装ERLang语言，配置环境变量</h4>
 <p>ERlang<a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.erlang.org/downloads?spm=a2c6h.12873639.0.0.433733dfToixYZ">官网</a>下载window版安装包</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071152710.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071152710.png" alt="img"></p>
 <p>安装中，一直点next，完成后配置环境变量</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071153051.png" alt="img"></p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071154226.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071153051.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071154226.png" alt="img"></p>
 <p>完成后，打开cmd,输入验证是否成功</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">erl -version</span><br></pre></td></tr></table></figure>
 <h4 id="2-an-zhuang-rabbit-mq-fu-wu-duan">2、安装RabbitMQ服务端</h4>
 <p>在RabbitMQ的<a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/rabbitmq/rabbitmq-server/releases/tag/v3.7.3?spm=a2c6h.12873639.0.0.433733dfvzkoi7&amp;file=v3.7.3">GitHub项目</a>中，下载window版本的服务端安装包</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071157091.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071157091.png" alt="img"></p>
 <p>安装后，找到安装目录：</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071158360.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071158360.png" alt="img"></p>
 <p>在此目录打开cmd命令，输入：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//安装管理页面插件</span></span><br><span class="line">rabbitmq-plugins enable rabbitmq_management</span><br></pre></td></tr></table></figure>
 <p>在此目录下双击rabbitmq-server.bat启动脚本，然后打开服务管理可以看到RabbitMQ正在运行：</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071200331.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071200331.png" alt="img"></p>
 <p>最后在浏览器输入:</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//进入客户端</span></span><br><span class="line">http:<span class="comment">//localhost:15672</span></span><br><span class="line">账号密码默认是：guest/guest</span><br></pre></td></tr></table></figure>
 <h3 id="rabbit-mq-zhong-de-zu-cheng-bu-fen">RabbitMQ中的组成部分</h3>
@@ -387,7 +387,7 @@
 <li>Consumer：消息消费者。消费队列中存储的消息。</li>
 </ul>
 <p>这些部分协同工作图：</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071208178.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071208178.png" alt="img"></p>
 <ul>
 <li>消息生产者连接到RabbitMQ Broker，创建connection，开启channel。</li>
 <li>生产者声明交换机类型、名称、是否持久化等。</li>

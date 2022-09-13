@@ -35,22 +35,22 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="Linux常用命令： 1234567891011lsof -i:8090 &#x2F;&#x2F;查看端口是否被占用kill -s 9 pid &#x2F;&#x2F;杀死进程jps &#x2F;&#x2F;查看启动的java应用进程scp -P 22（服务器端口号） smpe-system-1.0.0-RELEASE.jar  root@ip地址:&#x2F;data&#x2F;nginx&#x2F;www&#x2F;cloudsafe&#x2F;cloudsafe_server（服务器中文件夹的绝对路">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071933559.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071934861.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081611709.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081628511.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081722262.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081113533.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081111622.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081115646.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081116779.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081118447.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071933559.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071934861.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081611709.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081628511.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081722262.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081113533.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081111622.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081115646.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081116779.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081118447.png">
 <meta property="article:published_time" content="2021-11-08T09:20:00.000Z">
-<meta property="article:modified_time" content="2022-09-13T06:55:41.297Z">
+<meta property="article:modified_time" content="2022-09-13T07:16:04.498Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071933559.png">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071933559.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/30975.html">
@@ -436,9 +436,9 @@
 <p>vi /etc/redis.conf</p>
 <p>注释bind 127.0.0.1</p>
 <p>设置protected-mode no</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071933559.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071933559.png" alt="img"></p>
 <p>修改密码为111111</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111071934861.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111071934861.png" alt="img"></p>
 <p>10、保存并退出编辑重启redis</p>
 <p>systemctl restart redis</p>
 <p>11、在服务器的控制台的安全组规则，开放redis端口号6379</p>
@@ -456,17 +456,17 @@
 <p>此方案基于Docker容器中的Nginx</p>
 <p>1、查看Nginx挂载目录</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="keyword">inspect</span> nginx | <span class="keyword">grep</span> Mounts -A <span class="number">40</span></span><br></pre></td></tr></table></figure>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081611709.png" alt="image-20211108161137330"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081611709.png" alt="image-20211108161137330"></p>
 <p>Source对应服务器的文件夹，Destination对应nginx_config文件夹</p>
 <p>注：如果你看的我博客进行配置的，会看到有五个挂载目录，有两个目录，很重要，其他是配置文件和日志的。</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081628511.png" alt="image-20211108162847392"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081628511.png" alt="image-20211108162847392"></p>
 <p>2、在conf.d文件夹加入项目的nginx配置</p>
 <p>文件名：xxx.conf（xxx自己随意命名）</p>
 <p>详细的解释，请仔细看注释</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">upstream</span> myserver&#123;</span><br><span class="line">    <span class="comment">#172.17.0.6是项目所在容器的ip地址，8000为项目的端口，请根据实际情况修改；如果项目是在服务器裸奔的，可以直接用127.0.0.1:端口</span></span><br><span class="line">    <span class="attribute">server</span> <span class="number">172.17.0.6:8000</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server&#123;</span><br><span class="line">    <span class="comment">#监听的端口</span></span><br><span class="line">    <span class="attribute">listen</span> <span class="number">80</span>;</span><br><span class="line">    <span class="comment">#域名，根据实际情况修改，（没域名，可以直接写成ip地址）</span></span><br><span class="line">    <span class="attribute">server_name</span> kygl.ruanzhuinfo.com;</span><br><span class="line">    <span class="attribute">client_max_body_size</span> <span class="number">500m</span>;</span><br><span class="line"></span><br><span class="line">    <span class="attribute">access_log</span> /var/log/nginx/host.access.log main;</span><br><span class="line">	<span class="comment">#后台</span></span><br><span class="line">    <span class="section">location</span> /admin &#123;</span><br><span class="line">        <span class="comment">#root 后面路径在服务器的路径为：/data/nginx/www/kygl_v2/dist_web</span></span><br><span class="line">        <span class="comment">#因为nginx需要代替(代理)你访问文件，nginx是在一个docker容器中和服务器不是在一个环境下，</span></span><br><span class="line">        <span class="comment">#所以需要路径改成在容器中的路径，dist_web为前端的打包的文件夹，要保证dist_web中有index.html</span></span><br><span class="line">        <span class="attribute">root</span>   /nginx_config/www/kygl_v2/dist_web/;</span><br><span class="line">        <span class="attribute">try_files</span> <span class="variable">$uri</span> <span class="variable">$uri</span>/ /index.html?s=<span class="variable">$uri</span>&amp;<span class="variable">$args</span>;</span><br><span class="line">        <span class="attribute">index</span> index.html index.htm index.php;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">#前台，如果有前台，可以配置，同上，因为root只能存在一个，所以下面用的alias来配置另一个虚拟目录</span></span><br><span class="line">    <span class="comment">#location /front &#123;</span></span><br><span class="line">    <span class="comment">#   alias   /nginx_config/www/kygl_v2/dist_front/;</span></span><br><span class="line">    <span class="comment">#   try_files $uri $uri/ /index.html?s=$uri&amp;$args;</span></span><br><span class="line">    <span class="comment">#   index index.html index.htm index.php;</span></span><br><span class="line">    <span class="comment">#&#125;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">#后端</span></span><br><span class="line">    <span class="section">location</span> /api &#123;</span><br><span class="line">       <span class="attribute">proxy_pass</span> http://myserver;</span><br><span class="line">       <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="section">location</span> /auth &#123;</span><br><span class="line">       <span class="attribute">proxy_pass</span> http://myserver;</span><br><span class="line">       <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#下面是配置访问swagger</span></span><br><span class="line">    <span class="section">location</span> /swagger-ui.html &#123;</span><br><span class="line">        <span class="attribute">proxy_pass</span> http://myserver;</span><br><span class="line">        <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> /webjars &#123;</span><br><span class="line">	   <span class="attribute">proxy_pass</span> http://myserver;</span><br><span class="line">        <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> /swagger-resources &#123;</span><br><span class="line">      <span class="attribute">proxy_pass</span> http://myserver;</span><br><span class="line">      <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="section">location</span> /v2 &#123;</span><br><span class="line">      <span class="attribute">proxy_pass</span> http://myserver;</span><br><span class="line">      <span class="attribute">index</span>  index.html index.htm;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>3、记得每次修改nginx的相关配置，都需要重新加载下</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span>进入nginx容器</span><br><span class="line">docker exec -it nginx bash</span><br><span class="line"><span class="regexp">//</span>测试，看下配置文件是否有问题</span><br><span class="line">nginx -t</span><br><span class="line"><span class="regexp">//</span>重新加载</span><br><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081722262.png" alt="image-20211108172223927"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081722262.png" alt="image-20211108172223927"></p>
 <p>如果遇到修改配置后，没有生效，请执行下面的命令</p>
 <figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reopen</span><br><span class="line">nginx -s <span class="built_in">stop</span> <span class="comment">//此命令执行后，会退出容器，重新进入即可</span></span><br><span class="line">nginx -<span class="built_in">reload</span></span><br></pre></td></tr></table></figure>
 <h3 id="bu-shu-hou-duan-spring-boot-xiang-mu">部署后端（SpringBoot项目）</h3>
@@ -489,19 +489,19 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd xxxx<span class="regexp">/ourchat_api/</span></span><br></pre></td></tr></table></figure>
 <p>执行初始化命令</p>
 <figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sh </span>demo.<span class="keyword">sh </span>init</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081113533.png" alt="image-20211108111350473"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081113533.png" alt="image-20211108111350473"></p>
 <p>完成后，会有成功的提示</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081111622.png" alt="image-20211108111147161"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081111622.png" alt="image-20211108111147161"></p>
 <p>3、查看容器是否启动</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">docker ps</span></span><br></pre></td></tr></table></figure>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081115646.png" alt="image-20211108111526577"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081115646.png" alt="image-20211108111526577"></p>
 <p>status为up 即为启动成功</p>
 <p>4、进入容器</p>
 <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -<span class="keyword">it</span> ourchat bash</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081116779.png" alt="image-20211108111634691"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081116779.png" alt="image-20211108111634691"></p>
 <p>5、切换到容器中的项目后端目录</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd <span class="keyword">project</span><span class="regexp">/ourchat/</span>ourchat_api/</span><br></pre></td></tr></table></figure>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202111081118447.png" alt="image-20211108111846333"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202111081118447.png" alt="image-20211108111846333"></p>
 <p>6、脚本命令介绍</p>
 <p>到这一步骤，环境基本都搭建完毕了，下面介绍脚本的命令</p>
 <p>上面的初始化命令只需要执行一次，之后代码更新，只需要执行：</p>

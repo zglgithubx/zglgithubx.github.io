@@ -35,21 +35,21 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="由来 Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171018117.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171106451.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171151156.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171151451.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171152957.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171153610.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171154064.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171154305.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171155335.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171106451.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151156.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151451.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171152957.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171153610.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154064.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154305.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171155335.png">
 <meta property="article:published_time" content="2021-10-16T03:27:33.000Z">
-<meta property="article:modified_time" content="2022-09-13T06:55:41.297Z">
+<meta property="article:modified_time" content="2022-09-13T07:16:04.498Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171018117.png">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/35921.html">
@@ -346,9 +346,9 @@
 <p>KMP算法匹配的过程：</p>
 <p>①和常规解法一样，从文本串首字符和模式串的首字符开始，一 一进行比较</p>
 <p>②当遇到不匹配的时候，如下图</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171018117.png" alt="image-20211017101822955"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png" alt="image-20211017101822955"></p>
 <p>模式串会从b的位置开始匹配，文本串匹配的位置不变</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171106451.png" alt="image-20211017110657407"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171106451.png" alt="image-20211017110657407"></p>
 <p>到这里，肯定会有疑问：会什么从b开始？</p>
 <p>下面的概念都是模式串的。</p>
 <p>这里会提到几个概念：前缀、后缀和 最大公共字符长度表（前缀表）</p>
@@ -452,19 +452,19 @@
 </table>
 <p>这个例子咱们就根据这个前缀表去跳跃式的匹配（表中的数值代表跳跃到模式串索引）</p>
 <p>①开始匹配</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171151156.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151156.png" alt="img"></p>
 <p>② 因为模式串中的字符A跟文本串中的字符B、B、C、空格一开始就不匹配，所以不必考虑结论，直接将模式串不断的右移一位即可，直到模式串中的字符A跟文本串的第5个字符A匹配成功：</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171151451.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151451.png" alt="img"></p>
 <p>③继续往后匹配，当模式串最后一个字符D跟文本串匹配时失配，显而易见，模式串需要向右移动。但向右移动多少位呢？因为此时已经匹配的字符数为6个（ABCDAB），然后根据《前缀表》可得失配字符D的上一位字符B对应的长度值为2，所以根据之前的结论，可知需要向右移动6 - 2 = 4 位。</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171152957.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171152957.png" alt="img"></p>
 <p>④模式串向右移动4位后，发现C处再度失配，因为此时已经匹配了2个字符（AB），且上一位字符B对应的最大长度值为0，所以向右移动：2 - 0 =2 位。</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171153610.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171153610.png" alt="img"></p>
 <p>⑤A与空格不匹配，向右移动1位</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171154064.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154064.png" alt="img"></p>
 <p>⑥继续比较，发现D与C 失配，故向右移动的位数为：已匹配的字符数6减去上一位字符B对应的最大长度2，即向右移动6 - 2 = 4 位。</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171154305.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154305.png" alt="img"></p>
 <p>⑦经历第5步后，发现匹配成功，过程结束。</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202110171155335.png" alt="img"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171155335.png" alt="img"></p>
 <p>至此这就是KMP算法的大致原理。</p>
 <h3 id="kmp-suan-fa-dai-ma-shi-xian">KMP算法代码实现</h3>
 <p>由上文，我们已经知道，字符串“ABCDABD”各个前缀后缀的最大公共元素长度分别为：</p>

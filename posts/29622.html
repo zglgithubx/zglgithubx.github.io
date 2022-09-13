@@ -35,13 +35,13 @@
 <meta property="og:site_name" content="NoBug">
 <meta property="og:description" content="需求 根据一个小程序，发布一个和其一模一样的小程序。（可能不只一个） 如果按常规的做法每个小程序都需要经历这样的步骤：在公众平台申请appid——&gt;拉代码到自己的仓库——&gt;打开编译器绑定自己的appId——&gt;上传代码到公众平台——&gt;再提交审核——&gt;在公众平台调整开发设置。 如果用微信开放平台的服务平台开发的步骤：在微信开放平台申请第三方服务平台——&gt;上传小程序模">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202201271429448.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202201271429448.png">
 <meta property="article:published_time" content="2022-01-27T02:45:56.000Z">
-<meta property="article:modified_time" content="2022-09-13T06:55:41.297Z">
+<meta property="article:modified_time" content="2022-09-13T07:16:04.502Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="第三方平台">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202201271429448.png">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202201271429448.png">
 
 
 <link rel="canonical" href="https://zglgithubx.github.io/posts/29622.html">
@@ -340,7 +340,7 @@
 <p>官方文档：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://developers.weixin.qq.com/doc/oplatform/Third-party_Platforms/2.0/api/ThirdParty/token/component_verify_ticket.html">验证票据 | 微信开放文档 (qq.com)</a></p>
 <h3 id></h3>
 <p>因为这个验证票据是微信官方主动推送的，所以需要在第三方平台配置一波</p>
-<p><img data-src="https://raw.githubusercontent.com/zglgithubx/picture/master/img/202201271429448.png" alt="image-20220127142943253"></p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202201271429448.png" alt="image-20220127142943253"></p>
 <h4 id="controller">controller</h4>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">@ApiOperation</span>(value = <span class="string">&quot;微信开放平台：授权事件接收URL,验证票据&quot;</span>, notes = <span class="string">&quot;zhuguangliang&quot;</span>)</span><br><span class="line"><span class="variable">@AnonymousPostMapping</span>(<span class="string">&quot;/pushTicket&quot;</span>)</span><br><span class="line">public String wechatPlatformEvent(<span class="variable">@RequestParam</span>(<span class="string">&quot;timestamp&quot;</span>) String timestamp,</span><br><span class="line">                          <span class="variable">@RequestParam</span>(<span class="string">&quot;nonce&quot;</span>) String nonce,</span><br><span class="line">                          <span class="variable">@RequestParam</span>(<span class="string">&quot;msg_signature&quot;</span>) String msgSignature,</span><br><span class="line">                          <span class="variable">@RequestBody</span> String postData) &#123;</span><br><span class="line">   <span class="selector-tag">return</span> <span class="selector-tag">openPlatformUtil</span><span class="selector-class">.parseRequest</span>(timestamp, nonce, msgSignature, postData);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="shi-xian-lei">实现类</h4>
