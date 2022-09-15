@@ -1770,53 +1770,29 @@ str2代表着如何比较.<br />
 <ul>
 <li>
 <p>在后缀为.proto文件中定义数据结构（被远程调用服务的接口文档）</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">//使用的版本号</span><br><span class="line"><span class="attribute">syntax</span> <span class="operator">=</span> <span class="string">&quot;proto3&quot;</span><span class="comment">;</span></span><br><span class="line">option go_package <span class="operator">=</span> <span class="string">&quot;../proto;client&quot;</span><span class="comment">;</span></span><br><span class="line">option java_multiple_files <span class="operator">=</span> true<span class="comment">;</span></span><br><span class="line">option java_package<span class="operator">=</span><span class="string">&quot;com.example.grpcexample.helloworld&quot;</span><span class="comment">;</span></span><br><span class="line">//请求</span><br><span class="line">message Request &#123;</span><br><span class="line">    double num1 <span class="operator">=</span> <span class="number">1</span><span class="comment">;</span></span><br><span class="line">    double num2 <span class="operator">=</span> <span class="number">2</span><span class="comment">;</span></span><br><span class="line">    OperateType opType <span class="operator">=</span> <span class="number">3</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">//枚举类</span><br><span class="line">enum OperateType &#123;</span><br><span class="line">    Addition <span class="operator">=</span> <span class="number">0</span><span class="comment">;</span></span><br><span class="line">    Division <span class="operator">=</span> <span class="number">1</span><span class="comment">;</span></span><br><span class="line">    Multiplication <span class="operator">=</span> <span class="number">2</span><span class="comment">;</span></span><br><span class="line">    Subtraction <span class="operator">=</span> <span class="number">3</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">//响应</span><br><span class="line">message Response &#123;</span><br><span class="line">    double result <span class="operator">=</span> <span class="number">1</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//定义服务</span><br><span class="line">service Operate &#123;</span><br><span class="line">	//一元RPC</span><br><span class="line">    rpc Calculate (Request) returns (Response)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    //服务器流式 RPC</span><br><span class="line">    rpc Calculate (Request) returns (stream Response)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    //客户端流式RPC</span><br><span class="line">    rpc Calculate (stream Request) returns (Response)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">    //双向流式RPC</span><br><span class="line">    rpc Calculate (stream Request) returns (Response)<span class="comment">;</span></span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
-<pre><code>//使用的版本号
-syntax = &quot;proto3&quot;;
-option go_package = &quot;../proto;client&quot;;
-option java_multiple_files = true;
-option java_package=&quot;com.example.grpcexample.helloworld&quot;;
-//请求
-message Request &#123;
-    double num1 = 1;
-    double num2 = 2;
-    OperateType opType = 3;
-&#125;
-//枚举类
-enum OperateType &#123;
-    Addition = 0;
-    Division = 1;
-    Multiplication = 2;
-    Subtraction = 3;
-&#125;
-//响应
-message Response &#123;
-    double result = 1;
-&#125;
-
-//定义服务
-service Operate &#123;
-	//一元RPC
-    rpc Calculate (Request) returns (Response);
-    
-    //服务器流式 RPC
-    rpc Calculate (Request) returns (stream Response);
-    
-    //客户端流式RPC
-    rpc Calculate (stream Request) returns (Response);
-    
-    //双向流式RPC
-    rpc Calculate (stream Request) returns (Response);
-    
-&#125;
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">  * 四种服务类型介绍(消息传输)</span><br><span class="line"></span><br><span class="line">    * 一元RPC（请求响应式）：其中客户端向服务器发送单个请求并获取单个响应，就像普通的函数调用一样。</span><br><span class="line">    * 服务器流式处理 RPC：其中客户端向服务器发送请求并获取流以读回一系列消息。客户端从返回的流中读取，直到没有更多消息。gRPC 保证单个 RPC 调用中的消息排序。</span><br><span class="line">    * 客户端流式处理 RPC：其中客户端写入一系列消息并将其发送到服务器，再次使用提供的流。客户端完成写入消息后，它将等待服务器读取这些消息并返回其响应。同样，gRPC 保证单个 RPC 调用中的消息排序。</span><br><span class="line">    * 双向流式处理 RPC：其中双方都使用读写流发送一系列消息。这两个流独立运行，因此客户端和服务器可以按照它们喜欢的任何顺序进行读取和写入：例如，服务器可以等待接收所有客户端消息，然后再写入其响应，或者它可以交替读取消息然后写入消息，或者其他一些读取和写入的组合。将保留每个流中消息的顺序。</span><br><span class="line"></span><br><span class="line">    &lt;iframe <span class="attribute">id</span>=<span class="string">&quot;embed_dom&quot;</span> <span class="attribute">name</span>=<span class="string">&quot;embed_dom&quot;</span> <span class="attribute">frameborder</span>=<span class="string">&quot;0&quot;</span> <span class="attribute">style</span>=<span class="string">&quot;display:block;width:800px; height:800px;&quot;</span> <span class="attribute">src</span>=<span class="string">&quot;https://www.processon.com/embed/62f64a287d9c08072f9d6743&quot;</span>&gt;&lt;/iframe&gt;</span><br><span class="line"></span><br><span class="line">* 第二步，根据服务端（服务提供者）和客户端（服务调用者）语言类型，生成相应的代码，然后再实现/调用方法。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 三、案例(一元rpc)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#### 1、用Java写客户端，Go写服务端</span></span><br><span class="line"></span><br><span class="line">**编写protobuf文件**</span><br><span class="line"></span><br><span class="line">helloworld.proto</span><br><span class="line"></span><br><span class="line">```protobuf</span><br><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br><span class="line">option go_package = <span class="string">&quot;../proto;helloworld&quot;</span>;</span><br><span class="line">option java_multiple_files = <span class="literal">true</span>;</span><br><span class="line">option <span class="attribute">java_package</span>=<span class="string">&quot;com.example.grpc_study.proto&quot;</span>;</span><br><span class="line">message Request&#123;</span><br><span class="line">	string <span class="attribute">source</span>=1;</span><br><span class="line">	string <span class="attribute">language</span>=2;</span><br><span class="line">&#125;</span><br><span class="line">message Response &#123;</span><br><span class="line">	string <span class="attribute">source</span>=1;</span><br><span class="line">	string <span class="attribute">language</span>=2;</span><br><span class="line">&#125;<span class="built_in"></span></span><br><span class="line"><span class="built_in">service </span>HelloWorld &#123;</span><br><span class="line">	rpc TestRpc(Request) returns (Response);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-</code></pre>
+<p>四种服务类型介绍(消息传输)</p>
+<ul>
+<li>一元RPC（请求响应式）：其中客户端向服务器发送单个请求并获取单个响应，就像普通的函数调用一样。</li>
+<li>服务器流式处理 RPC：其中客户端向服务器发送请求并获取流以读回一系列消息。客户端从返回的流中读取，直到没有更多消息。gRPC 保证单个 RPC 调用中的消息排序。</li>
+<li>客户端流式处理 RPC：其中客户端写入一系列消息并将其发送到服务器，再次使用提供的流。客户端完成写入消息后，它将等待服务器读取这些消息并返回其响应。同样，gRPC 保证单个 RPC 调用中的消息排序。</li>
+<li>双向流式处理 RPC：其中双方都使用读写流发送一系列消息。这两个流独立运行，因此客户端和服务器可以按照它们喜欢的任何顺序进行读取和写入：例如，服务器可以等待接收所有客户端消息，然后再写入其响应，或者它可以交替读取消息然后写入消息，或者其他一些读取和写入的组合。将保留每个流中消息的顺序。</li>
+</ul>
+<iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:800px; height:800px;" src="https://www.processon.com/embed/62f64a287d9c08072f9d6743"></iframe>
 </li>
 </ul>
 </li>
+<li>
+<p>第二步，根据服务端（服务提供者）和客户端（服务调用者）语言类型，生成相应的代码，然后再实现/调用方法。</p>
+</li>
 </ul>
+<h3 id="san-an-li-yi-yuan-rpc" id="三、案例-一元rpc">三、案例(一元rpc)</h3>
+<h4 id="1-yong-java-xie-ke-hu-duan-go-xie-fu-wu-duan" id="1、用Java写客户端，Go写服务端">1、用Java写客户端，Go写服务端</h4>
+<p><strong>编写protobuf文件</strong></p>
+<p>helloworld.proto</p>
+<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"><span class="keyword">option</span> go_package = <span class="string">&quot;../proto;helloworld&quot;</span>;</span><br><span class="line"><span class="keyword">option</span> java_multiple_files = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">option</span> java_package=<span class="string">&quot;com.example.grpc_study.proto&quot;</span>;</span><br><span class="line"><span class="keyword">message </span><span class="title class_">Request</span>&#123;</span><br><span class="line">	<span class="type">string</span> source=<span class="number">1</span>;</span><br><span class="line">	<span class="type">string</span> language=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">message </span><span class="title class_">Response</span> &#123;</span><br><span class="line">	<span class="type">string</span> source=<span class="number">1</span>;</span><br><span class="line">	<span class="type">string</span> language=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">service </span><span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">rpc</span> TestRpc(Request) <span class="keyword">returns</span> (Response)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>编写Go服务端</strong></p>
 <ul>
 <li>
@@ -1846,42 +1822,20 @@ service Operate &#123;
 </li>
 <li>
 <p>配置maven</p>
-<ul>
-<li>
-<pre><code class="language-xml">&lt;!--    GRPC    --&gt;
-&lt;dependency&gt;
-    &lt;groupId&gt;net.devh&lt;/groupId&gt;
-    &lt;artifactId&gt;grpc-server-spring-boot-starter&lt;/artifactId&gt;
-    &lt;version&gt;2.13.1.RELEASE&lt;/version&gt;
-&lt;/dependency&gt;
-&lt;!--    插件    --&gt;
-&lt;plugin&gt;
-    &lt;groupId&gt;org.xolstice.maven.plugins&lt;/groupId&gt;
-    &lt;artifactId&gt;protobuf-maven-plugin&lt;/artifactId&gt;
-    &lt;version&gt;0.5.1&lt;/version&gt;
-    &lt;configuration&gt;
-        &lt;protocArtifact&gt;com.google.protobuf:protoc:3.7.1:exe:$&#123;os.detected.classifier&#125;&lt;/protocArtifact&gt;
-        &lt;pluginId&gt;grpc-java&lt;/pluginId&gt;
-        &lt;pluginArtifact&gt;io.grpc:protoc-gen-grpc-java:1.20.0:exe:$&#123;os.detected.classifier&#125;&lt;/pluginArtifact&gt;
-        &lt;outputDirectory&gt;$&#123;project.build.sourceDirectory&#125;&lt;/outputDirectory&gt;
-        &lt;!--设置是否在生成java文件之前清空outputDirectory的文件，默认值为true，设置为false时也会覆盖同名文件--&gt;
-        &lt;clearOutputDirectory&gt;false&lt;/clearOutputDirectory&gt;
-        &lt;!--更多配置信息可以查看https://www.xolstice.org/protobuf-maven-plugin/compile-mojo.html--&gt;
-    &lt;/configuration&gt;
-    &lt;executions&gt;
-        &lt;execution&gt;
-            &lt;goals&gt;
-                &lt;goal&gt;compile&lt;/goal&gt;
-                &lt;goal&gt;compile-custom&lt;/goal&gt;
-            &lt;/goals&gt;
-        &lt;/execution&gt;
-    &lt;/executions&gt;
-&lt;/plugin&gt;
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line"><span class="operator"></span></span><br><span class="line"><span class="operator">* </span>在java的同级目录创建proto文件夹，并将其标记为Sources Root<span class="operator"></span></span><br><span class="line"><span class="operator"></span></span><br><span class="line"><span class="operator">* </span>在proto目录中创建helloworld.proto，内容go服务端内容一样<span class="operator"></span></span><br><span class="line"><span class="operator"></span></span><br><span class="line"><span class="operator">* </span>执行：mvn clean install，生成代码<span class="operator"></span></span><br><span class="line"><span class="operator"></span></span><br><span class="line"><span class="operator">* </span>创建Client类</span><br><span class="line"></span><br><span class="line">  ```java</span><br><span class="line">  public <span class="keyword">class</span> Client &#123;</span><br><span class="line">  </span><br><span class="line">  	<span class="keyword">private</span> final ManagedChannel channel;</span><br><span class="line">  	<span class="keyword">private</span> final HelloWorldGrpc.HelloWorldBlockingStub blockingStub;</span><br><span class="line">  	<span class="keyword">private</span> <span class="constructor">Client(ManagedChannel <span class="params">channel</span>)</span> &#123;</span><br><span class="line">  		this.channel = channel;</span><br><span class="line">  		blockingStub = <span class="module-access"><span class="module"><span class="identifier">HelloWorldGrpc</span>.</span></span><span class="keyword">new</span><span class="constructor">BlockingStub(<span class="params">channel</span>)</span>;</span><br><span class="line">  	&#125;</span><br><span class="line">  	public <span class="constructor">Client(String <span class="params">host</span>, <span class="params">int</span> <span class="params">port</span>)</span> &#123;</span><br><span class="line">  		this(<span class="module-access"><span class="module"><span class="identifier">ManagedChannelBuilder</span>.</span></span><span class="keyword">for</span><span class="constructor">Address(<span class="params">host</span>, <span class="params">port</span>)</span></span><br><span class="line">  				.use<span class="constructor">Plaintext()</span></span><br><span class="line">  				.build<span class="literal">()</span>);</span><br><span class="line">  	&#125;</span><br><span class="line">  	public void shutdown<span class="literal">()</span> throws InterruptedException &#123;</span><br><span class="line">  		channel.shutdown<span class="literal">()</span>.await<span class="constructor">Termination(5, TimeUnit.SECONDS)</span>;</span><br><span class="line">  	&#125;</span><br><span class="line">  </span><br><span class="line">  	public static void main(String<span class="literal">[]</span> args) &#123;</span><br><span class="line">  		<span class="keyword">try</span> &#123;</span><br><span class="line">  			Client service = <span class="keyword">new</span> <span class="constructor">Client(<span class="string">&quot;localhost&quot;</span>, 9090)</span>;</span><br><span class="line">  			Request request=<span class="module-access"><span class="module"><span class="identifier">Request</span>.</span></span><span class="keyword">new</span><span class="constructor">Builder()</span>.set<span class="constructor">Language(<span class="string">&quot;Java&quot;</span>)</span>.set<span class="constructor">Source(<span class="string">&quot;客户端&quot;</span>)</span>.build<span class="literal">()</span>;</span><br><span class="line">  			Response response = service.blockingStub.test<span class="constructor">Rpc(<span class="params">request</span>)</span>;</span><br><span class="line">  			<span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(<span class="string">&quot;服务调用成功，接收到来自&quot;</span>+response.get<span class="constructor">Language()</span>+response.get<span class="constructor">Source()</span>+<span class="string">&quot;的响应&quot;</span>);</span><br><span class="line">  			service.shutdown<span class="literal">()</span>;</span><br><span class="line">  		&#125; catch (Exception e) &#123;</span><br><span class="line">  			<span class="module-access"><span class="module"><span class="identifier">System</span>.</span></span>out.println(e);</span><br><span class="line">  		&#125;</span><br><span class="line">  	&#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-</code></pre>
+<figure class="highlight dust"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="comment">&lt;!--    GRPC    --&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>net.devh<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>grpc-server-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.13.1.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="comment">&lt;!--    插件    --&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.xolstice.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>protobuf-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.5.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">protocArtifact</span>&gt;</span>com.google.protobuf:protoc:3.7.1:exe:$</span><span class="template-variable">&#123;os.detected.classifier&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">protocArtifact</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">pluginId</span>&gt;</span>grpc-java<span class="tag">&lt;/<span class="name">pluginId</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">pluginArtifact</span>&gt;</span>io.grpc:protoc-gen-grpc-java:1.20.0:exe:$</span><span class="template-variable">&#123;os.detected.classifier&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">pluginArtifact</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">outputDirectory</span>&gt;</span>$</span><span class="template-variable">&#123;project.build.sourceDirectory&#125;</span><span class="language-xml"><span class="tag">&lt;/<span class="name">outputDirectory</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="comment">&lt;!--设置是否在生成java文件之前清空outputDirectory的文件，默认值为true，设置为false时也会覆盖同名文件--&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">clearOutputDirectory</span>&gt;</span>false<span class="tag">&lt;/<span class="name">clearOutputDirectory</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="comment">&lt;!--更多配置信息可以查看https://www.xolstice.org/protobuf-maven-plugin/compile-mojo.html--&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">executions</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">execution</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">goals</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">                <span class="tag">&lt;<span class="name">goal</span>&gt;</span>compile-custom<span class="tag">&lt;/<span class="name">goal</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">goals</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">execution</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">executions</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 </li>
-</ul>
+<li>
+<p>在java的同级目录创建proto文件夹，并将其标记为Sources Root</p>
+</li>
+<li>
+<p>在proto目录中创建helloworld.proto，内容go服务端内容一样</p>
+</li>
+<li>
+<p>执行：mvn clean install，生成代码</p>
+</li>
+<li>
+<p>创建Client类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Client</span> &#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> ManagedChannel channel;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> HelloWorldGrpc.HelloWorldBlockingStub blockingStub;</span><br><span class="line">	<span class="keyword">private</span> <span class="title function_">Client</span><span class="params">(ManagedChannel channel)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>.channel = channel;</span><br><span class="line">		blockingStub = HelloWorldGrpc.newBlockingStub(channel);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="title function_">Client</span><span class="params">(String host, <span class="type">int</span> port)</span> &#123;</span><br><span class="line">		<span class="built_in">this</span>(ManagedChannelBuilder.forAddress(host, port)</span><br><span class="line">				.usePlaintext()</span><br><span class="line">				.build());</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">shutdown</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException &#123;</span><br><span class="line">		channel.shutdown().awaitTermination(<span class="number">5</span>, TimeUnit.SECONDS);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			<span class="type">Client</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Client</span>(<span class="string">&quot;localhost&quot;</span>, <span class="number">9090</span>);</span><br><span class="line">			Request request=Request.newBuilder().setLanguage(<span class="string">&quot;Java&quot;</span>).setSource(<span class="string">&quot;客户端&quot;</span>).build();</span><br><span class="line">			<span class="type">Response</span> <span class="variable">response</span> <span class="operator">=</span> service.blockingStub.testRpc(request);</span><br><span class="line">			System.out.println(<span class="string">&quot;服务调用成功，接收到来自&quot;</span>+response.getLanguage()+response.getSource()+<span class="string">&quot;的响应&quot;</span>);</span><br><span class="line">			service.shutdown();</span><br><span class="line">		&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">			System.out.println(e);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p><strong>启动服务端，再启动客户端</strong></p>
@@ -1927,68 +1881,36 @@ service Operate &#123;
 </li>
 <li>
 <p>Any类型，类似于Java的Object</p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">如果使用any类型，需要导入：google/protobuf/any.proto</span><br><span class="line"></span><br><span class="line">import <span class="string">&quot;google/protobuf/any.proto&quot;</span><span class="comment">;</span></span><br><span class="line"></span><br><span class="line">message Response &#123;</span><br><span class="line">	string msg <span class="operator">=</span> <span class="number">1</span><span class="comment">;</span></span><br><span class="line">	int32 code <span class="operator">=</span> <span class="number">2</span><span class="comment">;</span></span><br><span class="line">	google.protobuf.Any data <span class="operator">=</span> <span class="number">3</span><span class="comment">; //可以理解成Object</span></span><br><span class="line">	repeated google.protobuf.Any datas <span class="operator">=</span> <span class="number">4</span><span class="comment">; //可以理解成泛型 List&lt;T&gt; datas;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>标签：</p>
 <ul>
-<li>
-<pre><code>如果使用any类型，需要导入：google/protobuf/any.proto
-
-import &quot;google/protobuf/any.proto&quot;;
-
-message Response &#123;
-	string msg = 1;
-	int32 code = 2;
-	google.protobuf.Any data = 3; //可以理解成Object
-	repeated google.protobuf.Any datas = 4; //可以理解成泛型 List&lt;T&gt; datas;
-&#125;
-<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">标签：</span><br><span class="line"></span><br><span class="line">* 该标签的取值范围为 <span class="number">1</span>~<span class="number">2</span>^<span class="number">32</span>（<span class="number">4294967296</span>），其中 <span class="number">1</span>~<span class="number">15</span>的编码时间和空间效率都是最高的，编码值越大，其编码的时间和空间效率就越低（相对于<span class="number">1</span>-<span class="number">15</span>），当然一般情况下相邻的<span class="number">2</span>个值编码效率的是相同的，除非<span class="number">2</span>个值恰好实在<span class="number">4</span>字节，<span class="number">12</span>字节，<span class="number">20</span>字节等的临界区。比如<span class="number">15</span>和<span class="number">16</span>。<span class="number">1900</span>~<span class="number">2000</span>编码值为Google protobuf 系统内部保留值，建议不要在自己的项目中使用。</span><br><span class="line">* 当两个字段标签一致时，其修饰符和数据类型也必须相同</span><br><span class="line">* 消息中的字段的编码值无需连续，只要是合法的，并且不能在同一个消息中有字段包含相同的编码值。</span><br><span class="line">* 建议：项目投入运营以后涉及到版本升级时的新增消息字段全部使用<span class="keyword">optional</span>或者<span class="keyword">repeated</span>，尽量不使用<span class="keyword">required</span>。如果使用了<span class="keyword">required</span>，需要全网统一升级，如果使用<span class="keyword">optional</span>或者<span class="keyword">repeated</span>可以平滑升级。</span><br><span class="line"></span><br><span class="line">**用法**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+<li>该标签的取值范围为 1~2^32（4294967296），其中 1<sub>15的编码时间和空间效率都是最高的，编码值越大，其编码的时间和空间效率就越低（相对于1-15），当然一般情况下相邻的2个值编码效率的是相同的，除非2个值恰好实在4字节，12字节，20字节等的临界区。比如15和16。1900</sub>2000编码值为Google protobuf 系统内部保留值，建议不要在自己的项目中使用。</li>
+<li>当两个字段标签一致时，其修饰符和数据类型也必须相同</li>
+<li>消息中的字段的编码值无需连续，只要是合法的，并且不能在同一个消息中有字段包含相同的编码值。</li>
+<li>建议：项目投入运营以后涉及到版本升级时的新增消息字段全部使用optional或者repeated，尽量不使用required。如果使用了required，需要全网统一升级，如果使用optional或者repeated可以平滑升级。</li>
 </ul>
-</li>
+<p><strong>用法</strong></p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">//普通的消息类型</span><br><span class="line">message Person &#123;</span><br><span class="line">	string name<span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">//嵌套消息，无层级限制</span><br><span class="line">message Person &#123;</span><br><span class="line">	string name<span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">	message Man&#123;</span><br><span class="line">		string name <span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">	repeated Man man<span class="operator">=</span><span class="number">2</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">message Student&#123;</span><br><span class="line">	Person.Man man<span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-enum" id="3、enum">3、enum</h4>
+<p><strong>格式</strong></p>
+<figure class="highlight abnf"><table><tr><td class="code"><pre><span class="line">enum 标识符 &#123;</span><br><span class="line">	字段名<span class="operator">=</span><span class="number">0</span><span class="comment">;</span></span><br><span class="line">	字段名<span class="number">1</span><span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4-service" id="4、service">4、service</h4>
+<p><strong>格式</strong></p>
+<figure class="highlight protobuf"><table><tr><td class="code"><pre><span class="line">service 服务名 &#123;</span><br><span class="line"> <span class="function"><span class="keyword">rpc</span> 方法名(请求消息) <span class="keyword">returns</span> (响应消息)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">rpc</span> 方法名(stream 请求消息) <span class="keyword">returns</span> (响应消息)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">rpc</span> 方法名(请求消息) <span class="keyword">returns</span> (stream 响应消息)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">rpc</span> 方法名(stream 请求消息) <span class="keyword">returns</span> (stream 响应消息)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="wu-tao-lun" id="五、讨论">五、讨论</h3>
+<h4 id="1-he-qi-ta-rpc-kuang-jia-xiang-bi-g-rpc-de-you-shi" id="1、和其他RPC框架相比，gRPC的优势？">1、和其他RPC框架相比，gRPC的优势？</h4>
+<ul>
+<li>跨语言，且自动生成代码</li>
+<li>性能高，比如protobuf性能高过json, 比如http2.0性能高过http1.1</li>
+<li>生态好</li>
+<li>流式处理（基于http2.0）：支持客户端流式，服务端流式，双向流式</li>
 </ul>
-<p>//普通的消息类型<br />
-message Person {<br />
-string name=1;<br />
-}<br />
-//嵌套消息，无层级限制<br />
-message Person {<br />
-string name=1;<br />
-message Man{<br />
-string name =1;<br />
-}<br />
-repeated Man man=2;<br />
-}<br />
-message Student{<br />
-Person.Man man=1;<br />
-}</p>
-<figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### <span class="number">3</span>、enum</span><br><span class="line"></span><br><span class="line">**格式**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>enum 标识符 {<br />
-字段名=0;<br />
-字段名1=1;<br />
-}</p>
-<figure class="highlight clean"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#### <span class="number">4</span>、service</span><br><span class="line"></span><br><span class="line">**格式**</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>service 服务名 {<br />
-rpc 方法名(请求消息) returns (响应消息);<br />
-rpc 方法名(stream 请求消息) returns (响应消息);<br />
-rpc 方法名(请求消息) returns (stream 响应消息);<br />
-rpc 方法名(stream 请求消息) returns (stream 响应消息);<br />
-}</p>
-<pre><code>
-
-
-### 五、讨论
-
-#### 1、和其他RPC框架相比，gRPC的优势？
-
-* 跨语言，且自动生成代码
-* 性能高，比如protobuf性能高过json, 比如http2.0性能高过http1.1
-* 生态好
-* 流式处理（基于http2.0）：支持客户端流式，服务端流式，双向流式
-
-#### 2、还有其他的跨语言的RPC吗，gRPC在跨语言RPC框架中是最好的吗？
-
-* Thrift是一种可伸缩的跨语言服务的RPC软件框架。它结合了功能强大的软件堆栈的代码生成引擎，以建设服务，高效、无缝地在多种语言间结合使用
-
-</code></pre>
+<h4 id="2-huan-you-qi-ta-de-kua-yu-yan-de-rpc-ma-g-rpc-zai-kua-yu-yan-rpc-kuang-jia-zhong-shi-zui-hao-de-ma" id="2、还有其他的跨语言的RPC吗，gRPC在跨语言RPC框架中是最好的吗？">2、还有其他的跨语言的RPC吗，gRPC在跨语言RPC框架中是最好的吗？</h4>
+<ul>
+<li>Thrift是一种可伸缩的跨语言服务的RPC软件框架。它结合了功能强大的软件堆栈的代码生成引擎，以建设服务，高效、无缝地在多种语言间结合使用</li>
+</ul>
 ]]></content>
       <categories>
         <category>微服务</category>
