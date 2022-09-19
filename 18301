@@ -28,38 +28,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zglgithubx.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":2,"unescape":true,"preload":false}}</script><script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/config.js"></script>
 
-    <meta name="description" content="由来 Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。">
+    <meta name="description" content="需求 使用微信扫码登录的授权方式登录系统">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="KMP算法">
-<meta property="og:url" content="https://zglgithubx.github.io/posts/35921.html">
+<meta property="og:title" content="微信扫码登录实现">
+<meta property="og:url" content="https://zglgithubx.github.io/18301">
 <meta property="og:site_name" content="Bug">
-<meta property="og:description" content="由来 Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。">
+<meta property="og:description" content="需求 使用微信扫码登录的授权方式登录系统">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171106451.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151156.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151451.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171152957.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171153610.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154064.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154305.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171155335.png">
-<meta property="article:published_time" content="2021-10-16T03:27:33.000Z">
-<meta property="article:modified_time" content="2022-09-18T11:53:54.056Z">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202202052041625.png">
+<meta property="article:published_time" content="2022-02-05T12:33:25.000Z">
+<meta property="article:modified_time" content="2022-09-19T01:59:06.657Z">
 <meta property="article:author" content="火花">
-<meta property="article:tag" content="算法">
+<meta property="article:tag" content="扫码登录">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202202052041625.png">
 
 
-<link rel="canonical" href="https://zglgithubx.github.io/posts/35921.html">
+<link rel="canonical" href="https://zglgithubx.github.io/18301">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/posts/35921.html","path":"posts/35921.html","title":"KMP算法"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/18301","path":"/18301","title":"微信扫码登录实现"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>KMP算法 | Bug</title>
+<title>微信扫码登录实现 | Bug</title>
   
 
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/analytics/baidu-analytics.js"></script>
@@ -168,13 +160,13 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#you-lai"><span class="nav-number">1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kmp-suan-fa-shi-shi-yao"><span class="nav-number">2.</span> <span class="nav-text">KMP算法是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kmp-suan-fa-wei-shi-yao-na-yao-kuai"><span class="nav-number">3.</span> <span class="nav-text">KMP算法为什么那么快</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kmp-suan-fa-dai-ma-shi-xian"><span class="nav-number">4.</span> <span class="nav-text">KMP算法代码实现</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%9C%80%E6%B1%82-2"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%EF%BC%9A"><span class="nav-number">2.1.</span> <span class="nav-text">流程：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%EF%BC%9A"><span class="nav-number">2.2.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jfif">
+    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jpg">
   <p class="site-author-name" itemprop="name">火花</p>
   <div class="site-description" itemprop="description">飞蛾善拂灯，一名火花，一名慕光</div>
 </div>
@@ -246,10 +238,10 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/35921.html">
+    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/18301">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/logo.jfif">
+      <meta itemprop="image" content="/img/logo.jpg">
       <meta itemprop="name" content="火花">
     </span>
 
@@ -259,12 +251,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="KMP算法 | Bug">
+      <meta itemprop="name" content="微信扫码登录实现 | Bug">
       <meta itemprop="description" content>
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          KMP算法<a href="https://github.com/zglgithubx/blog/tree/master/source/_posts/KMP%E7%AE%97%E6%B3%95.md" class="post-edit-link" title="编辑" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          微信扫码登录实现<a href="https://github.com/zglgithubx/blog/tree/master/source/_posts/%E5%BE%AE%E4%BF%A1%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95%E5%AE%9E%E7%8E%B0.md" class="post-edit-link" title="编辑" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -275,7 +267,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-10-16 11:27:33" itemprop="dateCreated datePublished" datetime="2021-10-16T11:27:33+08:00">2021-10-16</time>
+      <time title="创建时间：2022-02-05 20:33:25" itemprop="dateCreated datePublished" datetime="2022-02-05T20:33:25+08:00">2022-02-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -283,7 +275,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+          <a href="/categories/%E5%BE%AE%E4%BF%A1%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">微信开发</span></a>
         </span>
     </span>
 
@@ -296,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">评论数：</span>
   
-    <a title="waline" href="/posts/35921.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/35921.html" itemprop="commentCount"></span>
+    <a title="waline" href="/18301#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/18301" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -307,7 +299,7 @@
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/35921.html"></span>
+      <span class="waline-pageview-count" data-path="/18301"></span>
     </span>
   
     <span class="post-meta-break"></span>
@@ -316,14 +308,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span>3.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>3 分钟</span>
     </span>
 </div>
 
@@ -334,210 +326,28 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h3 id="you-lai">由来</h3>
-<p>Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。</p>
+        <h2 id="需求-2">需求</h2>
+<p>使用微信扫码登录的授权方式登录系统</p>
 <span id="more"></span>
-<h3 id="kmp-suan-fa-shi-shi-yao">KMP算法是什么</h3>
-<p>KMP算法主要应用于字符串的快速匹配。</p>
-<p>比如在给定字符串中，让你找一个目标子串，常规的解法就是暴力匹配，用双层for循环分别遍历两个字符串，但是它的时间复杂度是O(m*n)。而KMP算法可以让这个匹配过程降到时间复杂度为O(m+n)。</p>
-<h3 id="kmp-suan-fa-wei-shi-yao-na-yao-kuai">KMP算法为什么那么快</h3>
-<h4 id="ju-ge">举个🌰</h4>
-<p>在文本串（aabaabaaf）中，找到第一次匹配到模式串（aabaaf）的索引。</p>
-<p>KMP算法匹配的过程：</p>
-<p>①和常规解法一样，从文本串首字符和模式串的首字符开始，一 一进行比较</p>
-<p>②当遇到不匹配的时候，如下图</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png" alt="image-20211017101822955"></p>
-<p>模式串会从b的位置开始匹配，文本串匹配的位置不变</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171106451.png" alt="image-20211017110657407"></p>
-<p>到这里，肯定会有疑问：会什么从b开始？</p>
-<p>下面的概念都是模式串的。</p>
-<p>这里会提到几个概念：前缀、后缀和 最大公共字符长度表（前缀表）</p>
-<ul>
-<li>
-<p>前缀：除了末尾字符之外的所有字符</p>
-</li>
-<li>
-<p>后缀：除了首字符之外的所有字符</p>
-</li>
-<li>
-<p>最大公共字符长度表：每个子串中最长相同的前后缀字符长度</p>
-</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>模式串的各个子串</th>
-<th>前缀</th>
-<th>后缀</th>
-<th>最大公共字符长度</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>空</td>
-<td>空</td>
-<td>0</td>
-</tr>
-<tr>
-<td>aa</td>
-<td>a</td>
-<td>a</td>
-<td>1</td>
-</tr>
-<tr>
-<td>aab</td>
-<td>a,aa</td>
-<td>b,ba</td>
-<td>0</td>
-</tr>
-<tr>
-<td>aaba</td>
-<td>a,aa,aab</td>
-<td>a,ba,aba</td>
-<td>1</td>
-</tr>
-<tr>
-<td>aabaa</td>
-<td>a,aa,aab,aaba</td>
-<td>a,aa,baa,abaa</td>
-<td>2</td>
-</tr>
-<tr>
-<td>aabaaf</td>
-<td>a,aa,aab,aabaa</td>
-<td>f,af,aaf,baaf,abaaf</td>
-<td>0</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>为什么有最大公共字符长度表？</p>
-<p>这个表，可以在你匹配失败时，跳跃式的匹配，避免重复已经匹配相同的字符。</p>
-<p>③直到将文本串匹配完</p>
-<h4 id="ju-ge-wan-zheng-de">举个完整的🌰</h4>
-<p>文本串：BBC ABCDAB ABCDABCDABDE</p>
-<p>模式串：ABCDABD</p>
-<p>前缀表：</p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>A</th>
-<th>B</th>
-<th>D</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>最大前缀后缀公共元素长度</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>这个例子咱们就根据这个前缀表去跳跃式的匹配（表中的数值代表跳跃到模式串索引）</p>
-<p>①开始匹配</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151156.png" alt="img"></p>
-<p>② 因为模式串中的字符A跟文本串中的字符B、B、C、空格一开始就不匹配，所以不必考虑结论，直接将模式串不断的右移一位即可，直到模式串中的字符A跟文本串的第5个字符A匹配成功：</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151451.png" alt="img"></p>
-<p>③继续往后匹配，当模式串最后一个字符D跟文本串匹配时失配，显而易见，模式串需要向右移动。但向右移动多少位呢？因为此时已经匹配的字符数为6个（ABCDAB），然后根据《前缀表》可得失配字符D的上一位字符B对应的长度值为2，所以根据之前的结论，可知需要向右移动6 - 2 = 4 位。</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171152957.png" alt="img"></p>
-<p>④模式串向右移动4位后，发现C处再度失配，因为此时已经匹配了2个字符（AB），且上一位字符B对应的最大长度值为0，所以向右移动：2 - 0 =2 位。</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171153610.png" alt="img"></p>
-<p>⑤A与空格不匹配，向右移动1位</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154064.png" alt="img"></p>
-<p>⑥继续比较，发现D与C 失配，故向右移动的位数为：已匹配的字符数6减去上一位字符B对应的最大长度2，即向右移动6 - 2 = 4 位。</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154305.png" alt="img"></p>
-<p>⑦经历第5步后，发现匹配成功，过程结束。</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171155335.png" alt="img"></p>
-<p>至此这就是KMP算法的大致原理。</p>
-<h3 id="kmp-suan-fa-dai-ma-shi-xian">KMP算法代码实现</h3>
-<p>由上文，我们已经知道，字符串“ABCDABD”各个前缀后缀的最大公共元素长度分别为：</p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>A</th>
-<th>B</th>
-<th>D</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>最大前缀后缀公共元素长度</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>而且，根据这个表可以得出下述结论</p>
-<p>当失配时，模式串向右移动的位数为：已匹配字符数-失配字符的上一位字符所对应的最大长度值</p>
-<p>文利用这个表和结论进行匹配时，我们发现，当匹配到一个字符失配时，其实没必要考虑当前失配的字符，更何况我们每次失配时，都是看的失配字符的上一位字符对应的最大长度值。如此，便引出了next 数组。</p>
-<p>给定字符串“ABCDABD”，可求得它的next 数组如下：</p>
-<table>
-<thead>
-<tr>
-<th>字符</th>
-<th>A</th>
-<th>B</th>
-<th>C</th>
-<th>D</th>
-<th>A</th>
-<th>B</th>
-<th>D</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>next</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>2</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<h4 id="next-shu-zu-qiu-fa">Next数组求法</h4>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">GetNext</span><span class="params">(<span class="type">char</span>* p,<span class="type">int</span> next[])</span>  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">pLen</span> <span class="operator">=</span> strlen(p);  </span><br><span class="line">    next[<span class="number">0</span>] = -<span class="number">1</span>;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> -<span class="number">1</span>;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">while</span> (j &lt; pLen - <span class="number">1</span>)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="comment">//p[k]表示前缀，p[j]表示后缀  </span></span><br><span class="line">        <span class="keyword">if</span> (k == -<span class="number">1</span> || p[j] == p[k])   </span><br><span class="line">        &#123;  </span><br><span class="line">            ++k;  </span><br><span class="line">            ++j;  </span><br><span class="line">            next[j] = k;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>   </span><br><span class="line">        &#123;  </span><br><span class="line">            k = next[k];  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
-<p>KMP算法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">KmpSearch</span><span class="params">(<span class="type">char</span>* s, <span class="type">char</span>* p)</span>  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">sLen</span> <span class="operator">=</span> strlen(s);  </span><br><span class="line">    <span class="type">int</span> <span class="variable">pLen</span> <span class="operator">=</span> strlen(p);  </span><br><span class="line">    <span class="keyword">while</span> (i &lt; sLen &amp;&amp; j &lt; pLen)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="comment">//①如果j = -1，或者当前字符匹配成功（即S[i] == P[j]），都令i++，j++      </span></span><br><span class="line">        <span class="keyword">if</span> (j == -<span class="number">1</span> || s[i] == p[j])  </span><br><span class="line">        &#123;  </span><br><span class="line">            i++;  </span><br><span class="line">            j++;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="comment">//②如果j != -1，且当前字符匹配失败（即S[i] != P[j]），则令 i 不变，j = next[j]      </span></span><br><span class="line">            <span class="comment">//next[j]即为j所对应的next值        </span></span><br><span class="line">            j = next[j];  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (j == pLen)  </span><br><span class="line">        <span class="keyword">return</span> i - j;  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<h2 id="实现">实现</h2>
+<p>此扫码登陆过程中使用了，微信开放平台（需支付300开通开发者认证）的网站应用实现的。</p>
+<p>官方文档：<a target="_blank" rel="external nofollow noopener noreferrer" href="https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html">https://developers.weixin.qq.com/doc/oplatform/Website_App/WeChat_Login/Wechat_Login.html</a></p>
+<h3 id="流程：">流程：</h3>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202202052041625.png" alt="image-20220205204119502"></p>
+<p>大概就是：前端调接口获取后端生成的state（可以用验证登录授权的有效性）——&gt;用户扫码后确认授权——&gt;前端开始调用微信开放平台的接口之后回调服务端接口——&gt;回调时传入了两个参数，code和state——&gt;根据code，appid和appSecret调用接口获取access_token——根据access_token获取微信用户的个人信息</p>
+<h3 id="代码：">代码：</h3>
+<h4 id="前端vue：">前端vue：</h4>
+<h5 id="安装一个插件：">安装一个插件：</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install vue-wxlogin --save-dev</span><br></pre></td></tr></table></figure>
+<h5 id="引入组件：">引入组件：</h5>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;wxlogin</span><br><span class="line">         appid=&quot;xxxxxx&quot;</span><br><span class="line">         :scope=&quot;&#x27;snsapi_login&#x27;&quot;</span><br><span class="line">         theme=&quot;black&quot;</span><br><span class="line">         redirect_uri=&quot;redirectUrl&quot;</span><br><span class="line">         :state=&quot;xxxxxx&quot;</span><br><span class="line">         :self_redirect=&quot;&#x27;true&#x27;&quot;</span><br><span class="line">         rel=&quot;external nofollow&quot;</span><br><span class="line">         /&gt;</span><br></pre></td></tr></table></figure>
+<p>注：重定向地址需要使用urlEncode对链接进行处理</p>
+<h4 id="后端SpringBoot：">后端SpringBoot：</h4>
+<h5 id="后端生成state接口">后端生成state接口</h5>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation(value = &quot;企业端：获取扫码登录的state&quot;, notes = &quot; \n author：ZhuGuangLiang&quot;)</span></span><br><span class="line"><span class="meta">@AnonymousGetMapping(&quot;/wx/qrcode&quot;)</span></span><br><span class="line"><span class="keyword">public</span> Result&lt;Object&gt; <span class="title function_">getQrCode</span><span class="params">()</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="comment">//生成票据</span></span><br><span class="line">    String state= IdUtil.simpleUUID();</span><br><span class="line">    <span class="comment">//可以将state参数作为存放在redis中的授权用户信息key键</span></span><br><span class="line">    redisUtils.set(state, JSON.toJSON(<span class="keyword">new</span> <span class="title class_">CompanyWxDTO</span>()), <span class="number">5</span> * <span class="number">60</span>);</span><br><span class="line">    <span class="keyword">return</span> Result.success(state);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="回调接口，并携带state和code参数">回调接口，并携带state和code参数</h5>
+<p>注：回调接口，尽量不要抛出异常，异常可以在登录接口抛出</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ApiOperation(value = &quot;企业端：微信用户授权后，回调地址&quot;, notes = &quot; \n author：ZhuGuangLiang&quot;)</span></span><br><span class="line"><span class="meta">@AnonymousGetMapping(&quot;/wx/callback&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">callback</span><span class="params">(String code, String state)</span> &#123;</span><br><span class="line">    companyAuthService.callback(code, state);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//方法中所有第三方接口都可在官方文档中找到</span></span><br><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">callback</span><span class="params">(String code, String state)</span> &#123;</span><br><span class="line">    <span class="comment">//authurl获取access_token的接口，可以看官方文档中的第二步</span></span><br><span class="line">    <span class="type">JSONObject</span> <span class="variable">resultAuthUrl</span> <span class="operator">=</span> JSONObject.parseObject(HttpUtil.get(String.format(authUrl, appid, secret, code)));</span><br><span class="line">    <span class="type">boolean</span> <span class="variable">isSuccess</span> <span class="operator">=</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">if</span> (resultAuthUrl.containsKey(<span class="string">&quot;errcode&quot;</span>)) &#123;</span><br><span class="line">        log.error(<span class="string">&quot;授权失败&quot;</span>);</span><br><span class="line">        isSuccess = <span class="literal">false</span>;</span><br><span class="line">        <span class="comment">//			throw new BadRequestException(ResultEnum.USER_NO_AUTH);</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">String</span> <span class="variable">openid</span> <span class="operator">=</span> resultAuthUrl.getString(<span class="string">&quot;openid&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">accessToken</span> <span class="operator">=</span> resultAuthUrl.getString(<span class="string">&quot;access_token&quot;</span>);</span><br><span class="line">    <span class="type">String</span> <span class="variable">refreshToken</span> <span class="operator">=</span> resultAuthUrl.getString(<span class="string">&quot;refresh_token&quot;</span>);</span><br><span class="line">    <span class="comment">//根据code获取access_toke</span></span><br><span class="line">    LambdaQueryWrapper&lt;SpiritCompanyUser&gt; queryWrapper = <span class="keyword">new</span> <span class="title class_">LambdaQueryWrapper</span>&lt;&gt;();</span><br><span class="line">    queryWrapper.eq(SpiritCompanyUser::getOpenid, openid);</span><br><span class="line">    <span class="type">CompanyWxDTO</span> <span class="variable">companyWxDTO</span> <span class="operator">=</span> loginUtils.noExceptinCheckCompanyUser(queryWrapper);</span><br><span class="line">    <span class="type">int</span> <span class="variable">type</span> <span class="operator">=</span> companyWxDTO.getType();</span><br><span class="line">    <span class="keyword">if</span> (!isSuccess) &#123;</span><br><span class="line">        <span class="comment">//登录失败，此时我使用type类型去记录每一种异常</span></span><br><span class="line">        companyWxDTO.setType(<span class="number">7</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (type == <span class="number">1</span> &amp;&amp; isSuccess) &#123;</span><br><span class="line">        <span class="comment">//校验授权凭证</span></span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">resultCheckToken</span> <span class="operator">=</span> JSONObject.parseObject(HttpUtil.get(String.format(checkTokenUrl, accessToken, openid)));</span><br><span class="line">        <span class="keyword">if</span> (resultCheckToken.getInteger(<span class="string">&quot;errcode&quot;</span>) == <span class="number">40003</span>) &#123;</span><br><span class="line">            <span class="comment">//刷新token，防止出现token失效</span></span><br><span class="line">            <span class="type">JSONObject</span> <span class="variable">resultRefreshToken</span> <span class="operator">=</span> JSONObject.parseObject(HttpUtil.get(String.format(refreshTokenUrl, appid, refreshToken)));</span><br><span class="line">            accessToken = resultRefreshToken.getString(<span class="string">&quot;access_token&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//获取用户信息</span></span><br><span class="line">        <span class="type">JSONObject</span> <span class="variable">resultUserInfoUrl</span> <span class="operator">=</span> JSONObject.parseObject(HttpUtil.get(String.format(userInfoUrl, accessToken, openid)));</span><br><span class="line">        log.info(<span class="string">&quot;resultUserInfoUrl:&quot;</span> + resultUserInfoUrl.toString());</span><br><span class="line">        <span class="keyword">if</span> (resultUserInfoUrl.containsKey(<span class="string">&quot;errcode&quot;</span>)) &#123;</span><br><span class="line">            log.error(<span class="string">&quot;获取用户信息失败&quot;</span>);</span><br><span class="line">            <span class="comment">//同上</span></span><br><span class="line">            companyWxDTO.setType(<span class="number">8</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        companyWxDTO.setAvatarUrl(resultUserInfoUrl.getString(<span class="string">&quot;headimgurl&quot;</span>));</span><br><span class="line">        companyWxDTO.setNickName(resultUserInfoUrl.getString(<span class="string">&quot;nickname&quot;</span>));</span><br><span class="line">        companyWxDTO.setOpenid(openid);</span><br><span class="line">        companyWxDTO.setUnionid(resultUserInfoUrl.getString(<span class="string">&quot;unionid&quot;</span>));</span><br><span class="line">        log.info(<span class="string">&quot;微信用户授权成功&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    companyWxDTO.setTicket(state);</span><br><span class="line">    redisUtils.set(state, JSON.toJSON(companyWxDTO), <span class="number">5</span> * <span class="number">60</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -555,7 +365,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zglgithubx.github.io/posts/35921.html" title="KMP算法">https://zglgithubx.github.io/posts/35921.html</a>
+      <a href="https://zglgithubx.github.io/18301" title="微信扫码登录实现">https://zglgithubx.github.io/18301</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -564,20 +374,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
+              <a href="/tags/%E6%89%AB%E7%A0%81%E7%99%BB%E5%BD%95/" rel="tag"><i class="fa fa-tag"></i> 扫码登录</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/33202.html" rel="prev" title="数据结构之循环队列">
-                  <i class="fa fa-chevron-left"></i> 数据结构之循环队列
+                <a href="/29622" rel="prev" title="微信服务平台快速开发小程序">
+                  <i class="fa fa-chevron-left"></i> 微信服务平台快速开发小程序
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/49673.html" rel="next" title="消息队列之RabbitMQ学习笔记">
-                  消息队列之RabbitMQ学习笔记 <i class="fa fa-chevron-right"></i>
+                <a href="/4359" rel="next" title="微信小程序提现功能实现">
+                  微信小程序提现功能实现 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -599,7 +409,7 @@
 
 
 <div class="copyright">
-  &copy; 
+  &copy; 2021 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -622,6 +432,8 @@
     <span title="站点阅读时长">2:12</span>
   </span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
 
     </div>
   </footer>
@@ -663,9 +475,9 @@
 
 
   <script src="https://unpkg.com/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/posts/35921.html"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/18301"}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/posts/35921.html"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/18301"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

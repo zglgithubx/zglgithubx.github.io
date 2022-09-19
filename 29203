@@ -28,33 +28,32 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zglgithubx.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":2,"unescape":true,"preload":false}}</script><script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/config.js"></script>
 
-    <meta name="description" content="为充分利用向量空间，克服&quot;假溢出&quot;现象的方法是：将向量空间想象为一个首尾相接的圆环，并称这种向量为循环向量。存储在其中的队列称为循环队列（Circular Queue）。循环队列是把顺序队列首尾相连，把存储队列元素的表从逻辑上看成一个环，成为循环队列。">
+    <meta name="description" content="what 哈夫曼树是一颗最优二叉树，带权路径长度最小的二叉树，经常来用来进行数据压缩。 why 为什么这棵树是最优的？ 一个棵树是不是最优的，要看它是否满足构建的这棵树的带权路径长度最小。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="数据结构之循环队列">
-<meta property="og:url" content="https://zglgithubx.github.io/posts/33202.html">
+<meta property="og:title" content="哈夫曼树">
+<meta property="og:url" content="https://zglgithubx.github.io/29203">
 <meta property="og:site_name" content="Bug">
-<meta property="og:description" content="为充分利用向量空间，克服&quot;假溢出&quot;现象的方法是：将向量空间想象为一个首尾相接的圆环，并称这种向量为循环向量。存储在其中的队列称为循环队列（Circular Queue）。循环队列是把顺序队列首尾相连，把存储队列元素的表从逻辑上看成一个环，成为循环队列。">
+<meta property="og:description" content="what 哈夫曼树是一颗最优二叉树，带权路径长度最小的二叉树，经常来用来进行数据压缩。 why 为什么这棵树是最优的？ 一个棵树是不是最优的，要看它是否满足构建的这棵树的带权路径长度最小。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061150819.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061424940.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061440374.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061514889.png">
-<meta property="article:published_time" content="2021-10-05T09:24:09.000Z">
-<meta property="article:modified_time" content="2022-09-18T11:53:54.060Z">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202109221714863.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202109221713874.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202109221715998.png">
+<meta property="article:published_time" content="2021-09-18T00:44:45.000Z">
+<meta property="article:modified_time" content="2022-09-19T01:59:06.653Z">
 <meta property="article:author" content="火花">
-<meta property="article:tag" content="队列">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061150819.png">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202109221714863.png">
 
 
-<link rel="canonical" href="https://zglgithubx.github.io/posts/33202.html">
+<link rel="canonical" href="https://zglgithubx.github.io/29203">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/posts/33202.html","path":"posts/33202.html","title":"数据结构之循环队列"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/29203","path":"/29203","title":"哈夫曼树"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>数据结构之循环队列 | Bug</title>
+<title>哈夫曼树 | Bug</title>
   
 
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/analytics/baidu-analytics.js"></script>
@@ -163,13 +162,13 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#xun-huan-dui-lie-san-chong-qing-kuang"><span class="nav-number">1.</span> <span class="nav-text">循环队列三种情况</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#what"><span class="nav-number">1.</span> <span class="nav-text">what</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#why"><span class="nav-number">2.</span> <span class="nav-text">why</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jfif">
+    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jpg">
   <p class="site-author-name" itemprop="name">火花</p>
   <div class="site-description" itemprop="description">飞蛾善拂灯，一名火花，一名慕光</div>
 </div>
@@ -241,10 +240,10 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/33202.html">
+    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/29203">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/logo.jfif">
+      <meta itemprop="image" content="/img/logo.jpg">
       <meta itemprop="name" content="火花">
     </span>
 
@@ -254,12 +253,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="数据结构之循环队列 | Bug">
+      <meta itemprop="name" content="哈夫曼树 | Bug">
       <meta itemprop="description" content>
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数据结构之循环队列<a href="https://github.com/zglgithubx/blog/tree/master/source/_posts/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97.md" class="post-edit-link" title="编辑" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          哈夫曼树<a href="https://github.com/zglgithubx/blog/tree/master/source/_posts/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91.md" class="post-edit-link" title="编辑" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -270,7 +269,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2021-10-05 17:24:09" itemprop="dateCreated datePublished" datetime="2021-10-05T17:24:09+08:00">2021-10-05</time>
+      <time title="创建时间：2021-09-18 08:44:45" itemprop="dateCreated datePublished" datetime="2021-09-18T08:44:45+08:00">2021-09-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -291,8 +290,8 @@
     </span>
     <span class="post-meta-item-text">评论数：</span>
   
-    <a title="waline" href="/posts/33202.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/33202.html" itemprop="commentCount"></span>
+    <a title="waline" href="/29203#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/29203" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -302,7 +301,7 @@
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/33202.html"></span>
+      <span class="waline-pageview-count" data-path="/29203"></span>
     </span>
   
     <span class="post-meta-break"></span>
@@ -311,7 +310,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>545</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -329,64 +328,68 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>为充分利用向量空间，克服&quot;<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E5%81%87%E6%BA%A2%E5%87%BA/11050937">假溢出</a>&quot;现象的方法是：将向量空间想象为一个首尾相接的圆环，并称这种向量为循环向量。存储在其中的队列称为循环队列（Circular Queue）。循环队列是把<a target="_blank" rel="external nofollow noopener noreferrer" href="https://baike.baidu.com/item/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97/20832734">顺序队列</a>首尾相连，把存储队列元素的表从逻辑上看成一个环，成为循环队列。</p>
+        <h3 id="what">what</h3>
+<p>哈夫曼树是一颗最优二叉树，带权路径长度最小的二叉树，经常来用来进行数据压缩。</p>
+<h3 id="why">why</h3>
+<h4 id="为什么这棵树是最优的？">为什么这棵树是最优的？</h4>
+<p>一个棵树是不是最优的，要看它是否满足构建的这棵树的带权路径长度最小。</p>
 <span id="more"></span>
-<h3 id="xun-huan-dui-lie-san-chong-qing-kuang">循环队列三种情况</h3>
-<h4 id="1">1、</h4>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061150819.png" alt="image-20211006115040686"></p>
+<p>在证明哈夫曼树是一颗最优二叉树之前，要先知道这几个概念：</p>
 <ul>
-<li>
-<p>front指向头元素的前一个元素</p>
-</li>
-<li>
-<p>rear指向队尾元素</p>
-</li>
-<li>
-<p>对空、入队和队满情况判断：</p>
-<ul>
-<li>队空：front=rear</li>
-<li>入队：rear=（rear+1）%maxsize，每次元素进入队列，队尾指针rear向后移动 一位。
-<ul>
-<li>queue【rear】=x</li>
+<li>路径：从树中一个节点到另一个节点之间的分支构成这两个节点之间的路径。</li>
+<li>路径长度：从根节点开始计数到该节点，路径上的分支数目称作路径长度。</li>
+<li>权：也称为权值，指的是节点的属性数值。</li>
+<li>树的带权路径长度：树中所有叶子节点的带权路径长度之和，一般用WPL表示。</li>
 </ul>
-</li>
-<li>队满：front==(rear+1)%maxsize</li>
-</ul>
-</li>
-<li>
-<p>根据rear和front计算队列长度：</p>
-<ul>
-<li>当rear&gt;front
-<ul>
-<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061424940.png" alt="image-20211006142409854"></li>
-<li>很容易得到队列长度为：rear-front</li>
-</ul>
-</li>
-<li>当rear&lt;front
-<ul>
-<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061440374.png" alt="image-20211006144049313">
-<ul>
-<li>因为是循环队列，rear的位置可以在front的前面，此时队列长度为：rear+1+maxsize-front-1=rear-front+maxsize
-<ul>
-<li>rear+ 1为其中一段的长度</li>
-<li>maxsize-front-1为另一段的长度</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2">2、</h4>
-<h4 id="img-src-https-mynotepicture-oss-cn-hangzhou-aliyuncs-com-img-202110061514889-png-alt-image-20211006151401822"><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110061514889.png" alt="image-20211006151401822"></h4>
-<ul>
-<li>front指向头元素</li>
-<li>rear指向队尾的后一个元素</li>
-<li>队满：front=(rear+1)%maxsize</li>
-<li>队列长度：(rear-front+max)%maxsize</li>
-</ul>
-</li>
-</ul>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202109221714863.png" alt="avatar"></p>
+<p>如上图中，a的权值为7，路径长度为1；b的权值为5，路径长度为2。</p>
+<p>树的带权路径长度WPL=7x1+5x2+2x3+4x3=35</p>
+<p>知道了这些，那为什么是最优的，知道构建的哈夫曼树，你就知道为什么了。</p>
+<p>对于给定的有各自权值的 n 个结点，构建哈夫曼树有一个行之有效的办法：</p>
+<ol>
+<li>在 n 个权值中选出两个最小的权值，对应的两个结点组成一个新的二叉树，且新二叉树的根结点的权值为左右孩子权值的和；</li>
+<li>在原有的 n 个权值中删除那两个最小的权值，同时将新的权值加入到 n–2 个权值的行列中，以此类推；</li>
+<li>重复 1 和 2 ，直到所以的结点构建成了一棵二叉树为止，这棵树就是哈夫曼树。</li>
+</ol>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202109221713874.png" alt="img"></p>
+<p>在上图中（A）给定了四个结点a，b，c，d，权值分别为7，5，2，4；第一步如（B）所示，找出现有权值中最小的两个，2 和 4 ，相应的结点 c 和 d 构建一个新的二叉树，树根的权值为 2 + 4 = 6，同时将原有权值中的 2 和 4 删掉，将新的权值 6 加入；进入（C），重复之前的步骤。直到（D）中，所有的结点构建成了一个全新的二叉树，这就是哈夫曼树。</p>
+<p>哈夫曼树在构建的过程中，将最短的路径，巧妙的给了权值最大的，最长的路径给了权值最小的，所以可使WPL最小。</p>
+<h4 id="为什么可以用来进行数据压缩（无损压缩）？">为什么可以用来进行数据压缩（无损压缩）？</h4>
+<p>压缩不外乎就是对数据的编码处理，使其占用的内存更小。</p>
+<p>在数据压缩中，有一种叫做无损压缩，它其中的原理利用了哈夫曼编码，哈夫曼编码相当于哈夫曼树理论的实践。</p>
+<p>哈夫曼编码，是一种非常巧妙的编码方式，而且也是可变的，依据字符出现的概率来决定字符编码长度。</p>
+<p>在编码时，首先根据待编码的文本统计出每个字符出现的概率，组成初始的节点。然后每次取出概率最小的两个节点，新建一个节点，使得新建节点的左右儿子为选取的两个节点，并且其概率是两个节点概率之和，把新建的节点再放进所有节点中重新选择最小的两个节点。重复此过程直到只剩一个节点，这个就是哈夫曼树的根节点。</p>
+<p>以下以字符串&quot;aaaaaabbbbccddd&quot;为例进行说明，为了方便，以字符出现的频数来代替频率（实际中通常使用的是频率，二者效果上是一样的），经过统计，可以知道每个字符出现的频数为：</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>c</th>
+<th>d</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>4</td>
+<td>2</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>具体建树过程如下：</p>
+<ol>
+<li>首先节点权值为6、4、2、3，选择最小的2和3，组成一个根节点为5的组合节点。</li>
+<li>当前节点权值为6、4、5，选择最小的4和5，组成一个根节点为9的组合节点。</li>
+<li>当前节点权值为6、9，选择最小的6和9，组成一个根节点为15的组合节点。</li>
+<li>当前节点权值为15，只有一个节点，哈夫曼树建立完成。<img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202109221715998.png" alt="avatar"></li>
+</ol>
+<p>要从哈夫曼树得到每个字符的编码，只要在哈夫曼树中从根节点遍历到该字符节点，每次向左走时加一个0，向右走时加一个1，最终得到的字符串即为该字符的编码字符串。</p>
+<p>如从上图可以看到，a的编码为0，b的编码为10，c的编码为110，d的编码为111。</p>
+<p>哈夫曼编码之所以可以这样解码，是因为它是一种前缀编码，任何一个字符的编码都不会是另一个字符编码的前缀。于是给定一个编码后的串，其解码的结果是唯一的。</p>
+<p>最终经过哈夫曼编码后为：  0 0 0 0 0 0 10 10 10 10 110 110 111 111 111 一共为31位，在原始的数据中，一个字符占用3bit, 一共需要45bit</p>
+<p>一串字符串，经过哈夫曼编码从45bit压缩到了31bit。因为在这个过程没有数据的丢失，所以是无损压缩。</p>
 
     </div>
 
@@ -404,7 +407,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zglgithubx.github.io/posts/33202.html" title="数据结构之循环队列">https://zglgithubx.github.io/posts/33202.html</a>
+      <a href="https://zglgithubx.github.io/29203" title="哈夫曼树">https://zglgithubx.github.io/29203</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -413,20 +416,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/%E9%98%9F%E5%88%97/" rel="tag"><i class="fa fa-tag"></i> 队列</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/29203.html" rel="prev" title="哈夫曼树">
-                  <i class="fa fa-chevron-left"></i> 哈夫曼树
+                <a href="/31819" rel="prev" title="Java爬虫实践">
+                  <i class="fa fa-chevron-left"></i> Java爬虫实践
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/35921.html" rel="next" title="KMP算法">
-                  KMP算法 <i class="fa fa-chevron-right"></i>
+                <a href="/33202" rel="next" title="数据结构之循环队列">
+                  数据结构之循环队列 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -448,7 +451,7 @@
 
 
 <div class="copyright">
-  &copy; 
+  &copy; 2021 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -471,6 +474,8 @@
     <span title="站点阅读时长">2:12</span>
   </span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
 
     </div>
   </footer>
@@ -512,9 +517,9 @@
 
 
   <script src="https://unpkg.com/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/posts/33202.html"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/29203"}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/posts/33202.html"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/29203"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

@@ -31,7 +31,7 @@
     <meta name="description" content="——摘录自《MySQL是怎样运行的》">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="MySQL学习">
-<meta property="og:url" content="https://zglgithubx.github.io/posts/5303.html">
+<meta property="og:url" content="https://zglgithubx.github.io/5303">
 <meta property="og:site_name" content="Bug">
 <meta property="og:description" content="——摘录自《MySQL是怎样运行的》">
 <meta property="og:locale" content="zh_CN">
@@ -50,18 +50,18 @@
 <meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/v2-5c5f873aa349954a66f580866d184b40_720w.jpg">
 <meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/v2-983d6442b506e0c37e397115158071c6_720w.jpg">
 <meta property="article:published_time" content="2022-06-04T13:02:37.000Z">
-<meta property="article:modified_time" content="2022-09-18T11:53:54.056Z">
+<meta property="article:modified_time" content="2022-09-19T01:59:06.653Z">
 <meta property="article:author" content="火花">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/image-20220511172235587.png">
 
 
-<link rel="canonical" href="https://zglgithubx.github.io/posts/5303.html">
+<link rel="canonical" href="https://zglgithubx.github.io/5303">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/posts/5303.html","path":"posts/5303.html","title":"MySQL学习"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/5303","path":"/5303","title":"MySQL学习"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>MySQL学习 | Bug</title>
@@ -173,13 +173,13 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-zi-fu-ji-he-bi-jiao-gui-ze"><span class="nav-number">1.</span> <span class="nav-text">1、字符集和比较规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-inno-db-ji-lu-cun-chu-jie-gou"><span class="nav-number">2.</span> <span class="nav-text">2、InnoDB记录存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-inno-db-de-shu-ju-ye"><span class="nav-number">3.</span> <span class="nav-text">3、InnoDB的数据页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-b-shu-suo-yin"><span class="nav-number">4.</span> <span class="nav-text">4、B+树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-b-shu-suo-yin-de-shi-yong"><span class="nav-number">5.</span> <span class="nav-text">5、B+树索引的使用</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E5%AD%97%E7%AC%A6%E9%9B%86%E5%92%8C%E6%AF%94%E8%BE%83%E8%A7%84%E5%88%99"><span class="nav-number">1.</span> <span class="nav-text">1、字符集和比较规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81InnoDB%E8%AE%B0%E5%BD%95%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="nav-number">2.</span> <span class="nav-text">2、InnoDB记录存储结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81InnoDB%E7%9A%84%E6%95%B0%E6%8D%AE%E9%A1%B5"><span class="nav-number">3.</span> <span class="nav-text">3、InnoDB的数据页</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81B-%E6%A0%91%E7%B4%A2%E5%BC%95"><span class="nav-number">4.</span> <span class="nav-text">4、B+树索引</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5%E3%80%81B-%E6%A0%91%E7%B4%A2%E5%BC%95%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">5、B+树索引的使用</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jfif">
+    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jpg">
   <p class="site-author-name" itemprop="name">火花</p>
   <div class="site-description" itemprop="description">飞蛾善拂灯，一名火花，一名慕光</div>
 </div>
@@ -251,10 +251,10 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/5303.html">
+    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/5303">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/logo.jfif">
+      <meta itemprop="image" content="/img/logo.jpg">
       <meta itemprop="name" content="火花">
     </span>
 
@@ -301,8 +301,8 @@
     </span>
     <span class="post-meta-item-text">评论数：</span>
   
-    <a title="waline" href="/posts/5303.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/5303.html" itemprop="commentCount"></span>
+    <a title="waline" href="/5303#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/5303" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -312,7 +312,7 @@
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/5303.html"></span>
+      <span class="waline-pageview-count" data-path="/5303"></span>
     </span>
   
     <span class="post-meta-break"></span>
@@ -341,16 +341,16 @@
     <div class="post-body" itemprop="articleBody">
         <p>——摘录自《MySQL是怎样运行的》</p>
 <span id="more"></span>
-<h3 id="1-zi-fu-ji-he-bi-jiao-gui-ze">1、字符集和比较规则</h3>
-<h4 id="1-1-zi-fu-ji-jian-jie">1.1、字符集简介</h4>
+<h3 id="1、字符集和比较规则">1、字符集和比较规则</h3>
+<h4 id="1-1、字符集简介">1.1、字符集简介</h4>
 <p>字符集是人们抽象出来一个字符集的概念来描述某个字符范围的编码规则，简单的来说就是在某个范围的字符建立与二进制数据的映射关系（编码规则）。</p>
-<h4 id="1-2-bi-jiao-gui-ze-jian-jie">1.2、比较规则简介</h4>
+<h4 id="1-2、比较规则简介">1.2、比较规则简介</h4>
 <p>对某个字符集中比较大小的规则。比如字符’a‘的编码为0x01,字符’b‘的编码为0x02，所以’a’小于’b’。这种简单的比较规则也可以称为二进制比较规则。但在很多场合下，英文字符都是不区分大小写额，也就是’a’和‘A’是相等的。此时就不可以简单粗暴地使用二进制比较规则，此时可以这样指定比较规则：</p>
 <ul>
 <li>将两个大小写不同的字符都转为大写或者小写。</li>
 <li>再比较这两个字符对应的二进制数据。</li>
 </ul>
-<h4 id="1-3-chang-jian-de-zi-fu-ji">1.3、常见的字符集</h4>
+<h4 id="1-3、常见的字符集">1.3、常见的字符集</h4>
 <ul>
 <li>ASCII字符集（1字节）：共收录128个字符，包括空格、标点符号、数字、大小写字母和一些不可见字符。由于该字符集总共才128个字符，所以可以使用一个字节来进行编码。
 <ul>
@@ -382,20 +382,20 @@
 </ul>
 </li>
 </ul>
-<h4 id="1-4-my-sql-zhong-de-utf-8-he-utf-8-mb-4">1.4、MySQL中的utf8和utf8mb4</h4>
+<h4 id="1-4、MySQL中的utf8和utf8mb4">1.4、MySQL中的utf8和utf8mb4</h4>
 <ul>
 <li>utf8mb3：“阉割”过的utf-8字符集，使用1~3字节表示字符</li>
 <li>utf8mb4：正宗的utf-8字符集，使用1~4字节表示字符</li>
 </ul>
 <p>在mysql中，utf8是utf8mb3的别名，如果需要存储特殊的字符，可以使用4字符编码的utf8mb4</p>
-<h4 id="1-5-my-sql-zhong-de-zi-fu-ji-he-bi-jiao-gui-ze">1.5、MySQL中的字符集和比较规则</h4>
-<h5 id="cha-kan-dang-qian-mysql-zhi-chi-de-zi-fu-ji">查看当前mysql支持的字符集</h5>
+<h4 id="1-5、MySQL中的字符集和比较规则">1.5、MySQL中的字符集和比较规则</h4>
+<h5 id="查看当前mysql支持的字符集">查看当前mysql支持的字符集</h5>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> charset <span class="keyword">like</span> <span class="string">&#x27;utf8%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/image-20220511172235587.png" alt="image-20220511172235587"></p>
 <p>Charset:字符集名称<br>
 Default_collation:默认的比较规则<br>
 Maxlen:最大长度,utf8字符长度为1-3所以MaxLen为3 utf8mb4字符长度1-4所以Maxlen为4</p>
-<h5 id="cha-kan-dang-qian-mysql-zhong-zhi-chi-de-bi-jiao-gui-ze">查看当前mysql中支持的比较规则</h5>
+<h5 id="查看当前mysql中支持的比较规则">查看当前mysql中支持的比较规则</h5>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">collation</span> <span class="keyword">like</span> <span class="string">&#x27;utf8%&#x27;</span>;</span><br></pre></td></tr></table></figure>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/image-20220511172428267.png" alt="image-20220511172428267"></p>
 <p>Default:是否是当前字符集默认的比较规则<br>
@@ -405,7 +405,7 @@ Sortlen:与比较字符串在内存中需要的内存量有关</p>
 str1代表着比较规则所使用的的语言,比如 utf8_polish_xx表示波兰语的比较规则<br>
 str2代表着如何比较.<br>
 通常情况下我们会使用的是utf8_general_ci与utf8_bin,前者代表着不区分大小写,后者代表着区分大小写</p>
-<h5 id="zi-fu-ji-yu-bi-jiao-gui-ze-de-fen-lei">字符集与比较规则的分类</h5>
+<h5 id="字符集与比较规则的分类">字符集与比较规则的分类</h5>
 <p>按照应用级别可以分为服务器级别 数据库级别 表级别 列级别</p>
 <p><strong>服务器级别</strong></p>
 <p>字符集</p>
@@ -437,17 +437,17 @@ str2代表着如何比较.<br>
 服务器将要响应的数据以什么格式进行编码,比如<code>select name from aaa</code> name是以utf8编码的,character_set_results是gbk编码,那么会把查询的结果以gbk编码对客户端响应</p>
 <p><strong>客户端接收请求</strong></p>
 <p>客户端接收响应的请求后,会以什么编码的方式显示出来,默认就是当前系统的字符集</p>
-<h3 id="2-inno-db-ji-lu-cun-chu-jie-gou">2、InnoDB记录存储结构</h3>
-<h4 id="2-1-inno-db-ye-jian-jie">2.1、InnoDB页简介</h4>
+<h3 id="2、InnoDB记录存储结构">2、InnoDB记录存储结构</h3>
+<h4 id="2-1、InnoDB页简介">2.1、InnoDB页简介</h4>
 <p>页是Innodb中磁盘和内存交互的基本单位，也是Innodb管理存储空间的基本单位，默认大小为16KB。</p>
-<h4 id="2-2-inno-db-xing-ge-shi">2.2、InnoDB行格式</h4>
+<h4 id="2-2、InnoDB行格式">2.2、InnoDB行格式</h4>
 <p>我们平时是以记录为单位来向表中插入数据的，这些记录在磁盘上的存放方式也被称为行格式或者记录格式。InnoDB存储引擎设计了4种不同类型的行格式，分别是Compact、Redundant、Dynamic和Compressed行格式。</p>
-<h4 id="2-3-xing-ji-lu-ge-shi-de-fen-lei-he-jie-shao">2.3、行记录格式的分类和介绍</h4>
+<h4 id="2-3、行记录格式的分类和介绍">2.3、行记录格式的分类和介绍</h4>
 <p>在早期的InnoDB版本中，由于文件格式只有一种，因此不需要为此文件格式命名。随着InnoDB引擎的发展，开发出了不兼容早期版本的新文件格式，用于支持新的功能。为了在升级和降级情况下帮助管理系统的兼容性，以及运行不同的MySQL版本，InnoDB开始使用命名的文件格式。</p>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/b2caf96f361aa29ff2cd1bb511c638a0.png" alt="MySQL怎么从二进制内容看InnoDB行格式"></p>
 <p>在msyql 5.7.9及以后版本，默认行格式由innodb_default_row_format变量决定，它的默认值是dynamic</p>
-<h4 id="2-4-xing-ge-shi">2.4、行格式</h4>
-<h5 id="compact">COMPACT</h5>
+<h4 id="2-4、行格式">2.4、行格式</h4>
+<h5 id="COMPACT">COMPACT</h5>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/b93590226e885d956bfd5a96887c3fd7.png" alt="MySQL怎么从二进制内容看InnoDB行格式"></p>
 <p><strong>变长字段列表</strong></p>
 <p>MySQL支持一些变长的数据类型，比如VARCHAR(M)、VARBINARY(M)、各种TEXT类型，各种BLOB类型，我们也可以把拥有这些数据类型的列称为变长字段，变长字段中存储多少字节的数据是不固定的，所以我们在存储真实数据的时候需要顺便把这些数据占用的字节数也存起来。如果该可变字段允许存储的最大字节数（M×W）超过255字节并且真实存储的字节数（L）超过127字节，则使用2个字节记录，否则使用1个字节记录。</p>
@@ -518,37 +518,37 @@ str2代表着如何比较.<br>
 <p>InnoDB表对主键的生成策略是：优先使用用户自定义主键作为主键，如果用户没有定义主键，则选取一个Unique键作为主键，如果表中连Unique 键都没有定义的话，则InnoDB会为表默认添加一个名为row_id的隐藏列作为主键。</p>
 <p>DB_TRX_ID（也可以称为trx_id） 和DB_ROLL_PTR（也可以称为roll_ptr） 这两个列是必有的，但是row_id是可选的（在没有自定义主键以及Unique 键的情况下才会添加该列）。</p>
 <p>其他的行格式和Compact行格式差别不大。</p>
-<h5 id="redundant-xing-ge-shi">Redundant行格式</h5>
+<h5 id="Redundant行格式">Redundant行格式</h5>
 <p>Redundant行格式是MySQL5.0之前用的一种行格式，不予深究。</p>
-<h5 id="dynamic-xing-ge-shi">Dynamic行格式</h5>
+<h5 id="Dynamic行格式">Dynamic行格式</h5>
 <p>MySQL5.7的默认行格式就是Dynamic，Dynamic行格式和Compact行格式挺像，只不过在处理行溢出数据时有所不同。</p>
-<h5 id="compressed-xing-ge-shi">Compressed行格式</h5>
+<h5 id="Compressed行格式">Compressed行格式</h5>
 <p>Compressed行格式在Dynamic行格式的基础上会采用压缩算法对页面进行压缩，以节省空间。以zlib的算法进行压缩，因此对于BLOB、TEXT、VARCHAR这类大长度数据能够进行有效的存储（减少40%，但对CPU要求更高）。</p>
-<h5 id="shu-ju-yi-chu">数据溢出</h5>
+<h5 id="数据溢出">数据溢出</h5>
 <p>如果我们定义一个表，表中只有一个VARCHAR字段，如下：</p>
 <figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">CREATE</span> <span class="variable">TABLE</span> <span class="function"><span class="title">test_varchar</span>( <span class="variable">c</span> <span class="title">VARCHAR</span>(<span class="number">60000</span>))</span></span><br></pre></td></tr></table></figure>
 <p>然后往这个字段插入60000个字符，会发生什么？前边说过，MySQL中磁盘和内存交互的基本单位是页，也就是说MySQL是以页为基本单位来管理存储空间的，我们的记录都会被分配到某个页中存储。而一个页的大小一般是16KB，也就是16384字节，而一个VARCHAR(M)类型的列就最多可以存储65532个字节，这样就可能造成一个页存放不了一条记录的情况。</p>
 <p>在Compact和Redundant行格式中，对于占用存储空间非常大的列，在记录的真实数据处只会存储该列的该列的前768个字节的数据，然后把剩余的数据分散存储在几个其他的页中，记录的真实数据处用20个字节（768字节后20个字节）存储指向这些页的地址。这个过程也叫做行溢出，存储超出768字节的那些页面也被称为溢出页。</p>
 <p>Dynamic和Compressed行格式，不会在记录的真实数据处存储字段真实数据的前768个字节，而是把所有的字节都存储到其他页面中，只在记录的真实数据处存储其他页面的地址。</p>
-<h3 id="3-inno-db-de-shu-ju-ye">3、InnoDB的数据页</h3>
-<h4 id="3-1-gai-nian-amp-fen-lei">3.1 概念&amp;分类</h4>
-<h5 id="strong-gai-nian-strong"><strong>概念</strong></h5>
+<h3 id="3、InnoDB的数据页">3、InnoDB的数据页</h3>
+<h4 id="3-1-概念-分类">3.1 概念&amp;分类</h4>
+<h5 id="概念"><strong>概念</strong></h5>
 <p>InnoDB 会把存储的数据划分为若干个「页」，以页作为磁盘和内存交互的基本单位，一个页的默认大小为 16KB，查看命令如下（单位是字节）：</p>
 <figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">mysql&gt; show status like &#x27;innodb_page_size&#x27;;</span></span><br><span class="line"><span class="section">+------------------+-------+</span></span><br><span class="line"><span class="section">| Variable_name    | Value |</span></span><br><span class="line"><span class="section">+------------------+-------+</span></span><br><span class="line"><span class="section">| Innodb_page_size | 16384 |</span></span><br><span class="line"><span class="section">+------------------+-------+</span></span><br><span class="line">1 row in set (0.01 sec)</span><br></pre></td></tr></table></figure>
 <p>可以把「页」理解为一个容器，这个容器是用来存储「记录」的。</p>
-<h5 id="strong-fen-lei-strong"><strong>分类</strong></h5>
+<h5 id="分类"><strong>分类</strong></h5>
 <p>值得注意的是，InnoDB 中的「页」并非只有一种，比如有存放 Insert Buffer 的页、存放 undo log 的页、存放数据的页等等。其中我们最关注的还是存放我们表数据的页，又称「索引页」，或者数据页。</p>
 <p>下面分析和介绍数据页。</p>
-<h4 id="3-2-shu-ju-ye-jie-gou">3.2 数据页结构</h4>
-<h5 id="strong-gai-shu-strong"><strong>概述</strong></h5>
+<h4 id="3-2-数据页结构">3.2 数据页结构</h4>
+<h5 id="概述"><strong>概述</strong></h5>
 <p>InnoDB 数据页的结构如图所示：</p>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/v2-c5c9a86badc7f63ef4aa8cbf737e18cb_720w.jpg" alt="img"></p>
 <p>它由七部分构成，简介如下：</p>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/v2-62671ca47bbd785000cd4fbdfd5b52e8_720w.jpg" alt="img"></p>
-<h5 id="strong-ji-lu-cha-ru-guo-cheng-strong"><strong>记录插入过程</strong></h5>
+<h5 id="记录插入过程"><strong>记录插入过程</strong></h5>
 <p>在数据页中，当记录为空时，User Records 是不存在的。随着记录的一条条插入，会不断从 Free Space 开辟空间分配给记录，如图所示：</p>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/v2-f0e154fa8e3f1b18d9d7650223735763_720w.jpg" alt="img"></p>
-<h5 id="strong-ye-jie-gou-fen-xi-strong"><strong>页结构分析</strong></h5>
+<h5 id="页结构分析"><strong>页结构分析</strong></h5>
 <p><strong>记录头信息</strong></p>
 <p>为便于描述记录是如何在页中存储的，这里先贴一下前文提到的记录头信息：</p>
 <p><img data-src="https://pic2.zhimg.com/80/v2-dab1c35a4ec043e0528b7f965ba58e39_720w.jpg" alt="img"></p>
@@ -622,7 +622,7 @@ str2代表着如何比较.<br>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/v2-983d6442b506e0c37e397115158071c6_720w.jpg" alt="img"></p>
 <p><strong>File Trailer</strong></p>
 <p>文件尾，主要用于校验一个页是不是完整的。</p>
-<h3 id="4-b-shu-suo-yin">4、B+树索引</h3>
+<h3 id="4、B-树索引">4、B+树索引</h3>
 <p>InnoDB存储引擎的是一颗B+树，完整的用户记录都存储在B+树第0层的叶子节点；其他层次的 节点都属于内节点，内节点中存储的是目录项记录。</p>
 <p>InnoDB的索引分为两种。</p>
 <ul>
@@ -633,7 +633,7 @@ str2代表着如何比较.<br>
 <p>在二级索引的B+树内节点中，目录项记录由索引列的值，主键值和页号组成。</p>
 <p>一个数据页至少可以容纳2条记录。</p>
 <p>MyISAM存储引擎的数据和索引分开存储，这种存储引擎的索引全部都是二级索引，在叶子节点处存储的是列+行号。</p>
-<h3 id="5-b-shu-suo-yin-de-shi-yong">5、B+树索引的使用</h3>
+<h3 id="5、B-树索引的使用">5、B+树索引的使用</h3>
 <p><a target="_blank" rel="external nofollow noopener noreferrer" href="http://t.csdn.cn/VkLnf ">MySQL中B+树索引的应用场景大全</a></p>
 
     </div>
@@ -652,7 +652,7 @@ str2代表着如何比较.<br>
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zglgithubx.github.io/posts/5303.html" title="MySQL学习">https://zglgithubx.github.io/posts/5303.html</a>
+      <a href="https://zglgithubx.github.io/5303" title="MySQL学习">https://zglgithubx.github.io/5303</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -668,12 +668,12 @@ str2代表着如何比较.<br>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/35269.html" rel="prev" title="nginx配置之location">
+                <a href="/35269" rel="prev" title="nginx配置之location">
                   <i class="fa fa-chevron-left"></i> nginx配置之location
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/51189.html" rel="next" title="计算机网络学习笔记">
+                <a href="/51189" rel="next" title="计算机网络学习笔记">
                   计算机网络学习笔记 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -696,7 +696,7 @@ str2代表着如何比较.<br>
 
 
 <div class="copyright">
-  &copy; 
+  &copy; 2021 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -719,6 +719,8 @@ str2代表着如何比较.<br>
     <span title="站点阅读时长">2:12</span>
   </span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
 
     </div>
   </footer>
@@ -760,9 +762,9 @@ str2代表着如何比较.<br>
 
 
   <script src="https://unpkg.com/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/posts/5303.html"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/5303"}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/posts/5303.html"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/5303"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

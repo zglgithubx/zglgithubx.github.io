@@ -31,24 +31,24 @@
     <meta name="description" content="在 gRPC 中，客户端应用程序可以直接调用另一台计算机上的服务器应用程序上的方法，就好像它是本地对象一样，从而使您可以更轻松地创建分布式应用程序和服务。与许多 RPC 系统一样，gRPC 基于定义服务的思想，指定可以使用其参数和返回类型远程调用的方法。在服务器端，服务器实现此接口并运行 gRPC 服务器来处理客户端调用。在客户端，客户端有一个存根，该存根提供与服务器相同的方法。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="gRPC入门">
-<meta property="og:url" content="https://zglgithubx.github.io/posts/41575.html">
+<meta property="og:url" content="https://zglgithubx.github.io/41575">
 <meta property="og:site_name" content="Bug">
 <meta property="og:description" content="在 gRPC 中，客户端应用程序可以直接调用另一台计算机上的服务器应用程序上的方法，就好像它是本地对象一样，从而使您可以更轻松地创建分布式应用程序和服务。与许多 RPC 系统一样，gRPC 基于定义服务的思想，指定可以使用其参数和返回类型远程调用的方法。在服务器端，服务器实现此接口并运行 gRPC 服务器来处理客户端调用。在客户端，客户端有一个存根，该存根提供与服务器相同的方法。">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202208131444544.png">
 <meta property="article:published_time" content="2022-08-14T11:35:05.000Z">
-<meta property="article:modified_time" content="2022-09-18T11:53:54.056Z">
+<meta property="article:modified_time" content="2022-09-19T01:59:06.653Z">
 <meta property="article:author" content="火花">
 <meta property="article:tag" content="RPC">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202208131444544.png">
 
 
-<link rel="canonical" href="https://zglgithubx.github.io/posts/41575.html">
+<link rel="canonical" href="https://zglgithubx.github.io/41575">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/posts/41575.html","path":"posts/41575.html","title":"gRPC入门"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/41575","path":"/41575","title":"gRPC入门"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>gRPC入门 | Bug</title>
@@ -160,13 +160,13 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#yi-jian-jie"><span class="nav-number">1.</span> <span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#er-te-xing"><span class="nav-number">2.</span> <span class="nav-text">二、特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#er-protocol-buffers"><span class="nav-number">3.</span> <span class="nav-text">二、Protocol Buffers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#san-an-li-yi-yuan-rpc"><span class="nav-number">4.</span> <span class="nav-text">三、案例(一元rpc)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#si-protobuf-wen-jian-yu-fa"><span class="nav-number">5.</span> <span class="nav-text">四、protobuf文件语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wu-tao-lun"><span class="nav-number">6.</span> <span class="nav-text">五、讨论</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">一、简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">二、特性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8C%E3%80%81Protocol-Buffers"><span class="nav-number">3.</span> <span class="nav-text">二、Protocol Buffers</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E6%A1%88%E4%BE%8B-%E4%B8%80%E5%85%83rpc"><span class="nav-number">4.</span> <span class="nav-text">三、案例(一元rpc)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9B%E3%80%81protobuf%E6%96%87%E4%BB%B6%E8%AF%AD%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">四、protobuf文件语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E8%AE%A8%E8%AE%BA"><span class="nav-number">6.</span> <span class="nav-text">五、讨论</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jfif">
+    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jpg">
   <p class="site-author-name" itemprop="name">火花</p>
   <div class="site-description" itemprop="description">飞蛾善拂灯，一名火花，一名慕光</div>
 </div>
@@ -238,10 +238,10 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/41575.html">
+    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/41575">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/logo.jfif">
+      <meta itemprop="image" content="/img/logo.jpg">
       <meta itemprop="name" content="火花">
     </span>
 
@@ -288,8 +288,8 @@
     </span>
     <span class="post-meta-item-text">评论数：</span>
   
-    <a title="waline" href="/posts/41575.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/41575.html" itemprop="commentCount"></span>
+    <a title="waline" href="/41575#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/41575" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -299,7 +299,7 @@
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/41575.html"></span>
+      <span class="waline-pageview-count" data-path="/41575"></span>
     </span>
   
     <span class="post-meta-break"></span>
@@ -328,17 +328,17 @@
     <div class="post-body" itemprop="articleBody">
         <p>在 gRPC 中，客户端应用程序可以直接调用另一台计算机上的服务器应用程序上的方法，就好像它是本地对象一样，从而使您可以更轻松地创建分布式应用程序和服务。与许多 RPC 系统一样，gRPC 基于定义服务的思想，指定可以使用其参数和返回类型远程调用的方法。在服务器端，服务器实现此接口并运行 gRPC 服务器来处理客户端调用。在客户端，客户端有一个存根，该存根提供与服务器相同的方法。</p>
 <span id="more"></span>
-<h3 id="yi-jian-jie">一、简介</h3>
+<h3 id="一、简介">一、简介</h3>
 <p>在 gRPC 中，客户端应用程序可以直接调用另一台计算机上的服务器应用程序上的方法，就好像它是本地对象一样，从而使您可以更轻松地创建分布式应用程序和服务。与许多 RPC 系统一样，gRPC 基于定义服务的思想，指定可以使用其参数和返回类型远程调用的方法。在服务器端，服务器实现此接口并运行 gRPC 服务器来处理客户端调用。在客户端，客户端有一个存根，该存根提供与服务器相同的方法。</p>
 <iframe id="embed_dom" name="embed_dom" frameborder="0" style="display:block;width:800px; height:500px;" src="https://www.processon.com/embed/62f620f1e0b34d075574d809"></iframe>
-<h3 id="er-te-xing">二、特性</h3>
-<h4 id="1-ji-yu-http-2">1、基于HTTP/2</h4>
+<h3 id="二、特性">二、特性</h3>
+<h4 id="1、基于HTTP-2">1、基于HTTP/2</h4>
 <p>HTTP/2 提供了连接多路复用、双向流、服务器推送、请求优先级、首部压缩等机制。可以节省带宽、降低TCP链接次数、节省CPU，帮助移动设备延长电池寿命等。gRPC 的协议设计上使用了HTTP2 现有的语义，请求和响应的数据使用HTTP Body 发送，其他的控制信息则用Header 表示。</p>
-<h4 id="2-idl-shi-yong-proto-buf">2、IDL使用ProtoBuf</h4>
+<h4 id="2、IDL使用ProtoBuf">2、IDL使用ProtoBuf</h4>
 <p>gRPC使用ProtoBuf来定义服务，ProtoBuf是由Google开发的一种数据序列化协议（类似于XML、JSON、hessian）。ProtoBuf能够将数据进行序列化，并广泛应用在数据存储、通信协议等方面。压缩和传输效率高，语法简单，表达力强。</p>
-<h4 id="3-duo-yu-yan-zhi-chi">3、多语言支持</h4>
+<h4 id="3、多语言支持">3、多语言支持</h4>
 <p>gRPC支持多种语言（C, C++, Python, PHP, Nodejs, C#, Objective-C、Golang、Java），并能够基于语言自动生成客户端和服务端功能库。目前已提供了C版本grpc、Java版本grpc-java 和 Go版本grpc-go，其它语言的版本正在积极开发中，其中，grpc支持C、C++、Node.js、Python、Ruby、Objective-C、PHP和C#等语言，grpc-java已经支持Android开发。</p>
-<h4 id="4-g-rpc-you-que-dian">4、gRPC优缺点</h4>
+<h4 id="4、gRPC优缺点">4、gRPC优缺点</h4>
 <p><strong>优点</strong></p>
 <ul>
 <li>protobuf二进制消息，性能好/效率高（空间和时间效率都很不错）</li>
@@ -356,7 +356,7 @@
 <li>Protobuf二进制可读性差（貌似提供了Text_Fromat功能）<br>
 默认不具备动态特性（可以通过动态定义生成消息类型或者动态编译支持）</li>
 </ul>
-<h3 id="er-protocol-buffers">二、Protocol Buffers</h3>
+<h3 id="二、Protocol-Buffers">二、Protocol Buffers</h3>
 <p>protobuf 是 Google 公司内部的混合语言数据标准，默认情况下，grpc使用的就是protobuf。你可以理解Protocol Buffers是一种更加灵活、高效的数据格式，与XML、JSON类似，在一些高性能且对响应速度有要求的数据传输场景非常适用。</p>
 <blockquote>
 <p>目前已经正在使用的有超过 48,162 种报文格式定义和超过 12,183 个 .proto 文件。他们用于 RPC 系统和持续数据存储系统。Protocol Buffers 是一种轻便高效的结构化数据存储格式，可以用于结构化数据串行化，或者说序列化。它很适合做数据存储或 <strong>RPC 数据交换格式</strong>。可用于通讯协议、数据存储等领域的语言无关、平台无关、可扩展的序列化结构数据格式。目前提供了 C++、Java、Python 三种语言的 API（即时通讯网注：Protobuf官方工程主页上显示的已支持的开发语言多达10种，分别有：C++、Java、Python、Objective-C、C#、JavaNano、JavaScript、Ruby、Go、PHP，基本上主流的语言都已支持，详见工程主页：<a href="https://link.zhihu.com/?target=https%3A//github.com/52im/protobuf" rel="external nofollow noopener noreferrer" target="_blank">https://github.com/52im/protobuf</a>）。</p>
@@ -367,7 +367,7 @@
 <li>定义服务接口</li>
 <li>通过序列化和反序列化，提升传输效率</li>
 </ul>
-<h4 id="1-ru-he-shi-yong-ta">1、如何使用它</h4>
+<h4 id="1、如何使用它">1、如何使用它</h4>
 <ul>
 <li>
 <p>在后缀为.proto文件中定义数据结构（被远程调用服务的接口文档）</p>
@@ -389,8 +389,8 @@
 <p>第二步，根据服务端（服务提供者）和客户端（服务调用者）语言类型，生成相应的代码，然后再实现/调用方法。</p>
 </li>
 </ul>
-<h3 id="san-an-li-yi-yuan-rpc">三、案例(一元rpc)</h3>
-<h4 id="1-yong-java-xie-ke-hu-duan-go-xie-fu-wu-duan">1、用Java写客户端，Go写服务端</h4>
+<h3 id="三、案例-一元rpc">三、案例(一元rpc)</h3>
+<h4 id="1、用Java写客户端，Go写服务端">1、用Java写客户端，Go写服务端</h4>
 <p><strong>编写protobuf文件</strong></p>
 <p>helloworld.proto</p>
 <figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"><span class="keyword">option</span> go_package = <span class="string">&quot;../proto;helloworld&quot;</span>;</span><br><span class="line"><span class="keyword">option</span> java_multiple_files = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">option</span> java_package=<span class="string">&quot;com.example.grpc_study.proto&quot;</span>;</span><br><span class="line"><span class="keyword">message </span><span class="title class_">Request</span>&#123;</span><br><span class="line">	<span class="type">string</span> source=<span class="number">1</span>;</span><br><span class="line">	<span class="type">string</span> language=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">message </span><span class="title class_">Response</span> &#123;</span><br><span class="line">	<span class="type">string</span> source=<span class="number">1</span>;</span><br><span class="line">	<span class="type">string</span> language=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">service </span><span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">	<span class="function"><span class="keyword">rpc</span> TestRpc(Request) <span class="keyword">returns</span> (Response)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -440,7 +440,7 @@
 </li>
 </ul>
 <p><strong>启动服务端，再启动客户端</strong></p>
-<h4 id="2-yong-go-xie-ke-hu-duan-java-xie-fu-wu-duan">2、用Go写客户端，Java写服务端</h4>
+<h4 id="2、用Go写客户端，Java写服务端">2、用Go写客户端，Java写服务端</h4>
 <p><strong>编写服务端</strong></p>
 <p>Server.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@GrpcService</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Server</span> <span class="keyword">extends</span> <span class="title class_">HelloWorldGrpc</span>.HelloWorldImplBase &#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">testRpc</span><span class="params">(Request request, StreamObserver&lt;Response&gt; streamObserver)</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;接收到来自&quot;</span>+request.getLanguage()+request.getSource()+<span class="string">&quot;的请求&quot;</span>);</span><br><span class="line">		streamObserver.onNext(Response.newBuilder().setLanguage(<span class="string">&quot;Java&quot;</span>).setSource(<span class="string">&quot;服务端&quot;</span>).build());</span><br><span class="line">		streamObserver.onCompleted();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -449,12 +449,12 @@
 <p>client.go</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">&quot;context&quot;</span></span><br><span class="line">    <span class="string">&quot;fmt&quot;</span></span><br><span class="line">	<span class="string">&quot;google.golang.org/grpc&quot;</span></span><br><span class="line">	<span class="string">&quot;grpc_study/proto&quot;</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    conn, err := grpc.Dial(<span class="string">&quot;127.0.0.1:9090&quot;</span>, grpc.WithInsecure())</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">&quot;grpc Dial error&quot;</span>, err)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    client := helloworld.NewHelloWorldClient(conn)</span><br><span class="line">    rep, err := client.TestRpc(context.TODO(), &amp;helloworld.Request&#123;Source:<span class="string">&quot;客户端&quot;</span>,Language:<span class="string">&quot;Go&quot;</span>&#125;)</span><br><span class="line">    <span class="keyword">if</span> err == <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Printf(<span class="string">&quot;服务调用成功,收到来自：%s%s的响应&quot;</span>, rep.Language,rep.Source)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>启动服务端，再启动客户端</strong></p>
-<h3 id="si-protobuf-wen-jian-yu-fa">四、protobuf文件语法</h3>
+<h3 id="四、protobuf文件语法">四、protobuf文件语法</h3>
 <figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用的版本号</span></span><br><span class="line">syntax = <span class="string">&quot;proto3&quot;</span>;</span><br><span class="line"><span class="comment">//生成go代码的位置，及包名</span></span><br><span class="line"><span class="keyword">option</span> go_package = <span class="string">&quot;../proto;helloworld&quot;</span>;</span><br><span class="line"><span class="comment">//生成java代码，是否选择多文件</span></span><br><span class="line"><span class="keyword">option</span> java_multiple_files = <span class="literal">true</span>;</span><br><span class="line"><span class="comment">//生成java代码的路径</span></span><br><span class="line"><span class="keyword">option</span> java_package=<span class="string">&quot;com.example.grpc_study.proto&quot;</span>;</span><br><span class="line"><span class="comment">//消息体，1，2为字段标签，用于序列化</span></span><br><span class="line"><span class="keyword">message </span><span class="title class_">Request</span>&#123;</span><br><span class="line">	<span class="type">string</span> source=<span class="number">1</span>;</span><br><span class="line">	<span class="type">string</span> language=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">message </span><span class="title class_">Response</span> &#123;</span><br><span class="line">	<span class="type">string</span> source=<span class="number">1</span>;</span><br><span class="line">	<span class="type">string</span> language=<span class="number">2</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//服务名</span></span><br><span class="line"><span class="keyword">service </span><span class="title class_">HelloWorld</span> &#123;</span><br><span class="line">	<span class="comment">//TestRpc服务端提供的方法名</span></span><br><span class="line">	<span class="function"><span class="keyword">rpc</span> TestRpc(Request) <span class="keyword">returns</span> (Response)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="1-import">1、import</h4>
+<h4 id="1、import">1、import</h4>
 <p>用来引入其他文件的内容</p>
 <p>格式：import “/xxx路径”，路径是从protoc这个命令的当前目录开始算起</p>
-<h4 id="2-message">2、message</h4>
+<h4 id="2、message">2、message</h4>
 <blockquote>
 <p>在protobuf中用来定义消息类型的关键字</p>
 </blockquote>
@@ -487,28 +487,28 @@
 </ul>
 <p>标签：</p>
 <ul>
-<li>该标签的取值范围为 1~2^32（4294967296），其中 1<sub>15的编码时间和空间效率都是最高的，编码值越大，其编码的时间和空间效率就越低（相对于1-15），当然一般情况下相邻的2个值编码效率的是相同的，除非2个值恰好实在4字节，12字节，20字节等的临界区。比如15和16。1900</sub>2000编码值为Google protobuf 系统内部保留值，建议不要在自己的项目中使用。</li>
+<li>该标签的取值范围为 1~2^32（4294967296），其中 1~15的编码时间和空间效率都是最高的，编码值越大，其编码的时间和空间效率就越低（相对于1-15），当然一般情况下相邻的2个值编码效率的是相同的，除非2个值恰好实在4字节，12字节，20字节等的临界区。比如15和16。1900~2000编码值为Google protobuf 系统内部保留值，建议不要在自己的项目中使用。</li>
 <li>当两个字段标签一致时，其修饰符和数据类型也必须相同</li>
 <li>消息中的字段的编码值无需连续，只要是合法的，并且不能在同一个消息中有字段包含相同的编码值。</li>
 <li>建议：项目投入运营以后涉及到版本升级时的新增消息字段全部使用optional或者repeated，尽量不使用required。如果使用了required，需要全网统一升级，如果使用optional或者repeated可以平滑升级。</li>
 </ul>
 <p><strong>用法</strong></p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">//普通的消息类型</span><br><span class="line">message Person &#123;</span><br><span class="line">	string name<span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">//嵌套消息，无层级限制</span><br><span class="line">message Person &#123;</span><br><span class="line">	string name<span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">	message Man&#123;</span><br><span class="line">		string name <span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">	&#125;</span><br><span class="line">	repeated Man man<span class="operator">=</span><span class="number">2</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br><span class="line">message Student&#123;</span><br><span class="line">	Person.Man man<span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3-enum">3、enum</h4>
+<h4 id="3、enum">3、enum</h4>
 <p><strong>格式</strong></p>
 <figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">enum 标识符 &#123;</span><br><span class="line">	字段名<span class="operator">=</span><span class="number">0</span><span class="comment">;</span></span><br><span class="line">	字段名<span class="number">1</span><span class="operator">=</span><span class="number">1</span><span class="comment">;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4-service">4、service</h4>
+<h4 id="4、service">4、service</h4>
 <p><strong>格式</strong></p>
 <figure class="highlight protobuf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">service 服务名 &#123;</span><br><span class="line"> <span class="function"><span class="keyword">rpc</span> 方法名(请求消息) <span class="keyword">returns</span> (响应消息)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">rpc</span> 方法名(stream 请求消息) <span class="keyword">returns</span> (响应消息)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">rpc</span> 方法名(请求消息) <span class="keyword">returns</span> (stream 响应消息)</span>;</span><br><span class="line"> <span class="function"><span class="keyword">rpc</span> 方法名(stream 请求消息) <span class="keyword">returns</span> (stream 响应消息)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="wu-tao-lun">五、讨论</h3>
-<h4 id="1-he-qi-ta-rpc-kuang-jia-xiang-bi-g-rpc-de-you-shi">1、和其他RPC框架相比，gRPC的优势？</h4>
+<h3 id="五、讨论">五、讨论</h3>
+<h4 id="1、和其他RPC框架相比，gRPC的优势？">1、和其他RPC框架相比，gRPC的优势？</h4>
 <ul>
 <li>跨语言，且自动生成代码</li>
 <li>性能高，比如protobuf性能高过json, 比如http2.0性能高过http1.1</li>
 <li>生态好</li>
 <li>流式处理（基于http2.0）：支持客户端流式，服务端流式，双向流式</li>
 </ul>
-<h4 id="2-huan-you-qi-ta-de-kua-yu-yan-de-rpc-ma-g-rpc-zai-kua-yu-yan-rpc-kuang-jia-zhong-shi-zui-hao-de-ma">2、还有其他的跨语言的RPC吗，gRPC在跨语言RPC框架中是最好的吗？</h4>
+<h4 id="2、还有其他的跨语言的RPC吗，gRPC在跨语言RPC框架中是最好的吗？">2、还有其他的跨语言的RPC吗，gRPC在跨语言RPC框架中是最好的吗？</h4>
 <ul>
 <li>Thrift是一种可伸缩的跨语言服务的RPC软件框架。它结合了功能强大的软件堆栈的代码生成引擎，以建设服务，高效、无缝地在多种语言间结合使用</li>
 </ul>
@@ -529,7 +529,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zglgithubx.github.io/posts/41575.html" title="gRPC入门">https://zglgithubx.github.io/posts/41575.html</a>
+      <a href="https://zglgithubx.github.io/41575" title="gRPC入门">https://zglgithubx.github.io/41575</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -545,7 +545,7 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/4606.html" rel="prev" title="力扣_50之x的n次幂">
+                <a href="/4606" rel="prev" title="力扣_50之x的n次幂">
                   <i class="fa fa-chevron-left"></i> 力扣_50之x的n次幂
                 </a>
             </div>
@@ -570,7 +570,7 @@
 
 
 <div class="copyright">
-  &copy; 
+  &copy; 2021 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -593,6 +593,8 @@
     <span title="站点阅读时长">2:12</span>
   </span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
 
     </div>
   </footer>
@@ -634,9 +636,9 @@
 
 
   <script src="https://unpkg.com/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/posts/41575.html"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/41575"}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/posts/41575.html"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/41575"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

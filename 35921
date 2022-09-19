@@ -28,28 +28,38 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zglgithubx.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":2,"unescape":true,"preload":false}}</script><script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/config.js"></script>
 
-    <meta name="description" content="nginx学习location的使用">
+    <meta name="description" content="由来 Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="nginx配置之location">
-<meta property="og:url" content="https://zglgithubx.github.io/posts/35269.html">
+<meta property="og:title" content="KMP算法">
+<meta property="og:url" content="https://zglgithubx.github.io/35921">
 <meta property="og:site_name" content="Bug">
-<meta property="og:description" content="nginx学习location的使用">
+<meta property="og:description" content="由来 Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-25T02:13:57.000Z">
-<meta property="article:modified_time" content="2022-09-18T11:53:54.056Z">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171106451.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151156.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151451.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171152957.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171153610.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154064.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154305.png">
+<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171155335.png">
+<meta property="article:published_time" content="2021-10-16T03:27:33.000Z">
+<meta property="article:modified_time" content="2022-09-19T01:59:06.653Z">
 <meta property="article:author" content="火花">
-<meta property="article:tag" content="nginx">
+<meta property="article:tag" content="算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png">
 
 
-<link rel="canonical" href="https://zglgithubx.github.io/posts/35269.html">
+<link rel="canonical" href="https://zglgithubx.github.io/35921">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/posts/35269.html","path":"posts/35269.html","title":"nginx配置之location"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/35921","path":"/35921","title":"KMP算法"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>nginx配置之location | Bug</title>
+<title>KMP算法 | Bug</title>
   
 
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/analytics/baidu-analytics.js"></script>
@@ -158,13 +168,13 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-location-jie-shao"><span class="nav-number">1.</span> <span class="nav-text">1、location介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-location-yu-fa"><span class="nav-number">2.</span> <span class="nav-text">2、location 语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-location-uri-jie-wei-dai-bu-dai"><span class="nav-number">3.</span> <span class="nav-text">3、location URI结尾带不带 &#x2F;</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B1%E6%9D%A5"><span class="nav-number">1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP%E7%AE%97%E6%B3%95%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-number">2.</span> <span class="nav-text">KMP算法是什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP%E7%AE%97%E6%B3%95%E4%B8%BA%E4%BB%80%E4%B9%88%E9%82%A3%E4%B9%88%E5%BF%AB"><span class="nav-number">3.</span> <span class="nav-text">KMP算法为什么那么快</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KMP%E7%AE%97%E6%B3%95%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">4.</span> <span class="nav-text">KMP算法代码实现</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jfif">
+    <img class="site-author-image" itemprop="image" alt="火花" src="/img/logo.jpg">
   <p class="site-author-name" itemprop="name">火花</p>
   <div class="site-description" itemprop="description">飞蛾善拂灯，一名火花，一名慕光</div>
 </div>
@@ -236,10 +246,10 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/35269.html">
+    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/35921">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/img/logo.jfif">
+      <meta itemprop="image" content="/img/logo.jpg">
       <meta itemprop="name" content="火花">
     </span>
 
@@ -249,12 +259,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="nginx配置之location | Bug">
+      <meta itemprop="name" content="KMP算法 | Bug">
       <meta itemprop="description" content>
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          nginx配置之location<a href="https://github.com/zglgithubx/blog/tree/master/source/_posts/nginx%E9%85%8D%E7%BD%AE%E4%B9%8Blocation.md" class="post-edit-link" title="编辑" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          KMP算法<a href="https://github.com/zglgithubx/blog/tree/master/source/_posts/KMP%E7%AE%97%E6%B3%95.md" class="post-edit-link" title="编辑" rel="external nofollow noopener noreferrer" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -265,7 +275,7 @@
       </span>
       <span class="post-meta-item-text">发表于</span>
 
-      <time title="创建时间：2022-05-25 10:13:57" itemprop="dateCreated datePublished" datetime="2022-05-25T10:13:57+08:00">2022-05-25</time>
+      <time title="创建时间：2021-10-16 11:27:33" itemprop="dateCreated datePublished" datetime="2021-10-16T11:27:33+08:00">2021-10-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -273,7 +283,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/nginx/" itemprop="url" rel="index"><span itemprop="name">nginx</span></a>
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
         </span>
     </span>
 
@@ -286,8 +296,8 @@
     </span>
     <span class="post-meta-item-text">评论数：</span>
   
-    <a title="waline" href="/posts/35269.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/35269.html" itemprop="commentCount"></span>
+    <a title="waline" href="/35921#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/35921" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -297,7 +307,7 @@
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/35269.html"></span>
+      <span class="waline-pageview-count" data-path="/35921"></span>
     </span>
   
     <span class="post-meta-break"></span>
@@ -306,14 +316,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.4k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -324,37 +334,210 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>nginx学习location的使用</p>
+        <h3 id="由来">由来</h3>
+<p>Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。</p>
 <span id="more"></span>
-<h3 id="1-location-jie-shao">1、location介绍</h3>
-<p>location是Nginx中的块级指令(block directive),location指令的功能是用来匹配不同的url请求，进而对请求做不同的处理和响应，这其中较难理解的是多个location的匹配顺序。</p>
-<p>开始之前先明确一些约定，我们输入的网址叫做请求URI，nginx用请求URI与location中配置的URI做匹配。</p>
-<h3 id="2-location-yu-fa">2、location 语法</h3>
-<p>location有两种匹配规则：</p>
+<h3 id="KMP算法是什么">KMP算法是什么</h3>
+<p>KMP算法主要应用于字符串的快速匹配。</p>
+<p>比如在给定字符串中，让你找一个目标子串，常规的解法就是暴力匹配，用双层for循环分别遍历两个字符串，但是它的时间复杂度是O(m*n)。而KMP算法可以让这个匹配过程降到时间复杂度为O(m+n)。</p>
+<h3 id="KMP算法为什么那么快">KMP算法为什么那么快</h3>
+<h4 id="举个-chestnut">举个:chestnut:</h4>
+<p>在文本串（aabaabaaf）中，找到第一次匹配到模式串（aabaaf）的索引。</p>
+<p>KMP算法匹配的过程：</p>
+<p>①和常规解法一样，从文本串首字符和模式串的首字符开始，一 一进行比较</p>
+<p>②当遇到不匹配的时候，如下图</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171018117.png" alt="image-20211017101822955"></p>
+<p>模式串会从b的位置开始匹配，文本串匹配的位置不变</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171106451.png" alt="image-20211017110657407"></p>
+<p>到这里，肯定会有疑问：会什么从b开始？</p>
+<p>下面的概念都是模式串的。</p>
+<p>这里会提到几个概念：前缀、后缀和 最大公共字符长度表（前缀表）</p>
 <ul>
-<li>匹配URL类型，有四种参数可选，当然也可以不带参数。 location [ = | ~ | ~* | ^~ ] uri { … }</li>
-<li>命名location，用@标识，类似于定于goto语句块。 location @name { … }</li>
+<li>
+<p>前缀：除了末尾字符之外的所有字符</p>
+</li>
+<li>
+<p>后缀：除了首字符之外的所有字符</p>
+</li>
+<li>
+<p>最大公共字符长度表：每个子串中最长相同的前后缀字符长度</p>
+</li>
 </ul>
-<p>location匹配参数解释：</p>
-<p>（1） “=” ，精确匹配</p>
-<ul>
-<li>内容要同表达式完全一致才匹配成功</li>
-</ul>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> =/abc&#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://www.baidu.com/;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#访问 http://117.50.162.61:88/abc-&gt;http://www.baidu.com</span></span><br></pre></td></tr></table></figure>
-<p>（2） “~”，执行正则匹配，区分大小写</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> <span class="regexp">~ /Abc</span> &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://www.baidu.com;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#访问http://117.50.162.61:88/Abc-&gt;</span></span><br><span class="line">http://www.baidu.com/Abc</span><br></pre></td></tr></table></figure>
-<p>（3）“~*”，执行正则匹配，忽略大小写</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> ~*/Def&#123;</span><br><span class="line">     <span class="attribute">proxy_pass</span> http://www.baidu.com;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#访问http://117.50.162.61:88/def|Def-&gt;</span></span><br><span class="line">http://www.baidu.com/def|Def</span><br></pre></td></tr></table></figure>
-<p>（4）“^~”，表示普通字符串匹配上以后不再进行正则匹配。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span><span class="regexp"> ^~</span> /index &#123;</span><br><span class="line">    <span class="attribute">proxy_pass</span> http://www.baidu.com/;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#访问http://117.50.162.61:88/index-&gt;</span></span><br><span class="line">http://www.baidu.com</span><br></pre></td></tr></table></figure>
-<p>（5）不加任何规则时，默认是大小写敏感，前缀匹配，相当于加了“<sub>”与“^</sub>”</p>
-<p>（6）“@”，nginx内部跳转</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /index/ &#123;</span><br><span class="line">  <span class="attribute">error_page</span> <span class="number">404</span> <span class="variable">@index_error</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="section">location</span> <span class="variable">@index_error</span> &#123;</span><br><span class="line">  .....</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#以 /index/ 开头的请求，如果链接的状态为 404。则会匹配到 @index_error 这条规则上。</span></span><br></pre></td></tr></table></figure>
-<h3 id="3-location-uri-jie-wei-dai-bu-dai">3、location URI结尾带不带 /</h3>
-<p>(1)结尾不带/</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /test &#123;</span><br><span class="line">    <span class="attribute">proxy_proxy</span> http://www.baidu.com;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#访问：http://117.50.162.61:88/test-&gt;</span></span><br><span class="line">http://www.baidu.com/<span class="attribute">test</span></span><br><span class="line">即此种情况会把所有的路径加uri中</span><br></pre></td></tr></table></figure>
-<p>(1)结尾带/</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /test &#123;</span><br><span class="line">    <span class="attribute">proxy_proxy</span> http://www.baidu.com/;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">#访问：http://117.50.162.61:88/test/index-&gt;</span></span><br><span class="line">http://www.baidu.com/<span class="attribute">index</span></span><br><span class="line">即此种情况会把除了匹配路径之外的地址加到uri中</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>模式串的各个子串</th>
+<th>前缀</th>
+<th>后缀</th>
+<th>最大公共字符长度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a</td>
+<td>空</td>
+<td>空</td>
+<td>0</td>
+</tr>
+<tr>
+<td>aa</td>
+<td>a</td>
+<td>a</td>
+<td>1</td>
+</tr>
+<tr>
+<td>aab</td>
+<td>a,aa</td>
+<td>b,ba</td>
+<td>0</td>
+</tr>
+<tr>
+<td>aaba</td>
+<td>a,aa,aab</td>
+<td>a,ba,aba</td>
+<td>1</td>
+</tr>
+<tr>
+<td>aabaa</td>
+<td>a,aa,aab,aaba</td>
+<td>a,aa,baa,abaa</td>
+<td>2</td>
+</tr>
+<tr>
+<td>aabaaf</td>
+<td>a,aa,aab,aabaa</td>
+<td>f,af,aaf,baaf,abaaf</td>
+<td>0</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>为什么有最大公共字符长度表？</p>
+<p>这个表，可以在你匹配失败时，跳跃式的匹配，避免重复已经匹配相同的字符。</p>
+<p>③直到将文本串匹配完</p>
+<h4 id="举个完整的-chestnut">举个完整的:chestnut:</h4>
+<p>文本串：BBC ABCDAB ABCDABCDABDE</p>
+<p>模式串：ABCDABD</p>
+<p>前缀表：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>A</th>
+<th>B</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最大前缀后缀公共元素长度</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>这个例子咱们就根据这个前缀表去跳跃式的匹配（表中的数值代表跳跃到模式串索引）</p>
+<p>①开始匹配</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151156.png" alt="img"></p>
+<p>② 因为模式串中的字符A跟文本串中的字符B、B、C、空格一开始就不匹配，所以不必考虑结论，直接将模式串不断的右移一位即可，直到模式串中的字符A跟文本串的第5个字符A匹配成功：</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171151451.png" alt="img"></p>
+<p>③继续往后匹配，当模式串最后一个字符D跟文本串匹配时失配，显而易见，模式串需要向右移动。但向右移动多少位呢？因为此时已经匹配的字符数为6个（ABCDAB），然后根据《前缀表》可得失配字符D的上一位字符B对应的长度值为2，所以根据之前的结论，可知需要向右移动6 - 2 = 4 位。</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171152957.png" alt="img"></p>
+<p>④模式串向右移动4位后，发现C处再度失配，因为此时已经匹配了2个字符（AB），且上一位字符B对应的最大长度值为0，所以向右移动：2 - 0 =2 位。</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171153610.png" alt="img"></p>
+<p>⑤A与空格不匹配，向右移动1位</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154064.png" alt="img"></p>
+<p>⑥继续比较，发现D与C 失配，故向右移动的位数为：已匹配的字符数6减去上一位字符B对应的最大长度2，即向右移动6 - 2 = 4 位。</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171154305.png" alt="img"></p>
+<p>⑦经历第5步后，发现匹配成功，过程结束。</p>
+<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202110171155335.png" alt="img"></p>
+<p>至此这就是KMP算法的大致原理。</p>
+<h3 id="KMP算法代码实现">KMP算法代码实现</h3>
+<p>由上文，我们已经知道，字符串“ABCDABD”各个前缀后缀的最大公共元素长度分别为：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>A</th>
+<th>B</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>最大前缀后缀公共元素长度</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>而且，根据这个表可以得出下述结论</p>
+<p>当失配时，模式串向右移动的位数为：已匹配字符数-失配字符的上一位字符所对应的最大长度值</p>
+<p>文利用这个表和结论进行匹配时，我们发现，当匹配到一个字符失配时，其实没必要考虑当前失配的字符，更何况我们每次失配时，都是看的失配字符的上一位字符对应的最大长度值。如此，便引出了next 数组。</p>
+<p>给定字符串“ABCDABD”，可求得它的next 数组如下：</p>
+<table>
+<thead>
+<tr>
+<th>字符</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>A</th>
+<th>B</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>next</td>
+<td>-1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="Next数组求法">Next数组求法</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">GetNext</span><span class="params">(<span class="type">char</span>* p,<span class="type">int</span> next[])</span>  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">pLen</span> <span class="operator">=</span> strlen(p);  </span><br><span class="line">    next[<span class="number">0</span>] = -<span class="number">1</span>;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">k</span> <span class="operator">=</span> -<span class="number">1</span>;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">while</span> (j &lt; pLen - <span class="number">1</span>)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="comment">//p[k]表示前缀，p[j]表示后缀  </span></span><br><span class="line">        <span class="keyword">if</span> (k == -<span class="number">1</span> || p[j] == p[k])   </span><br><span class="line">        &#123;  </span><br><span class="line">            ++k;  </span><br><span class="line">            ++j;  </span><br><span class="line">            next[j] = k;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>   </span><br><span class="line">        &#123;  </span><br><span class="line">            k = next[k];  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+<p>KMP算法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">KmpSearch</span><span class="params">(<span class="type">char</span>* s, <span class="type">char</span>* p)</span>  </span><br><span class="line">&#123;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;  </span><br><span class="line">    <span class="type">int</span> <span class="variable">sLen</span> <span class="operator">=</span> strlen(s);  </span><br><span class="line">    <span class="type">int</span> <span class="variable">pLen</span> <span class="operator">=</span> strlen(p);  </span><br><span class="line">    <span class="keyword">while</span> (i &lt; sLen &amp;&amp; j &lt; pLen)  </span><br><span class="line">    &#123;  </span><br><span class="line">        <span class="comment">//①如果j = -1，或者当前字符匹配成功（即S[i] == P[j]），都令i++，j++      </span></span><br><span class="line">        <span class="keyword">if</span> (j == -<span class="number">1</span> || s[i] == p[j])  </span><br><span class="line">        &#123;  </span><br><span class="line">            i++;  </span><br><span class="line">            j++;  </span><br><span class="line">        &#125;  </span><br><span class="line">        <span class="keyword">else</span>  </span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="comment">//②如果j != -1，且当前字符匹配失败（即S[i] != P[j]），则令 i 不变，j = next[j]      </span></span><br><span class="line">            <span class="comment">//next[j]即为j所对应的next值        </span></span><br><span class="line">            j = next[j];  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">if</span> (j == pLen)  </span><br><span class="line">        <span class="keyword">return</span> i - j;  </span><br><span class="line">    <span class="keyword">else</span>  </span><br><span class="line">        <span class="keyword">return</span> -<span class="number">1</span>;  </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -372,7 +555,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zglgithubx.github.io/posts/35269.html" title="nginx配置之location">https://zglgithubx.github.io/posts/35269.html</a>
+      <a href="https://zglgithubx.github.io/35921" title="KMP算法">https://zglgithubx.github.io/35921</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -381,20 +564,20 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/nginx/" rel="tag"><i class="fa fa-tag"></i> nginx</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"><i class="fa fa-tag"></i> 算法</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/22654.html" rel="prev" title="ElasticSearch">
-                  <i class="fa fa-chevron-left"></i> ElasticSearch
+                <a href="/33202" rel="prev" title="数据结构之循环队列">
+                  <i class="fa fa-chevron-left"></i> 数据结构之循环队列
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/5303.html" rel="next" title="MySQL学习">
-                  MySQL学习 <i class="fa fa-chevron-right"></i>
+                <a href="/49673" rel="next" title="消息队列之RabbitMQ学习笔记">
+                  消息队列之RabbitMQ学习笔记 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -416,7 +599,7 @@
 
 
 <div class="copyright">
-  &copy; 
+  &copy; 2021 – 
   <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
@@ -439,6 +622,8 @@
     <span title="站点阅读时长">2:12</span>
   </span>
 </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="external nofollow noopener noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="external nofollow noopener noreferrer" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
 
     </div>
   </footer>
@@ -480,9 +665,9 @@
 
 
   <script src="https://unpkg.com/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/posts/35269.html"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/35921"}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/posts/35269.html"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/35921"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
