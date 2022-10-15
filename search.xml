@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Golang项目部署</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/36933.html</url>
     <content><![CDATA[<p>此博客提供了三种方案，可以根据项目需求适当选择</p>
 <span id="more"></span>
 <h3 id="前言">前言</h3>
@@ -74,7 +74,7 @@
   </entry>
   <entry>
     <title>KMP算法</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/35921.html</url>
     <content><![CDATA[<h3 id="由来">由来</h3>
 <p>Knuth-Morris-Pratt 字符串查找算法，简称为 “KMP算法”，常用于在一个文本串S内查找一个模式串P 的出现位置，这个算法由Donald Knuth、Vaughan Pratt、James H. Morris三人于1977年联合发表，故取这3人的姓氏命名此算法。</p>
 <span id="more"></span>
@@ -289,7 +289,7 @@
   </entry>
   <entry>
     <title>RPC原理</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/12447.html</url>
     <content><![CDATA[<h3 id="RPC通信的演化">RPC通信的演化</h3>
 <ul>
 <li>从单机到分布式-&gt;分布式通信-&gt;最基本：二进制传输 TCP/IP
@@ -341,7 +341,7 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
   </entry>
   <entry>
     <title>nginx配置之location</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/35269.html</url>
     <content><![CDATA[<p>nginx学习location的使用</p>
 <span id="more"></span>
 <h3 id="1、location介绍">1、location介绍</h3>
@@ -383,7 +383,7 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
   </entry>
   <entry>
     <title>力扣_50之x的n次幂</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/4606.html</url>
     <content><![CDATA[<p>实现 pow(x, n) ，即计算 x 的整数 n 次幂函数（即，x^n ）。</p>
 <p><strong>示例 1：</strong><br>
 输入：x = 2.00000, n = 10<br>
@@ -422,7 +422,7 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
   </entry>
   <entry>
     <title>力扣_56之合并区间</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/28381.html</url>
     <content><![CDATA[<h3 id="题目描述">题目描述</h3>
 <p>以数组 intervals 表示若干个区间的集合，其中单个区间为 intervals[i] = [starti, endi] 。请你合并所有重叠的区间，并返回一个不重叠的区间数组，该数组需恰好覆盖输入中的所有区间。</p>
 <span id="more"></span>
@@ -456,7 +456,7 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
   </entry>
   <entry>
     <title>哈夫曼树</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/29203.html</url>
     <content><![CDATA[<h3 id="what">what</h3>
 <p>哈夫曼树是一颗最优二叉树，带权路径长度最小的二叉树，经常来用来进行数据压缩。</p>
 <h3 id="why">why</h3>
@@ -529,7 +529,7 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
   </entry>
   <entry>
     <title>微信小程序提现功能实现</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/4359.html</url>
     <content><![CDATA[<h2 id="需求">需求</h2>
 <p>在微信小程序中实现一个提现功能 ，提现的钱其实来自系统中的其他功能。</p>
 <p>当然这个功能，需要一个微信支付的商户号，并且账户中需要有充足的余额。</p>
@@ -572,7 +572,7 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
   </entry>
   <entry>
     <title>微信扫码登录实现</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/18301.html</url>
     <content><![CDATA[<h2 id="需求-2">需求</h2>
 <p>使用微信扫码登录的授权方式登录系统</p>
 <span id="more"></span>
@@ -605,7 +605,7 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
   </entry>
   <entry>
     <title>手写一个SpringBoot组件发布到Maven中央仓库</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/54328.html</url>
     <content><![CDATA[<h3 id="简介">简介</h3>
 <p>springboot组件也叫<code>starters</code>（场景启动器），这也是SpringBoot最强大的特点，把可以与SpringBoot集成的技术封装成一个个启动器，供有需要的人，因需引入。</p>
 <p>以下是来自官网的 starters 描述：</p>
@@ -735,7 +735,7 @@ The starters contain a lot of the dependencies that you need to get a project up
   </entry>
   <entry>
     <title>一个简单的接口监控及邮件提醒实现</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/11529.html</url>
     <content><![CDATA[<h3 id="前言-2">前言</h3>
 <p>最近因为疫情，不得不在家办公，而且也赶上了项目处于内测阶段，测试期间如果有问题，不能及时把问题复现出来。于是我在网上搜索有没有一些工具能对接口进行一个实时的监控，出现问题，立马通知相关人员。项目虽然有日志信息，但是因为项目是在集群中部署，日志信息，需要进入服务器的控制台中查看，比较麻烦。</p>
 <p>忙活了一天，装了不少用来测试接口的框架，他们在介绍的时候，说的是对接口监控，其实是在不断的调用接口，来达到监控的效果，而且用的时候，需要准备很多工作，创建项目，创建测试用例等。</p>
@@ -764,7 +764,7 @@ The starters contain a lot of the dependencies that you need to get a project up
   </entry>
   <entry>
     <title>数据结构之循环队列</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/33202.html</url>
     <content><![CDATA[<p>为充分利用向量空间，克服&quot;<a href="https://baike.baidu.com/item/%E5%81%87%E6%BA%A2%E5%87%BA/11050937">假溢出</a>&quot;现象的方法是：将向量空间想象为一个首尾相接的圆环，并称这种向量为循环向量。存储在其中的队列称为循环队列（Circular Queue）。循环队列是把<a href="https://baike.baidu.com/item/%E9%A1%BA%E5%BA%8F%E9%98%9F%E5%88%97/20832734">顺序队列</a>首尾相连，把存储队列元素的表从逻辑上看成一个环，成为循环队列。</p>
 <span id="more"></span>
 <h3 id="循环队列三种情况">循环队列三种情况</h3>
@@ -833,7 +833,7 @@ The starters contain a lot of the dependencies that you need to get a project up
   </entry>
   <entry>
     <title>消息队列之RabbitMQ学习笔记</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/49673.html</url>
     <content><![CDATA[<h3 id="什么是消息队列">什么是消息队列</h3>
 <p>消息是两个应用间传递的数据。消息队列简单的来讲是将消息在传输的过程中用来存储消息的容器。</p>
 <p>在消息队列中，通常会有生产者和消费者，生产者将消息放到队列中，消费者从中取出消息。</p>
@@ -923,7 +923,7 @@ The starters contain a lot of the dependencies that you need to get a project up
   </entry>
   <entry>
     <title>计算机操作系统学习笔记</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/39126.html</url>
     <content><![CDATA[<p>计算机操作系统学习笔记</p>
 <span id="more"></span>
 <h2 id="一、基础">一、基础</h2>
@@ -1063,7 +1063,7 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
   </entry>
   <entry>
     <title>计算机网络学习笔记</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/51189.html</url>
     <content><![CDATA[<p>计算机网络是指将地理位置不同的具有独立功能的多台计算机及其外部设备，通过通信线路连接起来，在网络操作系统，网络管理软件及网络通信协议的管理和协调下，实现资源共享和信息传递的计算机系统。<br>
 计算机网络主要是由一些通用的、可编程的硬件互连而成的，而这些硬件并非专门用来实现某一特定目的（例如，传送数据或视频信号）。这些可编程的硬件能够用来传送多种不同类型的数据，并能支持广泛的和日益增长的应用。</p>
 <span id="more"></span>
@@ -1289,7 +1289,7 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
   </entry>
   <entry>
     <title>Java爬虫实践</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/31819.html</url>
     <content><![CDATA[<h3 id="Java写爬虫分为两步：第一步打开idea，第二步开始敲代码…">Java写爬虫分为两步：第一步打开idea，第二步开始敲代码…</h3>
 <span id="more"></span>   
 <h3 id="1、我的见解">1、我的见解</h3>
@@ -1601,7 +1601,7 @@ TIP:采用优先调度算法时，线程一旦获得CPU执行权限，将一直�
   </entry>
   <entry>
     <title>MySQL学习</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/5303.html</url>
     <content><![CDATA[<p>——摘录自《MySQL是怎样运行的》</p>
 <span id="more"></span>
 <h3 id="1、字符集和比较规则">1、字符集和比较规则</h3>
@@ -1908,7 +1908,7 @@ str2代表着如何比较.<br>
   </entry>
   <entry>
     <title>gRPC入门</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/41575.html</url>
     <content><![CDATA[<p>在 gRPC 中，客户端应用程序可以直接调用另一台计算机上的服务器应用程序上的方法，就好像它是本地对象一样，从而使您可以更轻松地创建分布式应用程序和服务。与许多 RPC 系统一样，gRPC 基于定义服务的思想，指定可以使用其参数和返回类型远程调用的方法。在服务器端，服务器实现此接口并运行 gRPC 服务器来处理客户端调用。在客户端，客户端有一个存根，该存根提供与服务器相同的方法。</p>
 <span id="more"></span>
 <h3 id="一、简介">一、简介</h3>
@@ -2105,7 +2105,7 @@ str2代表着如何比较.<br>
   </entry>
   <entry>
     <title>一文搞定前后端项目部署</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/30975.html</url>
     <content><![CDATA[<h3 id="Linux常用命令：">Linux常用命令：</h3>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">lsof -i:<span class="number">8090</span> <span class="comment">//查看端口是否被占用</span></span><br><span class="line">kill -s <span class="number">9</span> pid <span class="comment">//杀死进程</span></span><br><span class="line">jps <span class="comment">//查看启动的java应用进程</span></span><br><span class="line">scp -P <span class="number">22</span>（服务器端口号） smpe-system-<span class="number">1.0</span><span class="number">.0</span>-RELEASE.jar  root<span class="meta">@ip</span>地址:/data/nginx/www/cloudsafe/cloudsafe_server（服务器中文件夹的绝对路径） </span><br><span class="line"><span class="comment">//远程复制，将本地的xx.jar， 上传到服务器的xxxx/cloudsafe_server文件夹，注：（）为解释，执行时自行删除，此命令是在jar的所在目录下执行的。</span></span><br><span class="line"></span><br><span class="line">docker exec -it a4f598cc4268（容器id） mysqldump -uroot -p*********（数据库密码） --opt research_keyuan（数据库名称） &gt; /root/mysql_file_backup/mysqlbakup_research_keyuan.sql  （用来保存sql文件的路径及文件名）</span><br><span class="line"><span class="comment">//此命令用来备份docker中的mysql数据库sql文件</span></span><br><span class="line"></span><br><span class="line">docker exec -i a4f598cc4268（容器id） mysql -uroot -p*****（数据库密码） research_keyuan &lt; /root/mysql_file_backup/xxxx.sql</span><br><span class="line"><span class="comment">//此命令是用来将sql文件导入到docker中的mysql容器的mysql的指定数据库</span></span><br></pre></td></tr></table></figure>
 <span id="more"></span>
@@ -2322,7 +2322,7 @@ str2代表着如何比较.<br>
   </entry>
   <entry>
     <title>微信服务平台快速开发小程序</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/29622.html</url>
     <content><![CDATA[<h2 id="需求-3">需求</h2>
 <p>根据一个小程序，发布一个和其一模一样的小程序。（可能不只一个）</p>
 <p>如果按常规的做法每个小程序都需要经历这样的步骤：在公众平台申请appid——&gt;拉代码到自己的仓库——&gt;打开编译器绑定自己的appId——&gt;上传代码到公众平台——&gt;再提交审核——&gt;在公众平台调整开发设置。</p>
@@ -2393,7 +2393,7 @@ str2代表着如何比较.<br>
   </entry>
   <entry>
     <title>ElasticSearch</title>
-    <url>/:/abbrlink</url>
+    <url>/posts/22654.html</url>
     <content><![CDATA[<p>Elasticsearch 是一个分布式、RESTful 风格的搜索和数据分析引擎，能够解决不断涌现出的各种用例。 作为 Elastic Stack 的核心，它集中存储您的数据，帮助您发现意料之中以及意料之外的情况。</p>
 <span id="more"></span>
 <p>[TOC]</p>
