@@ -31,22 +31,22 @@
     <meta name="description" content="Java写爬虫分为两步：第一步打开idea，第二步开始敲代码…">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Java爬虫实践">
-<meta property="og:url" content="https://zglgithubx.github.io/31819">
+<meta property="og:url" content="https://zglgithubx.github.io/:/abbrlink">
 <meta property="og:site_name" content="Bug">
 <meta property="og:description" content="Java写爬虫分为两步：第一步打开idea，第二步开始敲代码…">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-09-16T10:01:55.000Z">
-<meta property="article:modified_time" content="2022-10-15T12:34:55.602Z">
+<meta property="article:modified_time" content="2022-10-15T12:54:35.235Z">
 <meta property="article:author" content="火花">
 <meta property="article:tag" content="爬虫">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://zglgithubx.github.io/31819">
+<link rel="canonical" href="https://zglgithubx.github.io/:/abbrlink">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/31819","path":"/31819","title":"Java爬虫实践"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/:/abbrlink","path":":/abbrlink","title":"Java爬虫实践"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>Java爬虫实践 | Bug</title>
@@ -236,7 +236,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/31819">
+    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/:/abbrlink">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/img/logo.jpg">
@@ -286,8 +286,8 @@
     </span>
     <span class="post-meta-item-text">评论数：</span>
   
-    <a title="waline" href="/31819#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/31819" itemprop="commentCount"></span>
+    <a title="waline" href="/:/abbrlink#waline" itemprop="discussionUrl">
+      <span class="post-comments-count waline-comment-count" data-path="/:/abbrlink" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -297,7 +297,7 @@
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/31819"></span>
+      <span class="waline-pageview-count" data-path="/:/abbrlink"></span>
     </span>
   
     <span class="post-meta-break"></span>
@@ -642,7 +642,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://zglgithubx.github.io/31819" title="Java爬虫实践">https://zglgithubx.github.io/31819</a>
+      <a href="https://zglgithubx.github.io/:/abbrlink" title="Java爬虫实践">https://zglgithubx.github.io/:/abbrlink</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" rel="external nofollow noopener noreferrer" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -660,7 +660,7 @@
             <div class="post-nav-item">
             </div>
             <div class="post-nav-item">
-                <a href="/29203" rel="next" title="哈夫曼树">
+                <a href="/:/abbrlink" rel="next" title="哈夫曼树">
                   哈夫曼树 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
@@ -749,9 +749,9 @@
 
 
   <script src="https://unpkg.com/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/31819"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/:/abbrlink"}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/31819"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"https://waline-ten-pi.vercel.app","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":true,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.0.1/weibo"],"comment_count":true,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/:/abbrlink"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
