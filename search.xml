@@ -696,7 +696,6 @@ The starters contain a lot of the dependencies that you need to get a project up
 <p>会提示输入：用户名，邮箱，输入完成后输入o。</p>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202210152006150.png" alt="image-20221015200636057"></p>
 <p>回车后，会让你输入两次密码，然后ok，就会生成密钥。</p>
-<p><a href="https://www.jianshu.com/p/5f6135e1925f">发布项目到Maven中央仓库的最佳实践 - 简书 (jianshu.com)</a></p>
 <h4 id="3-6、把key发送到中央仓库服务器，后面在上传时会做验证">3.6、把key发送到中央仓库服务器，后面在上传时会做验证</h4>
 <p>首先找到key，在安装的gpg客户端中找到密钥id，密钥id就是接下来需要发送的key</p>
 <p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202210152010750.png" alt="image-20221015201017643"></p>
