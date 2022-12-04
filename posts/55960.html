@@ -41,7 +41,7 @@
 <meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211220850849.png">
 <meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211221504408.png">
 <meta property="article:published_time" content="2022-11-26T02:25:04.000Z">
-<meta property="article:modified_time" content="2022-11-26T02:39:21.611Z">
+<meta property="article:modified_time" content="2022-12-04T09:43:48.860Z">
 <meta property="article:author" content="ZhuGuangLiang">
 <meta property="article:tag" content="并发编程">
 <meta name="twitter:card" content="summary">
@@ -111,7 +111,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">20</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">27</span></a></li><li class="menu-item menu-item-message-board"><a href="/message-board/" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类<span class="badge">10</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">28</span></a></li><li class="menu-item menu-item-message-board"><a href="/message-board/" rel="section"><i class="fa fa-comments fa-fw"></i>留言板</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -166,7 +166,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%A4%A7%E4%BD%93%E5%8F%AF%E5%88%86%E4%B8%BA5%E7%A7%8D%E7%8A%B6%E6%80%81%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">Java中的线程的生命周期大体可分为5种状态。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-JUC-%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什么是 JUC ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFJava%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">什么是Java线程模型？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81Java%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">为什么需要Java线程模型？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">线程和进程区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%94%81%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">什么是锁？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E9%94%81%E6%9C%BA%E5%88%B6%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%9A%84%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">Java锁机制是如何设计的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A4%B4%E7%9A%84%E7%BB%93%E6%9E%84%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">对象和对象头的结构分别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Synchronized"><span class="nav-number">9.</span> <span class="nav-text">Synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E9%94%81%E7%9A%84%E5%9B%9B%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="nav-number">10.</span> <span class="nav-text">对象锁的四种状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%82%B2%E8%A7%82%E9%94%81%E5%92%8C%E4%B9%90%E8%A7%82%E9%94%81"><span class="nav-number">11.</span> <span class="nav-text">悲观锁和乐观锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0CAS%E7%9A%84%E5%8E%9F%E5%AD%90%E6%80%A7%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">如何实现CAS的原子性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%88%A9%E7%94%A8CAS%E7%89%B9%E6%80%A7%EF%BC%8C%E6%9D%A5%E8%BF%9B%E8%A1%8C%E4%B9%90%E8%A7%82%E9%94%81%E7%BC%96%E7%A8%8B%EF%BC%9F"><span class="nav-number">13.</span> <span class="nav-text">如果利用CAS特性，来进行乐观锁编程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFAQS%EF%BC%9F"><span class="nav-number">14.</span> <span class="nav-text">什么是AQS？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AQS%E5%8E%9F%E7%90%86"><span class="nav-number">15.</span> <span class="nav-text">AQS原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E5%92%8C%E8%AE%BF%E9%97%AE%E5%90%8C%E6%AD%A5%E5%99%A8%E7%9A%84%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="nav-number">16.</span> <span class="nav-text">如何修改和访问同步器的状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AQS%E6%8F%90%E4%BE%9B%E4%BA%86%E5%93%AA%E4%BA%9B%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="nav-number">17.</span> <span class="nav-text">AQS提供了哪些模板方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%9A%84%E5%90%84%E7%A7%8D%E9%94%81%E6%9C%BA%E5%88%B6"><span class="nav-number">18.</span> <span class="nav-text">Java的各种锁机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReentrantLock"><span class="nav-number">19.</span> <span class="nav-text">ReentrantLock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadPoolExecutor"><span class="nav-number">20.</span> <span class="nav-text">ThreadPoolExecutor</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E4%B8%AD%E7%9A%84%E7%BA%BF%E7%A8%8B%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E5%A4%A7%E4%BD%93%E5%8F%AF%E5%88%86%E4%B8%BA5%E7%A7%8D%E7%8A%B6%E6%80%81%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">Java中的线程的生命周期大体可分为5种状态。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-JUC-%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">什么是 JUC ？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFJava%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">什么是Java线程模型？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81Java%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">为什么需要Java线程模型？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">线程和进程区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%94%81%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">什么是锁？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E9%94%81%E6%9C%BA%E5%88%B6%E6%98%AF%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E7%9A%84%EF%BC%9F"><span class="nav-number">7.</span> <span class="nav-text">Java锁机制是如何设计的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E5%92%8C%E5%AF%B9%E8%B1%A1%E5%A4%B4%E7%9A%84%E7%BB%93%E6%9E%84%E5%88%86%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">对象和对象头的结构分别是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Synchronized"><span class="nav-number">9.</span> <span class="nav-text">Synchronized</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E9%94%81%E7%9A%84%E5%9B%9B%E7%A7%8D%E7%8A%B6%E6%80%81"><span class="nav-number">10.</span> <span class="nav-text">对象锁的四种状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%82%B2%E8%A7%82%E9%94%81%E5%92%8C%E4%B9%90%E8%A7%82%E9%94%81"><span class="nav-number">11.</span> <span class="nav-text">悲观锁和乐观锁</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0CAS%E7%9A%84%E5%8E%9F%E5%AD%90%E6%80%A7%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">如何实现CAS的原子性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E5%88%A9%E7%94%A8CAS%E7%89%B9%E6%80%A7%EF%BC%8C%E6%9D%A5%E8%BF%9B%E8%A1%8C%E4%B9%90%E8%A7%82%E9%94%81%E7%BC%96%E7%A8%8B%EF%BC%9F"><span class="nav-number">13.</span> <span class="nav-text">如果利用CAS特性，来进行乐观锁编程？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFAQS%EF%BC%9F"><span class="nav-number">14.</span> <span class="nav-text">什么是AQS？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AQS%E5%8E%9F%E7%90%86"><span class="nav-number">15.</span> <span class="nav-text">AQS原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E5%92%8C%E8%AE%BF%E9%97%AE%E5%90%8C%E6%AD%A5%E5%99%A8%E7%9A%84%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="nav-number">16.</span> <span class="nav-text">如何修改和访问同步器的状态？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#AQS%E6%8F%90%E4%BE%9B%E4%BA%86%E5%93%AA%E4%BA%9B%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="nav-number">17.</span> <span class="nav-text">AQS提供了哪些模板方法？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E7%9A%84%E5%90%84%E7%A7%8D%E9%94%81%E6%9C%BA%E5%88%B6"><span class="nav-number">18.</span> <span class="nav-text">Java的各种锁机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ReentrantLock"><span class="nav-number">19.</span> <span class="nav-text">ReentrantLock</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ThreadPoolExecutor"><span class="nav-number">20.</span> <span class="nav-text">ThreadPoolExecutor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E4%B9%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">21.</span> <span class="nav-text">进程之间同步的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E4%B9%8B%E9%97%B4%E5%90%8C%E6%AD%A5%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">22.</span> <span class="nav-text">线程之间同步的方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">23.</span> <span class="nav-text">线程间通信方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="nav-number">24.</span> <span class="nav-text">进程间通信方式</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -180,7 +180,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">27</span>
+          <span class="site-state-item-count">28</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -191,7 +191,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -314,14 +314,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7.4k</span>
+      <span>9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span>8 分钟</span>
     </span>
 </div>
 
@@ -583,6 +583,88 @@
 <li>shutdown()：不会立即终止线程池，而是要等所有任务队列中的任务都执行完后才会终止。执行完 shutdown 方法之后，线程池就不会再接受新任务了。</li>
 <li>shutdownNow()：执行该方法，线程池的状态立刻变成 STOP 状态，并试图停止所有正在执行的线程，不再处理还在池队列中等待的任务，执行此方法会返回未执行的任务。</li>
 </ul>
+<h3 id="进程之间同步的方式">进程之间同步的方式</h3>
+<p>进程同步方式是：信号量、管程、消息传递</p>
+<p><strong>1、信号量</strong></p>
+<p>用于进程间传递信号的一个整数值。在信号量上只有三种操作可以进行：初始化，P操作和V操作，这三种操作都是原子操作。</p>
+<p><strong>P操作(递减操作)可以用于阻塞一个进程，V操作(增加操作)可以用于解除阻塞一个进程。</strong></p>
+<p>基本原理是两个或多个进程可以通过简单的信号进行合作，一个进程可以被迫在某一位置停止，直到它接收到一个特定的信号。该信号即为信号量s。</p>
+<p>为通过信号量s传送信号，进程可执行原语semSignal(s);为通过信号量s接收信号，进程可执行原语semWait(s);如果相应的信号仍然没有发送，则进程会被阻塞，直到发送完为止。</p>
+<p><strong>可把信号量视为一个具有整数值的变量，在它之上定义三个操作：</strong></p>
+<ul>
+<li>一个信号量可以初始化为非负数</li>
+<li>semWait操作使信号量s减1.若值为负数，则执行semWait的进程被阻塞。否则进程继续执行。</li>
+<li>semSignal操作使信号量加1，若值大于或等于零，则被semWait操作阻塞的进程被解除阻塞。</li>
+</ul>
+<p><strong>2、管程</strong></p>
+<p>管程是由一个或多个过程、一个初始化序列和局部数据组成的软件模块，<strong>其主要特点如下：</strong></p>
+<ul>
+<li>局部数据变量只能被管程的过程访问，任何外部过程都不能访问。</li>
+<li>一个进程通过调用管程的一个过程进入管程。</li>
+<li>在任何时候，只能有一个进程在管程中执行，调用管程的任何其他进程都被阻塞，以等待管程可用。</li>
+</ul>
+<p>管程通过使用条件变量提供对同步的支持，这些条件变量包含在管程中，并且只有在管程中才能被访问。有两个函数可以操作条件变量：</p>
+<ul>
+<li>cwait©：调用进程的执行在条件c上阻塞，管程现在可被另一个进程使用。</li>
+<li>csignal©：恢复执行在cwait之后因为某些条件而阻塞的进程。如果有多个这样的进程，选择其中一个；如果没有这样的进程，什么以不做。</li>
+</ul>
+<p><strong>3、消息传递</strong></p>
+<p><strong>消息传递的实际功能以一对原语的形式提供：</strong></p>
+<ul>
+<li>send(destination,message)</li>
+<li>receive(source,message)</li>
+</ul>
+<p>这是进程间进程消息传递所需要的最小操作集。</p>
+<p>一个进程以消息的形式给另一个指定的目标进程发送消息；</p>
+<p>进程通过执行receive原语接收消息，receive原语中指明发送消息的源进程和消息。</p>
+<h3 id="线程之间同步的方式">线程之间同步的方式</h3>
+<p>线程同步指的是线程之间“协同”，即线程之间按照规定的先后次序运行。</p>
+<p>有四种方式：</p>
+<ul>
+<li>互斥量<code>pthread_mutex_</code></li>
+<li>读写锁<code>pthread_rwlock_</code></li>
+<li>条件变量<code>pthread_cond_</code>
+<ul>
+<li>条件变量的方法是，当线程在等待某些满足条件时使线程进入睡眠状态，一旦条件满足，就唤醒，这样不会占用宝贵的互斥对象锁，实现高效</li>
+<li>条件变量允许线程阻塞并等待另一个线程发送信号，一般和互斥锁一起使用。</li>
+<li>条件变量被用来阻塞一个线程，当条件不满足时，线程会解开互斥锁，并等待条件发生变化。一旦其他线程改变了条件变量，将通知相应的阻塞线程，这些线程重新锁定互斥锁，然后执行后续代码，最后再解开互斥锁。</li>
+</ul>
+</li>
+<li>信号量<code>sem_</code>
+<ul>
+<li>信号量本质上是一个非负的整数计数器，用于控制公共资源的访问，也被称为PV原子操作：
+<ul>
+<li>P操作：即信号量sem减一，若sem小于等于0则P操作被阻塞，直到sem变量大于0为止</li>
+<li>V操作：即信号量sem加一</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="线程间通信方式"><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC8xMzg2ODkzNDI=">线程间通信方式<i class="fa fa-external-link-alt"></i></span></h3>
+<p>线程通信主要可以分为三种方式，分别为<strong>共享内存</strong>、<strong>消息传递</strong>和<strong>管道流</strong>。每种方式有不同的方法来实现</p>
+<ul>
+<li>共享内存：线程之间共享程序的公共状态，线程之间通过读-写内存中的公共状态来隐式通信。</li>
+</ul>
+<blockquote>
+<p>volatile共享内存</p>
+</blockquote>
+<ul>
+<li>消息传递：线程之间没有公共的状态，线程之间必须通过明确的发送信息来显示的进行通信。</li>
+</ul>
+<blockquote>
+<p>wait/notify等待通知方式<br>
+join方式</p>
+</blockquote>
+<ul>
+<li>管道流</li>
+</ul>
+<blockquote>
+<p>管道输入/输出流的形式</p>
+</blockquote>
+<h3 id="进程间通信方式"><span class="exturl" data-url="aHR0cHM6Ly93d3cuY25ibG9ncy5jb20vQ2hlZXNlWkgvcC81MjY0NDY1Lmh0bWw=">进程间通信方式<i class="fa fa-external-link-alt"></i></span></h3>
+<p>**进程间通信（IPC，InterProcess Communication）**是指在不同进程之间传播或交换信息。</p>
+<p>IPC的方式通常有管道（包括无名管道和命名管道）、消息队列、信号量、共享存储、Socket、Streams等。其中 Socket和Streams支持不同主机上的两个进程IPC。</p>
 
     </div>
 
@@ -661,14 +743,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">282k</span>
+    <span title="站点总字数">295k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">4:16</span>
+    <span title="站点阅读时长">4:28</span>
   </span>
 </div>
 <div class="busuanzi-count">
