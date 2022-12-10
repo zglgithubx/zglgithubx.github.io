@@ -28,32 +28,26 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zglgithubx.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":2,"unescape":true,"preload":false}}</script><script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/config.js"></script>
 
-    <meta name="description" content="RPC通信的演化  从单机到分布式-&gt;分布式通信-&gt;最基本：二进制传输 TCP&#x2F;IP  最古老也是最有效，并且永不过时，TCP&#x2F;UDP的二进制传输。事实上所有的通信方式归根结底都是TCP&#x2F;UDP CORBA Common Ojbect Request Broker Architecture 。古老而复杂，支持面向对象的通信协议 Web Service （SOA SOAP RDDI WS">
+    <meta name="description" content="云想衣裳花想容，春风拂槛露华浓">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="RPC原理">
-<meta property="og:url" content="https://zglgithubx.github.io/posts/12447.html">
+<meta property="og:title" content="Bug">
+<meta property="og:url" content="https://zglgithubx.github.io/tags/spring/index.html">
 <meta property="og:site_name" content="Bug">
-<meta property="og:description" content="RPC通信的演化  从单机到分布式-&gt;分布式通信-&gt;最基本：二进制传输 TCP&#x2F;IP  最古老也是最有效，并且永不过时，TCP&#x2F;UDP的二进制传输。事实上所有的通信方式归根结底都是TCP&#x2F;UDP CORBA Common Ojbect Request Broker Architecture 。古老而复杂，支持面向对象的通信协议 Web Service （SOA SOAP RDDI WS">
+<meta property="og:description" content="云想衣裳花想容，春风拂槛露华浓">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202209201031116.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202209201034717.png">
-<meta property="og:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202209201036278.png">
-<meta property="article:published_time" content="2022-09-20T06:24:58.000Z">
-<meta property="article:modified_time" content="2022-12-10T12:37:47.242Z">
 <meta property="article:author" content="ZhuGuangLiang">
-<meta property="article:tag" content="RPC">
+<meta property="article:tag" content="0 1">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202209201031116.png">
 
 
-<link rel="canonical" href="https://zglgithubx.github.io/posts/12447.html">
+<link rel="canonical" href="https://zglgithubx.github.io/tags/spring/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/posts/12447.html","path":"posts/12447.html","title":"RPC原理"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/spring/index.html","title":""}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>RPC原理 | Bug</title>
+<title>标签: spring | Bug</title>
   
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-H0Z2K1YBPB","only_pageview":true}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/analytics/google-analytics.js"></script>
@@ -151,7 +145,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+    <div class="sidebar-inner sidebar-overview-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -164,7 +158,6 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#RPC%E9%80%9A%E4%BF%A1%E7%9A%84%E6%BC%94%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">RPC通信的演化</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -231,201 +224,49 @@
 </noscript>
 
 
-    <div class="main-inner post posts-expand">
+    <div class="main-inner tag posts-collapse">
 
 
   
-
-
-<div class="post-block">
   
   
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/12447.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="RPC原理 | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          RPC原理<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pnbGdpdGh1YngvYmxvZy90cmVlL21hc3Rlci9zb3VyY2UvX3Bvc3RzL1JQQ+WOn+eQhi5tZA==" title="编辑"><i class="fa fa-pen-nib"></i></span>
+  <div class="post-block">
+    <div class="post-content">
+      <div class="collection-title">
+        <h1 class="collection-header">spring
+          <small>标签</small>
         </h1>
+      </div>
 
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-09-20 14:24:58" itemprop="dateCreated datePublished" datetime="2022-09-20T14:24:58+08:00">2022-09-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">微服务</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/12447.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/12447.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/12447.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h3 id="RPC通信的演化">RPC通信的演化</h3>
-<ul>
-<li>从单机到分布式-&gt;分布式通信-&gt;最基本：二进制传输 TCP/IP
-<ul>
-<li>最古老也是最有效，并且永不过时，TCP/UDP的二进制传输。事实上所有的通信方式归根结底都是TCP/UDP</li>
-<li>CORBA Common Ojbect Request Broker Architecture 。古老而复杂，支持面向对象的通信协议</li>
-<li>Web Service （SOA SOAP RDDI WSDL 等）<br>
-基于HTTP+xml的标准化Web API</li>
-<li>RestFul （Representational State Transfer）<br>
-回归简单化本源的Web API 的事实标准，HTTP+JSON</li>
-<li>RMI Remote Message Service<br>
-JavaEE 中的消息框架标准，为很多MQ提供支持</li>
-<li>RPC（Remote Procedure Call）<br>
-远程方法调用，这只是一个统称，重点在于方法调用（不支持对象的概念），具体实现甚至可以用RMI RestFul 等去实现，但一般不用，因为RMI不能跨语言，而RestFul效率太低。<br>
-多用于服务器集群间通信，因此使用更加高效，短小精悍的传输模式以提高效率。</li>
-</ul>
-</li>
-</ul>
-<span id="more"></span>
-<h4 id="1、什么是RPC">1、什么是RPC</h4>
-<ul>
-<li>RPC的概念与技术早在1981年由Nelson提出。1984年，Birrell和Nelson把其用于支持异构型分布式系统间的通讯。Birrell的RPC模型引入存根进程（stub）作为远程的本地代理，调用RPC运行时库来传输网络中的调用。Stub和RPC runtime屏蔽了网络调用所涉及的许多细节，特别是，参数的编码/译码及网络通讯是由stub和RPC runtime完成的，因此这一模式被各类RPC所采用。——百度百科</li>
-<li>对于RPC框架来说，有两个核心部分，一个被称为Stub，还有一个RPCRuntime。
-<ul>
-<li>这个存根进程主要是在作为服务的提供方和调用方的代理来屏蔽底层的实现细节，包括：调用参数的序列化和网络传输的一些过程。</li>
-<li>RPC运行时值承担服务提供方和调用之间的进行网络传输的网络调用。</li>
-<li><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202209201031116.png" alt="image-20220920103141918"></li>
-</ul>
-</li>
-</ul>
-<h4 id="2、RPC的使用场景">2、RPC的使用场景</h4>
-<ul>
-<li>RPC：内部系统、同步调用</li>
-<li>MQ：内部系统、异步调用</li>
-<li>REST/GraphQL：外部系统调用</li>
-</ul>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202209201034717.png" alt="image-20220920103451642"></p>
-<h4 id="3、RPC的核心流程">3、RPC的核心流程</h4>
-<p>本地调用—&gt;User Stub（打包参数：服务的名称、调用的方法、参数列表，以及返回参数等信息）—&gt;RPCRuntime—&gt;Server Stub接收打包好的参数—&gt;调用方法，得到响应的信息—&gt;将信息进行打包（序列化）—&gt;RPC Runtime—&gt;User Stub对信息进行反序列化—&gt;本地</p>
-<p><img data-src="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202209201036278.png" alt="image-20220920103628173"></p>
-<p>RPC所做的事情就是对User Stub到Server  Stub的过程，对这个过程进行包装后形成的就是一个RPC框架，对于调用方而言，所感知的就是一个本地调用的过程，而底层的一些网络传输和各种实现细节就被RPC框架所屏蔽了。</p>
-
+      
+    <div class="collection-year">
+      <span class="collection-header">2022</span>
     </div>
 
-    
-    
-    
+  <article itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+      <div class="post-meta-container">
+        <time itemprop="dateCreated" datetime="2022-12-10T20:34:41+08:00" content="2022-12-10">
+          12-10
+        </time>
+      </div>
+
+      <div class="post-title">
+          <a class="post-title-link" href="/posts/43774.html" itemprop="url">
+            <span itemprop="name">Spring整理</span>
+          </a>
+      </div>
+
       
-
-
-    <footer class="post-footer">
-          
-
-<div class="post-copyright">
-<ul>
-  <li class="post-copyright-author">
-      <strong>本文作者： </strong>ZhuGuangLiang
-  </li>
-  <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://zglgithubx.github.io/posts/12447.html" title="RPC原理">https://zglgithubx.github.io/posts/12447.html</a>
-  </li>
-  <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
-  </li>
-</ul>
-</div>
-
-          <div class="post-tags">
-              <a href="/tags/RPC/" rel="tag"><i class="fa fa-tag"></i> RPC</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/posts/41575.html" rel="prev" title="gRPC入门">
-                  <i class="fa fa-chevron-left"></i> gRPC入门
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/posts/54328.html" rel="next" title="手写一个SpringBoot组件发布到Maven中央仓库">
-                  手写一个SpringBoot组件发布到Maven中央仓库 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
+    </header>
   </article>
-</div>
 
+    </div>
+  </div>
+  
+  
+  
 
-
-
-
-
-    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -521,9 +362,9 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
 
 
   <script src="https://unpkg.com/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/posts/12447.html"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/tags/spring/"}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"vercel.marchsoft.club","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":false,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.1.0/bmoji"],"comment_count":false,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/posts/12447.html"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"vercel.marchsoft.club","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":false,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.1.0/bmoji"],"comment_count":false,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/tags/spring/"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {

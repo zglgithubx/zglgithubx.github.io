@@ -28,26 +28,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"zglgithubx.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.11.1","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":true,"comments":{"style":"tabs","active":"waline","storage":true,"lazyload":true,"nav":null,"activeClass":"waline"},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":2,"unescape":true,"preload":false}}</script><script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/config.js"></script>
 
-    <meta name="description" content="云想衣裳花想容，春风拂槛露华浓">
+    <meta name="description" content="Spring框架是一个开放源代码的J2EE应用程序框架，由Rod Johnson发起，是针对bean的生命周期进行管理的轻量级容器（lightweight container）。 Spring解决了开发者在J2EE开发中遇到的许多常见的问题，提供了功能强大IOC、AOP及Web MVC等功能。Spring可以单独应用于构筑应用程序，也可以和Struts、Webwork、Tapestry等众多Web">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Bug">
-<meta property="og:url" content="https://zglgithubx.github.io/index.html">
+<meta property="og:title" content="Spring整理">
+<meta property="og:url" content="https://zglgithubx.github.io/posts/43774.html">
 <meta property="og:site_name" content="Bug">
-<meta property="og:description" content="云想衣裳花想容，春风拂槛露华浓">
+<meta property="og:description" content="Spring框架是一个开放源代码的J2EE应用程序框架，由Rod Johnson发起，是针对bean的生命周期进行管理的轻量级容器（lightweight container）。 Spring解决了开发者在J2EE开发中遇到的许多常见的问题，提供了功能强大IOC、AOP及Web MVC等功能。Spring可以单独应用于构筑应用程序，也可以和Struts、Webwork、Tapestry等众多Web">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-12-10T12:34:41.000Z">
+<meta property="article:modified_time" content="2022-12-10T12:37:47.242Z">
 <meta property="article:author" content="ZhuGuangLiang">
-<meta property="article:tag" content="0 1">
+<meta property="article:tag" content="spring">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://zglgithubx.github.io/">
+<link rel="canonical" href="https://zglgithubx.github.io/posts/43774.html">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://zglgithubx.github.io/posts/43774.html","path":"posts/43774.html","title":"Spring整理"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Bug - 慕光</title>
+<title>Spring整理 | Bug</title>
   
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"G-H0Z2K1YBPB","only_pageview":true}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/analytics/google-analytics.js"></script>
@@ -87,7 +89,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">Bug</h1>
+      <p class="site-title">Bug</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">慕光</p>
@@ -145,7 +147,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -158,6 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">Spring是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E7%9A%84%E4%BC%98%E7%82%B9%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">Spring的优点？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E7%9A%84IOC%E7%90%86%E8%A7%A3"><span class="nav-number">3.</span> <span class="nav-text">Spring的IOC理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E7%9A%84Aop%E7%90%86%E8%A7%A3"><span class="nav-number">4.</span> <span class="nav-text">Spring的Aop理解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E4%BB%A3%E7%90%86%E5%92%8C%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">静态代理和动态代理区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BeanFactory%E5%92%8CApplicationContext%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">BeanFactory和ApplicationContext有什么区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Bean%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">7.</span> <span class="nav-text">Spring Bean的生命周期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%87%8ASpring%E6%94%AF%E6%8C%81%E7%9A%84%E5%87%A0%E7%A7%8Dbean%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">8.</span> <span class="nav-text">解释Spring支持的几种bean的作用域</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E7%9A%84%E5%8D%95%E4%BE%8BBean%E6%98%AF%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E7%9A%84%E5%90%97%EF%BC%9F"><span class="nav-number">9.</span> <span class="nav-text">Spring框架中的单例Bean是线程安全的吗？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%BA%BF%E7%A8%8B%E5%B9%B6%E5%8F%91%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="nav-number">10.</span> <span class="nav-text">Spring如何处理线程并发问题？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E7%9A%84%E8%87%AA%E5%8A%A8%E8%A3%85%E9%85%8D"><span class="nav-number">11.</span> <span class="nav-text">Spring的自动装配</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E6%A1%86%E6%9E%B6%E4%B8%AD%E9%83%BD%E7%94%A8%E5%88%B0%E4%BA%86%E5%93%AA%E4%BA%9B%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9F"><span class="nav-number">12.</span> <span class="nav-text">Spring框架中都用到了哪些设计模式？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E4%BA%8B%E5%8A%A1%E4%BD%9C%E7%94%A8"><span class="nav-number">13.</span> <span class="nav-text">Spring事务作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E7%9A%84%E4%BA%8B%E5%8A%A1%E7%A7%8D%E7%B1%BB"><span class="nav-number">14.</span> <span class="nav-text">Spring的事务种类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E4%BA%8B%E5%8A%A1%E7%9A%84%E4%BC%A0%E6%92%AD%E8%A1%8C%E4%B8%BA"><span class="nav-number">15.</span> <span class="nav-text">Spring事务的传播行为</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E4%B8%AD%E7%9A%84%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="nav-number">16.</span> <span class="nav-text">Spring中的隔离级别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">17.</span> <span class="nav-text">Spring启动流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%E5%BE%AA%E7%8E%AF%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98"><span class="nav-number">18.</span> <span class="nav-text">Spring如何解决循环依赖问题</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -224,16 +227,17 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/43774.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,13 +251,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
+      <meta itemprop="name" content="Spring整理 | Bug">
       <meta itemprop="description" content>
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/43774.html" class="post-title-link" itemprop="url">Spring整理</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Spring整理<span class="exturl post-edit-link" data-url="aHR0cHM6Ly9naXRodWIuY29tL3pnbGdpdGh1YngvYmxvZy90cmVlL21hc3Rlci9zb3VyY2UvX3Bvc3RzL1NwcmluZ+aVtOeQhi5tZA==" title="编辑"><i class="fa fa-pen-nib"></i></span>
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -322,7 +326,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Spring框架是一个开放源代码的J2EE应用程序框架，由Rod Johnson发起，是针对bean的生命周期进行管理的轻量级容器（lightweight container）。 Spring解决了开发者在J2EE开发中遇到的许多常见的问题，提供了功能强大IOC、AOP及Web MVC等功能。Spring可以单独应用于构筑应用程序，也可以和Struts、Webwork、Tapestry等众多Web框架组合使用，并且可以与 Swing等桌面应用程序AP组合。因此， Spring不仅仅能应用于J2EE应用程序之中，也可以应用于桌面应用程序以及小应用程序之中。Spring框架主要由七部分组成，分别是 Spring Core、 Spring AOP、 Spring ORM、 Spring DAO、Spring Context、 Spring Web和 Spring Web MVC。</p>
+        <p>Spring框架是一个开放源代码的J2EE应用程序框架，由Rod Johnson发起，是针对bean的生命周期进行管理的轻量级容器（lightweight container）。 Spring解决了开发者在J2EE开发中遇到的许多常见的问题，提供了功能强大IOC、AOP及Web MVC等功能。Spring可以单独应用于构筑应用程序，也可以和Struts、Webwork、Tapestry等众多Web框架组合使用，并且可以与 Swing等桌面应用程序AP组合。因此， Spring不仅仅能应用于J2EE应用程序之中，也可以应用于桌面应用程序以及小应用程序之中。Spring框架主要由七部分组成，分别是 Spring Core、 Spring AOP、 Spring ORM、 Spring DAO、Spring Context、 Spring Web和 Spring Web MVC。</p>
 <h3 id="Spring是什么？">Spring是什么？</h3>
 <p>Spring是一个轻量级的IOC和AOP容器框架。是为Java应用程序提供基础性服务的一套框架，目的是用于简化企业应用程序的开发，它使得开发者只需要关心业务需求。常见的配置方式有三种：基于XML的配置、基于注解的配置、基于java的配置。</p>
 <p>主要由以下几个模块组成：</p>
@@ -519,7 +523,6 @@ BeanFactory和ApplicationContext都支持BeanPostProcessor、BeanFactoryPostProc
 <h4 id="为什么要使用三级缓存呢？二级缓存能解决循环依赖吗？">为什么要使用三级缓存呢？二级缓存能解决循环依赖吗？</h4>
 <p>如果要使用二级缓存解决循环依赖，意味着所有Bean在实例化后就要完成AOP代理，这样违背了Spring设计的原则，Spring在设计之初就是通过<code>AnnotationAwareAspectJAutoProxyCreator</code>这个后置处理器来在Bean生命周期的最后一步来完成AOP代理，而不是在实例化后就立马进行AOP代理。</p>
 
-      
     </div>
 
     
@@ -529,1155 +532,38 @@ BeanFactory和ApplicationContext都支持BeanPostProcessor、BeanFactoryPostProc
 
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
+          
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/11879.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/11879.html" class="post-title-link" itemprop="url">Redis整理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-12-04 17:41:16" itemprop="dateCreated datePublished" datetime="2022-12-04T17:41:16+08:00">2022-12-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/11879.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/11879.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/11879.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>11k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Redis（Remote Dictionary Server )，即远程字典服务，是一个开源的使用ANSI C语言编写、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/11879.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/53373.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/53373.html" class="post-title-link" itemprop="url">MySQL整理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-26 10:25:14" itemprop="dateCreated datePublished" datetime="2022-11-26T10:25:14+08:00">2022-11-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/53373.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/53373.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/53373.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>21k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>20 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <ul>
-<li>MySQL是一个关系型数据库管理系统，由瑞典MySQL AB 公司开发，属于 Oracle 旗下产品。MySQL 是最流行的关系型数据库管理系统之一，在 WEB 应用方面，MySQL是最好的 RDBMS (Relational Database Management System，关系数据库管理系统) 应用软件之一。</li>
-<li>MySQL是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。</li>
-<li>MySQL所使用的 SQL 语言是用于访问数据库的最常用标准化语言。MySQL 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型和大型网站的开发都选择 MySQL 作为网站数据库。</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/53373.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/55960.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/55960.html" class="post-title-link" itemprop="url">JUC整理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-26 10:25:04" itemprop="dateCreated datePublished" datetime="2022-11-26T10:25:04+08:00">2022-11-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/55960.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/55960.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/55960.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>9k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>JUC实际上就是我们对于jdk中java.util .concurrent 工具包的简称。这个包下都是Java处理线程相关的类，自jdk1.5后出现。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/55960.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/3895.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/3895.html" class="post-title-link" itemprop="url">JVM整理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-19 16:11:28" itemprop="dateCreated datePublished" datetime="2022-11-19T16:11:28+08:00">2022-11-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/3895.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/3895.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/3895.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>19k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>17 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>虚拟机是一种抽象化的计算机，通过在实际的计算机上仿真模拟各种计算机功能来实现的。Java虚拟机有自己完善的硬体架构，如处理器、堆栈、寄存器等，还具有相应的指令系统。Java虚拟机屏蔽了与具体操作系统平台相关的信息，使得Java程序只需生成在Java虚拟机上运行的目标代码（字节码），就可以在多种平台上不加修改地运行。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/3895.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/51340.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/51340.html" class="post-title-link" itemprop="url">Netty入门</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-11 20:16:58" itemprop="dateCreated datePublished" datetime="2022-11-11T20:16:58+08:00">2022-11-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/51340.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/51340.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/51340.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>36k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>33 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Netty是一个基于NIO网络通信框架，使用它可以简单快速地开发网络应用程序，比如客户端和服务端的协议。Netty大大简化了网络程序的开发过程比如TCP和UDP的 Socket的开发。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/51340.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/58728.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/58728.html" class="post-title-link" itemprop="url">Java集合整理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-11-05 17:16:02" itemprop="dateCreated datePublished" datetime="2022-11-05T17:16:02+08:00">2022-11-05</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/58728.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/58728.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/58728.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>11k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文整理了，Java集合相关的知识点和面试题。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/58728.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/7938.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/7938.html" class="post-title-link" itemprop="url">Spring启动流程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-29 08:50:11" itemprop="dateCreated datePublished" datetime="2022-10-29T08:50:11+08:00">2022-10-29</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/7938.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/7938.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/7938.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>31k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>28 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>本文将以XMl定义bean的方式，从创建应用上下文对象剖析Spring的容器初始化，以及对单实例非懒加载 Bean 完成创建和Bean 属性的赋值注入和初始化，以及消息派发器的创建和启动过程消息的触发。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/7938.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/54328.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/54328.html" class="post-title-link" itemprop="url">手写一个SpringBoot组件发布到Maven中央仓库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-10-15 09:23:26" itemprop="dateCreated datePublished" datetime="2022-10-15T09:23:26+08:00">2022-10-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/54328.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/54328.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/54328.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>10k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>9 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="简介">简介</h3>
-<p>springboot组件也叫<code>starters</code>（场景启动器），这也是SpringBoot最强大的特点，把可以与SpringBoot集成的技术封装成一个个启动器，供有需要的人，因需引入。</p>
-<p>以下是来自官网的 starters 描述：</p>
-<p>Starters are a set of convenient dependency descriptors that you can include in your application. You get a one-stop-shop for all the Spring and related technology that you need, without having to hunt through sample code and copy paste loads of dependency descriptors. For example, if you want to get started using Spring and JPA for database access, just include the spring-boot-starter-data-jpa dependency in your project, and you are good to go.<br>
-The starters contain a lot of the dependencies that you need to get a project up and running quickly and with a consistent, supported set of managed transitive dependencies.</p>
-<p>starters 是一组方便的依赖性描述符，可以包括在应用程序中。您可以为所有Spring和所需的相关技术提供一站式服务，而无需搜索示例代码并复制粘贴的依赖描述符负载。例如，如果您想开始使用 Spring 和 JPA 进行数据库访问，只需在项目中包含SpringBootStarter数据 JPA 依赖项，就可以开始了。</p>
-<p>常见的场景启动器有：spring-boot-starter-aop，spring-boot-starter-data-jpa等。</p>
-<h3 id="starter原理">starter原理</h3>
-<p>1、在maven中引入项目需要的依赖</p>
-<p>2、编写项目整体的逻辑</p>
-<p>3、将相关自定义的类加入springboot自动装配的范围之中</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/54328.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang>
-    <link itemprop="mainEntityOfPage" href="https://zglgithubx.github.io/posts/12447.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://mynotepicture.oss-cn-hangzhou.aliyuncs.com/img/202211112024281.png">
-      <meta itemprop="name" content="ZhuGuangLiang">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Bug">
-      <meta itemprop="description" content="云想衣裳花想容，春风拂槛露华浓">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Bug">
-      <meta itemprop="description" content>
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/12447.html" class="post-title-link" itemprop="url">RPC原理</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-09-20 14:24:58" itemprop="dateCreated datePublished" datetime="2022-09-20T14:24:58+08:00">2022-09-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" itemprop="url" rel="index"><span itemprop="name">微服务</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-    <span class="post-meta-item-icon">
-      <i class="far fa-comment"></i>
-    </span>
-    <span class="post-meta-item-text">评论数：</span>
-  
-    <a title="waline" href="/posts/12447.html#waline" itemprop="discussionUrl">
-      <span class="post-comments-count waline-comment-count" data-path="/posts/12447.html" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="waline-pageview-count" data-path="/posts/12447.html"></span>
-    </span>
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="RPC通信的演化">RPC通信的演化</h3>
+<div class="post-copyright">
 <ul>
-<li>从单机到分布式-&gt;分布式通信-&gt;最基本：二进制传输 TCP/IP
-<ul>
-<li>最古老也是最有效，并且永不过时，TCP/UDP的二进制传输。事实上所有的通信方式归根结底都是TCP/UDP</li>
-<li>CORBA Common Ojbect Request Broker Architecture 。古老而复杂，支持面向对象的通信协议</li>
-<li>Web Service （SOA SOAP RDDI WSDL 等）<br>
-基于HTTP+xml的标准化Web API</li>
-<li>RestFul （Representational State Transfer）<br>
-回归简单化本源的Web API 的事实标准，HTTP+JSON</li>
-<li>RMI Remote Message Service<br>
-JavaEE 中的消息框架标准，为很多MQ提供支持</li>
-<li>RPC（Remote Procedure Call）<br>
-远程方法调用，这只是一个统称，重点在于方法调用（不支持对象的概念），具体实现甚至可以用RMI RestFul 等去实现，但一般不用，因为RMI不能跨语言，而RestFul效率太低。<br>
-多用于服务器集群间通信，因此使用更加高效，短小精悍的传输模式以提高效率。</li>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>ZhuGuangLiang
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://zglgithubx.github.io/posts/43774.html" title="Spring整理">https://zglgithubx.github.io/posts/43774.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
 </ul>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/12447.html#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/spring/" rel="tag"><i class="fa fa-tag"></i> spring</a>
+          </div>
+
         
-      
-    </div>
 
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/11879.html" rel="prev" title="Redis整理">
+                  <i class="fa fa-chevron-left"></i> Redis整理
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
@@ -1685,10 +571,9 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
 
 
 
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
+
+    <div class="comments" id="waline"></div>
 </div>
   </main>
 
@@ -1784,9 +669,9 @@ JavaEE 中的消息框架标准，为很多MQ提供支持</li>
 
 
   <script src="https://unpkg.com/quicklink@2.2.0/dist/quicklink.umd.js" integrity="sha256-4kQf9z5ntdQrzsBC3YSHnEz02Z9C1UeW/E9OgnvlzSY=" crossorigin="anonymous"></script>
-  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/"}</script>
+  <script class="next-config" data-name="quicklink" type="application/json">{"enable":true,"home":true,"archive":true,"delay":true,"timeout":3000,"priority":true,"url":"https://zglgithubx.github.io/posts/43774.html"}</script>
   <script src="https://unpkg.com/hexo-theme-next@8.11.1/source/js/third-party/quicklink.js"></script>
-<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"vercel.marchsoft.club","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":false,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.1.0/bmoji"],"comment_count":false,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/"}</script>
+<script class="next-config" data-name="waline" type="application/json">{"lang":"zh-CN","enable":true,"serverURL":"vercel.marchsoft.club","cssUrl":"https://unpkg.com/@waline/client@v2/dist/waline.css","commentCount":true,"pageview":true,"appId":"KihdNEwx4Gdfs5pUeaeqP4R0-MdYXbMMI","appKey":"XbOw6DbQtiKvsv0KfRK31sGD","notify":true,"verify":false,"enableQQ":true,"requiredFields":["nick","mail"],"visitor":false,"recordIP":true,"libUrl":"https://unpkg.com/@waline/client@v2/dist/waline.js","locale":{"placeholder":"欢迎评论交流！"},"emoji":["https://unpkg.com/@waline/emojis@1.1.0/bmoji"],"comment_count":false,"meta":["nick","mail","link"],"requiredMeta":["nick","mail"],"avatar":"robohash","avatarCDN":"https://sdn.geekzu.org/avatar/","pageSize":10,"el":"#waline","comment":true,"path":"/posts/43774.html"}</script>
 <link rel="stylesheet" href="https://unpkg.com/@waline/client@v2/dist/waline.css">
 <script>
 document.addEventListener('page:loaded', () => {
